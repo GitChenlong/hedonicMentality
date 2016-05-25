@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+   compileSdkVersion 22
+       buildToolsVersion "23.0.0 rc2"
+
+       defaultConfig {
+           applicationId "com.sage.hedonicmentality"
+           minSdkVersion 11
+           targetSdkVersion 22
+           versionCode 1
+           versionName "1.0"
+       }
+       buildTypes {
+           release {
+               minifyEnabled false
+               proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+           }
+       }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+       compile 'com.android.support:appcompat-v7:22.2.0'
+       compile 'com.jakewharton:butterknife:7.0.1' /**注解库 地址：https://github.com/JakeWharton/butterknife  */
+       compile 'com.android.support:design:22.2.0'
+       compile 'com.squareup.picasso:picasso:2.5.2' /**图片加载库 http://square.github.io/picasso */
+       compile 'com.readystatesoftware.systembartint:systembartint:1.0.3' /**状态栏颜色改变 https://github.com/jgilfelt/SystemBarTint */
+       compile project(':libimagechoose')
+       compile project(':libwheelview')
+}

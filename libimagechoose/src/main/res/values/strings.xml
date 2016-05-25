@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Image Chooser LIbrary</string>
+	<string name="lab_choose_option">Choose option</string>
+	<string name="lab_choose_from_gallery">Choose from Gallery</string>
+	<string name="lab_take_picture">Take a Picture</string>
+	<string name="lab_capture_video">Capture Video</string>
+	<string name="lab_ok">OK</string>
+	<string name="lab_cancel">Cancel</string>
+	<string name="no_crop_app">没有找到裁剪程序</string>
+	<string name="no_sdcard">sdCard不存在</string>
+</resources>

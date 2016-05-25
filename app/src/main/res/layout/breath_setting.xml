@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/bs_bg"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="2.5"
+        android:orientation="vertical"
+        >
+        <include layout="@layout/actionbar_account"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <TextView
+                android:id="@+id/iv_syhead"
+                android:layout_height="35dp"
+                android:layout_width="75dp"
+                android:background="@mipmap/btn_red"
+                android:layout_alignParentBottom="true"
+                android:text="溯源"
+                android:gravity="center"
+                android:textColor="@color/wh"
+                android:textSize="19sp"
+                />
+            <TextView
+                android:id="@+id/iv_next"
+                android:layout_height="35dp"
+                android:layout_width="75dp"
+                android:background="@mipmap/btn_red"
+                android:layout_alignParentBottom="true"
+                android:text="裨益"
+                android:gravity="center"
+                android:textColor="@color/wh"
+                android:textSize="19sp"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:visibility="gone"
+        android:gravity="center_vertical">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingLeft="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:text="腹式呼吸法"/>
+
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical">
+
+    <Button
+        android:layout_height="25dp"
+        android:layout_width="0dp"
+        android:background="@drawable/bt_shape_bule"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:text="降压"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:layout_height="25dp"
+        android:layout_width="0dp"
+        android:background="@drawable/bt_shape_yellow"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:text="安神"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:layout_height="25dp"
+        android:layout_width="0dp"
+        android:background="@drawable/bt_shape_green"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:text="益智"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:layout_height="25dp"
+        android:layout_width="105dp"
+        android:background="@drawable/bt_shape_red"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:text="美容养颜"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageView
+        android:layout_height="25dp"
+        android:layout_width="25dp"
+        android:src="@drawable/iv_next"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"/>
+
+</LinearLayout>
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_height="65dp"
+            android:layout_width="match_parent"
+            android:background="@mipmap/bg_choice"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:clickable="true">
+
+    <!--<ImageView-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_width="35dp"-->
+        <!--android:src="@drawable/arrow_left_select"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:id="@+id/iv_left_device"-->
+        <!--android:visibility="gone"/>-->
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textColor="@color/tv_black"
+        android:textSize="14sp"
+        android:text="启动设备"
+        android:padding="5dp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <com.sage.hedonicmentality.view.WiperSwitch
+                    android:id="@+id/view_ws"
+                    android:layout_width="120dp"
+                    android:layout_height="25dp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="20dp"
+                    >
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/tv_black"
+                        android:textSize="13sp"
+                        android:text="手机摄像头"
+                        android:layout_marginLeft="20dp"
+                         />
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/tv_black"
+                        android:textSize="13sp"
+                        android:text="蓝牙指夹"
+                        android:layout_alignParentRight="true"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:src="@mipmap/jiantou2"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/iv_left_device"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:textColor="@color/dark_green"
+            android:textSize="17sp"
+            android:text="手机摄像头"
+            android:gravity="center"
+            android:id="@+id/tv_type"/>
+
+        <ImageView
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:padding="5dp"
+            android:src="@drawable/jiantou"
+            android:id="@+id/iv_right_device"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!--<View-->
+        <!--android:layout_height="1px"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:background="@android:color/black"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"/>-->
+
+        <LinearLayout
+            android:layout_height="65dp"
+            android:layout_width="match_parent"
+            android:background="@mipmap/bg_choice"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:id="@+id/layout_duration"
+            android:clickable="true">
+
+            <!--<ImageView-->
+            <!--android:layout_height="35dp"-->
+            <!--android:layout_width="35dp"-->
+            <!--android:src="@drawable/arrow_left_select"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:id="@+id/iv_left_duration"-->
+            <!--android:visibility="gone"/>-->
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textColor="@color/tv_black"
+                android:textSize="14sp"
+                android:text="练习时间(分)"
+                android:padding="5dp"/>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="14dp"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/hline"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="7dp"
+                    />
+                <com.sage.hedonicmentality.view.TuneWheelGF
+                    android:id="@+id/view_tunew_gf"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:visibility="gone"
+                >
+                <ImageView
+                    android:layout_height="30dp"
+                    android:layout_width="30dp"
+                    android:padding="5dp"
+                    android:src="@mipmap/jiantou2"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/iv_left_duration"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:textColor="@color/dark_green"
+                    android:textSize="17sp"
+                    android:text="16"
+                    android:gravity="center"
+                    android:id="@+id/tv_time"/>
+
+                <ImageView
+                    android:layout_height="30dp"
+                    android:layout_width="30dp"
+                    android:padding="5dp"
+                    android:src="@drawable/jiantou"
+                    android:id="@+id/iv_right_duration"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:background="@mipmap/bg_choice"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:id="@+id/layout_bpm"
+        android:clickable="true">
+
+    <!--<ImageView-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_width="35dp"-->
+        <!--android:src="@drawable/arrow_left_select"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:id="@+id/iv_left_bpm"-->
+        <!--android:visibility="gone"/>-->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textColor="@color/tv_black"
+        android:textSize="14sp"
+        android:text="呼吸频率(次/分)"
+        android:padding="5dp"/>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/number"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="14dp"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/hline"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"
+                />
+            <com.sage.hedonicmentality.view.TuneWheelGO
+                android:id="@+id/view_tunew_go"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_height="30dp"
+                android:layout_width="30dp"
+                android:padding="5dp"
+                android:src="@mipmap/jiantou2"
+                android:layout_marginRight="10dp"
+                android:id="@+id/iv_left_bpm"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:textColor="@color/dark_green"
+        android:textSize="17sp"
+        android:text="6"
+        android:gravity="center"
+        android:id="@+id/tv_bpm"/>
+
+    <ImageView
+        android:layout_height="30dp"
+        android:layout_width="30dp"
+        android:padding="5dp"
+        android:src="@drawable/jiantou"
+        android:id="@+id/iv_right_bpm"/>
+
+</LinearLayout>
+</LinearLayout>
+
+    <!--<View-->
+        <!--android:layout_height="1px"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:background="@android:color/black"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"/>-->
+
+
+
+    <!--<View-->
+        <!--android:layout_height="1px"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:background="@android:color/black"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"/>-->
+
+
+    <LinearLayout
+        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:background="@mipmap/bg_choice"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:id="@+id/layout_Scene"
+        android:clickable="true">
+
+    <ImageView
+        android:layout_height="35dp"
+        android:layout_width="35dp"
+        android:src="@drawable/arrow_left_select"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/iv_left_Scene"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textColor="@color/tv_black"
+        android:textSize="14sp"
+        android:text="场景"
+        android:padding="5dp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="10dp"
+            >
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:textColor="@color/tv_black"
+        android:textSize="16sp"
+        android:text="荷塘禅心"
+        android:gravity="center"
+        android:id="@+id/tv_Scene"/>
+
+        <!--<ImageView-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:src="@drawable/jiantou"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:id="@+id/iv_scene"/>-->
+
+
+</LinearLayout>
+</LinearLayout>
+
+</LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+    <Button
+        android:layout_height="50dp"
+        android:layout_width="180dp"
+        android:background="@mipmap/but_lv"
+        android:textColor="@color/selector_white"
+        android:textSize="@dimen/default_btn_text_size"
+        android:text="开始吐纳"
+        android:id="@+id/btn_start"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp">
+    </Button>
+    <TextView
+        android:id="@+id/tv_prompt_dio"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="0"
+        android:textSize="0.1sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
+    <ImageView
+        android:src="@mipmap/lumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="3dp"
+        />
+</RelativeLayout>
+
+</LinearLayout>

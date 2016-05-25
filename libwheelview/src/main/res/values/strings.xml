@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LibWheelView</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="wheel_date_of_birth">出生年月</string>
+    <string name="wheel_cancel">取消</string>
+    <string name="wheel_complete">完成</string>
+    <string name="height">身高</string>
+    <string name="weight">体重(公斤)</string>
+</resources>

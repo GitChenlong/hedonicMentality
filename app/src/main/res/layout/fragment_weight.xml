@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/bs_bg"
+    android:clickable="true"
+    >
+    <include layout="@layout/actionbar_account"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/up_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upweight_txt"
+            android:textSize="18sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="270dp"
+            android:textColor="@color/tv_black"
+            />
+        <com.sage.hedonicmentality.view.TuneWheels
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/we_tuneWheel"
+            android:layout_width="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="40dp"
+            android:background="@mipmap/bg_we"
+            android:layout_height="160dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/wawa"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="50dp"
+            />
+    </RelativeLayout>
+</LinearLayout>

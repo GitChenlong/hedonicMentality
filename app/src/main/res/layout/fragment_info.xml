@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false"
+    android:clickable="true"
+    android:background="@mipmap/account_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<include layout="@layout/actionbar_account"/>
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/layout_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical">
+        <com.sage.hedonicmentality.widget.CircleImageView
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/head_default"
+            android:id="@+id/btn_header"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/content_bg_account_info"
+            android:layout_width="match_parent"
+            android:divider="@drawable/line_gray_horizontal"
+            android:showDividers="middle"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layout_nickName"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/tv_black"
+                    android:text="昵称"
+                    />
+                <EditText
+                    android:id="@+id/et_nickName"
+                    android:hint="@string/hint_nickName"
+                    android:gravity="right|center"
+                    android:maxLength="10"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_sex"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/tv_black"
+                android:text="性别"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:text="男"
+                android:id="@+id/tv_sex" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_birthday"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/tv_black"
+                android:text="生日"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:text="2000-01-01"
+                android:id="@+id/tv_birthday" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_height"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/tv_black"
+                android:text="身高"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:text="160CM"
+                android:id="@+id/tv_height" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_weight"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/tv_black"
+                android:text="体重"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:text="55KG"
+                android:id="@+id/tv_weight" />
+        </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_go"
+            android:layout_marginTop="15dp"
+            android:text="开启快乐心理"
+            android:textSize="18sp"
+            android:background="@drawable/account_btn"
+            android:textColor="@color/selector_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:id="@+id/tv_skip_go"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:text="先跳过并登陆>>"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

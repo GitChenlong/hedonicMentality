@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.sage.hedonicmentality.myviewpager.ViewPager
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/myViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:orientation="vertical" >
+    </com.sage.hedonicmentality.myviewpager.ViewPager>
+</LinearLayout>

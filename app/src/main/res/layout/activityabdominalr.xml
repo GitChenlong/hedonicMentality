@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgbgbg"
+    >
+    <include layout="@layout/actionbar_account"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/bt_hao" />
+            <TextView
+                android:id="@+id/tv_hao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="好处"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_yuan" />
+            <TextView
+                android:id="@+id/tv_yuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="原理"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_zuo" />
+            <TextView
+                android:id="@+id/tv_zuo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="做法"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_jian" />
+            <TextView
+                android:id="@+id/tv_jian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="建议"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_ar"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></FrameLayout>
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="window_background">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="default_bg">#f9f9f9</color>
+    <color name="selector_gray">#dedddd</color>
+    <color name="selector_white">#ffffff</color>
+    <color name="line_black">#222222</color>
+    <color name="tv_black">#000000</color>
+    <color name="text_orange">#ff9000</color>
+
+    <color name="colorPrimary">#0099CC</color>
+    <color name="colorPrimaryDark">#00b7f6</color>
+    <color name="colorAccent">#ef120e14</color>
+
+    <color name="title_color">#ffffff</color>
+
+    <color name="bg_duration">#44000000</color>
+    <color name="bg_duration_stroke">#55000000</color>
+    <color name="bg_send">#ffffff</color>
+    <color name="bg_send_stroke">#909793</color>
+
+
+    <color name="bg_chat_main">#3ab3ff</color>
+    
+<color name="testd">#ff00ff00</color>
+
+    <color name="breath_set_bg_stroke">#888888</color>
+    <color name="breath_set_bg_white">#ffffff</color>
+    <color name="breath_set_bg_white_press">#aaffffff</color>
+    <color name="breath_set_bg_green">#22ff3f</color>
+    <color name="breath_set_bg_green_press">#aa22ff3f</color>
+
+    <color name="edit_normal">#00000000</color>
+    <color name="edit_focus">#ffffff</color>
+    <color name="edit_stroke">#c8c8c8</color>
+
+<color name="get_code_text">#32b3d3</color>
+<color name="account_btn_press">#5EC0DA</color>
+<color name="account_btn_normal">#27B3D5</color>
+
+    <color name="account_hint">#666666</color>
+    <color name="account_focus">#000000</color>
+    <color name="account_normal_color">#6a6a6a</color>
+
+    <color name="breath_setting_text">#d95b5c</color>
+
+    <color name="btn_gray_normal">#E7E7E7</color>
+    <color name="btn_gray_normal_press">#E7E7E7</color>
+    <color name="dark_green">#477372</color>
+    <color name="bg_title">#477372</color>
+    <color name="whi">#ffffff</color>
+    <color name="fenhong">#f6988c</color>
+    <color name="color_f2f2f2">#cccccc</color>
+    <color name="color_ff4631">#477372</color>
+    <color name="color_640085">#640085</color>
+    <color name="color_999999">#000000</color>
+    <color name="wh">#ffffff</color>
+    <color name="tex_cor">#d95b5c</color>
+    <color name="linegreen" >#029491</color>
+    <color name="linered" >#8a0402</color>
+    <color name="huis" >#dddddd</color>
+    <color name="red" >#e66365</color>
+    <color name="gre" >#3fa43b</color>
+    <color name="ye" >#135f7f</color>
+    <color name="hui" >#FAFAFA</color>
+    <color name="green">#30B569</color>
+</resources>

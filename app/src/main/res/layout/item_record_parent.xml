@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/line_gray_horizontal"/>
+    <LinearLayout
+        android:id="@+id/layout_divider"
+
+        android:orientation="vertical"
+        android:background="@color/default_bg"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <View
+        android:id="@+id/line_header_top"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line_gray_horizontal"/>
+<LinearLayout
+    android:id="@+id/layout_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="#6daaa9"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_height="45dp">
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/tv_percent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>

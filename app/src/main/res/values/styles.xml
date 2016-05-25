@@ -1,0 +1,81 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Base.Theme.TransParentStateBar" parent="@style/Base.Theme.DesignDemo">
+
+    </style>
+
+    <!-- FragmentDialog动画.从底部出来-->
+    <style name="MyCustomTheme" parent="@android:style/Theme.Panel">
+        <item name="android:windowAnimationStyle">@style/MyAnimation.Window</item>
+    </style>
+    <style name="MyAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+    <!-- 动画.收缩-->
+    <style name="MyPWAnimation" >
+        <item name="android:windowEnterAnimation">@anim/anim_in_main_pw</item>
+        <item name="android:windowExitAnimation">@anim/anim_out_main_pw</item>
+    </style>
+
+
+    <!-- 呼吸训练的弹出框提示的动画，从中心拉伸收缩-->
+    <style name="DiaScaleAnimationTheme" parent="@android:style/Theme.Panel">
+        <item name="android:windowAnimationStyle">@style/DiaScaleAnimation</item>
+    </style>
+    <style name="DiaScaleAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/enter_scale0to1</item>
+        <item name="android:windowExitAnimation">@anim/enter_scale1to0</item>
+    </style>
+
+
+    <style name="Catalog_TextView">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#7fff71</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <!-- -->
+    <style name="viewAnimator_layout">
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="breath_data_text1">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="breath_data_text2">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#e7e7e7</item>
+    </style>
+    <style name="iphone_progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item> <!--Dialog的windowFrame框为无 -->
+        <item name="android:windowIsFloating">true</item><!-- 是否漂现在activity上-->
+        <item name="android:windowIsTranslucent">true</item><!-- 是否半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item><!-- dim:模糊的 阴影效果 -->
+    </style>
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+</resources>

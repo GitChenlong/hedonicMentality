@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:background="#60000000"
+    android:paddingBottom="20dp"
+    >
+    <com.sage.hedonicmentality.view.MyViewpager
+        android:id="@+id/view_pro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="20dp"
+        >
+    </com.sage.hedonicmentality.view.MyViewpager>
+    <LinearLayout
+        android:id="@+id/viewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignBottom="@+id/view_pro"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginBottom="60dp"
+        android:padding="5dp" >
+    </LinearLayout>
+    <TextView
+        android:id="@+id/bu_pro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/but"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="我知道了"
+        android:gravity="center"
+        android:textColor="#d7d7d7"
+        />
+</RelativeLayout>

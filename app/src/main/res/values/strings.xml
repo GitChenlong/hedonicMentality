@@ -1,0 +1,275 @@
+<resources>
+    <string name="app_name">快乐心理</string>
+    <string name="version_show">版本V 1.0</string>
+    <string name="version">1.0</string>
+    <string name="action_settings">Settings</string>
+    <string name="forgetPsw">忘记密码?</string>
+    <string name="login">登录</string>
+    <string name="phoneRegister">手机号注册</string>
+    <string name="justUse">先用用看</string>
+    <string name="login_phone_hint">手机号码</string>
+    <string name="login_password_hint">密码</string>
+    <string name="title_login">登录</string>
+    <string name="title_register">注册</string>
+    <string name="title_find_psw">找回密码</string>
+    <string name="getCode">获取验证码</string>
+    <string name="commit">提交</string>
+    <string name="headerDeal">注册协议</string>
+    <string name="read_agree">已阅读并同意</string>
+    <string name="phoneNull">手机号码不能为空</string>
+    <string name="phoneWrong">手机号码错误</string>
+    <string name="codeNull">验证码不能为空</string>
+    <string name="codeLengthWrong">验证码长度为6</string>
+    <string name="pswNull">密码不能为空</string>
+    <string name="pswNotEqual">两次密码不一致</string>
+    <string name="pswLengthWrong">密码长度最少为6位</string>
+    <string name="mustAgreeDeal">你必须同意协议才能注册</string>
+
+    <string name="register_hint_phone">手机号码</string>
+    <string name="register_hint_code">6位手机验证码</string>
+    <string name="register_hint_psw">密码</string>
+    <string name="register_hint_psw2">再次输入密码</string>
+    <string name="forget_hint_psw">请输入新密码</string>
+
+    <string name="title_forget_psw">找回密码</string>
+    <string name="title_add_info">完善资料</string>
+    <string name="advice">改进意见</string>
+    <string name="system">设置</string>
+    <string name="title_me">我</string>
+    <string name="hint_nickName">昵称</string>
+
+    <string name="show_camera">拍摄</string>
+    <string name="show_photo">从相册选择</string>
+    <string name="show_cancel">取消</string>
+
+    <string name="show_please_heart_down">请放松,想像自己置身于清晨的荷塘。</string>
+    <string name="show_change_breath">调整每分钟呼吸数</string>
+    <string name="btn_change_breath">调整呼吸数</string>
+    <string name="breath_count_format">每分钟呼吸数: %1$d次</string>
+
+    <string name="title_breath_info">呼吸也能养生?</string>
+    <string name="title_breath_record">呼吸记录</string>
+    <string name="title_secret">我的心事</string>
+    <string name="title_msg">消息中心</string>
+    <string name="title_advice">改进意见</string>
+    <string name="title_system">系统设置</string>
+    <string name="title_me_setting">个人设置</string>
+    <string name="hint_advice">&#160;&#160;感谢您使用快乐心理，欢迎反馈任何意见和问题。</string>
+
+    <string name="dialog_update">检测到新版本，是否更新？</string>
+    <string name="dialog_clear">是否清除缓存？</string>
+
+    <string name="login_prompt">如果有心融网帐户，可以直接用心融网帐户登录</string>
+    
+    <string name="height_unit">%1$sCM</string>
+    <string name="weight_unit">%1$sKG</string>
+
+    <string name="breath_bpm">%1$d/min</string>
+    <string name="breath_hr">心率：%1$d</string>
+    <string name="breath_coherence">%1$d%%</string>
+    <string name="breath_score">得分：%1$d</string>
+
+    <string name="dia_bluetooth_not_find"><![CDATA[你好，没有找到<font color="#ff9000">蓝牙指夹</font>的信号，请确定是否连接正常无误！]]></string>
+    <string name="dia_duration_format"><![CDATA[本次训练时长<font color="#ff9000">%1$d</font>分钟]]></string>
+    <string name="dia_left_format">心率：%1$d\n\n呼吸：%2$d/min</string>
+    <string name="dia_right_format">静心：%1$d\n\n得分：%2$d</string>
+    <string name="setting_bmp_format">%1$s次</string>
+    <string name="setting_duration_format">%1$s min</string>
+    <string name="title_me_yansheng">训练记录</string>
+    <string name="title_me_udpter">修改密码</string>
+    <string name="title_me_udname">修改昵称</string>
+
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
+
+
+
+
+
+    <!--<string name="help_info1"><![CDATA[-->
+<!--第一，扩大肺活量，改善心肺功能。能使胸廓得到最大限度的扩张，使肺下部的肺泡得以伸缩，让更多的氧气进入肺部，改善心肺功能。<br>-->
+<!--第二，减少肺部感染，尤其是少患肺炎。<br>-->
+<!--第三，可以改善腹部脏器的功能。它能改善脾胃功能，有利于舒肝利胆，促进胆汁分泌。腹式呼吸可以通过降腹压而降血压，对高血压病人很有好处。<br>-->
+<!--第四，对安神益智有好处。-->
+    <!--]]>-->
+<!--</string>-->
+    <!--<string name="help_info2"><![CDATA[-->
+<!--第一种叫做顺式呼吸，就是在吸气时把腹部鼓起，呼气时把腹部缩回。<br>-->
+<!--第二种叫做逆式呼吸，就是反过来，吸气时将腹部收缩，呼气时再把腹部鼓起。-->
+    <!--]]>-->
+<!--</string>-->
+    <!--<string name="help_info3"><![CDATA[-->
+<!--第一，呼吸要深长而缓慢。<br>-->
+<!--第二，用鼻呼吸而不用口。<br>-->
+<!--第三，一呼一吸掌握在15秒种左右。即深吸气（鼓起肚子）3—5秒，屏息1秒，然后慢呼气（回缩肚子）3—5秒，屏息1秒。<br>-->
+<!--第四，每次5—15分钟。做30分钟最好。<br>-->
+<!--第五，身体好的人，屏息时间可延长，呼吸节奏尽量放慢加深。身体差的人，可以不屏息，但气要吸足。每天练习1—2次，坐式、卧式、走式、跑式皆可，练到微热微汗即可。-->
+<!--腹部尽量做到鼓起缩回50—100次。呼吸过程中如有口津溢出，可徐徐下咽。-->
+    <!--]]>-->
+<!--</string>-->
+
+    <string name="device_intro"> <![CDATA[
+   <p> 蓝牙指夹是一款监测人体血氧饱和度、脉率及脉博强度的科技仪器。可在静心呼吸中实时监测，健康结合科技智能带来人类非凡的生活体验！
+        蓝牙指夹4.0采用国际最新的LFC光频数字血氧技术结合容积脉搏描记技术，通过手指检测人的脉搏，测量精准，佩戴舒适，小巧便携（60mm*33mm），
+        抗干扰能力强，节能环保，5秒没有信号自动关闭，2节7号电池可连续测量30小时。</p>
+<p align="right" >快乐心理，诚意出品</p>
+<p align="right">为你的健康平和生活助力！</p>
+ ]]>
+</string>
+
+    <string name="advic">"意见已发送！"</string>
+    <string name="postphone">"头像上传成功！"</string>
+    <string name="psw_digits">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="longdings">加载中...</string>
+    <string name="xinzh">如果有心融网账户，可以直接用心融网账户登录。</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="sextitle">你的性别?</string>
+    <string name="brtitle">你的生日?</string>
+    <string name="dw">定位到的位置</string>
+    <string name="xzad">选择地区</string>
+    <string name="adresst">你的所在地?</string>
+    <string name="next">下一步</string>
+    <string name="wancheng">完成</string>
+    <string name="myjkgl">我的健康档案</string>
+    <string name="sleep">睡眠</string>
+    <string name="sleep1">睡眠:</string>
+    <string name="weikou">胃口</string>
+    <string name="weikou1">胃口:</string>
+    <string name="sdp">收缩血压</string>
+    <string name="ddp">舒张血压</string>
+    <string name="mmhg">mmHg</string>
+    <string name="hmtosatsdp">收缩血压范围在1-300</string>
+    <string name="hmtosatddp">舒张血压的范围在0-250</string>
+    <string name="errshow">请填写完整</string>
+
+
+    <string name="baocun">保存</string>
+    <string name="sleep_1">严重失眠</string>
+    <string name="sleep_2">失眠</string>
+    <string name="sleep_3">一般</string>
+    <string name="sleep_4">良好</string>
+    <string name="sleep_5">充足</string>
+    <string name="wei_1">非常差劲</string>
+    <string name="wei_2">差劲</string>
+    <string name="wei_3">一般</string>
+    <string name="wei_4">良好</string>
+    <string name="wei_5">上佳</string>
+    <string name="zhuyi">注意事项</string>
+    <string name="zhuyi_title1">测量血压最适宜的时间段</string>
+    <string name="zhuyi_title2">测量时应注意以下3点</string>
+    <string name="zhuyi_con1">白天测血压,尤其是在6:00～8:00,12:30～13:30,15:00～18:00较为合理,尽量避免在22:00～6:00期间测血压。成年人的血压在90/60—140/90之间都是正常的</string>
+    <string name="zhuyi_con2">1.腕臂带位置必须和心脏的高度一样：正确测量姿势请參照图示 (坐姿)，为保证这一点，上臂应自然下垂，肘和前臂可自然地搭在椅子扶手或矮桌子上。不要把整个胳膊平伸在高于心脏位置的桌子上，或用垫子把上臂垫得过高；腕臂带位每高出心脏10cm，血压测量值会偏低8mmHg左右。(电子血压计与传统汞柱血压计测方式不完全相同，测量更精确对测量姿势要求也更严格。臂式测量的电子血压计，
+        臂带高于心脏的可能性较大；腕式血压计，腕带低于心脏的可能性较大。)\n\n2.每次测量都可用同样姿势：请您尽可能每天在相同的时间和条件下，
+        采用同样的姿势测量，由于人的血压每时每刻都会因內、外因素而变化，只有在相同条件下测量才有比较的意义。\n\n3.测量血压应在安静状态下进行：\n\n(1) 测量前保持安静状态10~20分钟。\n\n(2) 测量中心身松弛。\n\n(3) 测量中裸臂(臂式)、手掌向上、不要说话，身体和手不要摆动。
+</string>
+
+    <string name="jiaoyu">教育程度</string>
+    <string name="xinlv">心率</string>
+    <string name="shengmingzhi">生命值</string>
+        <string name="syshijian">剩余时间</string>
+    <string name="csscene">正在初始化场景,请稍后....</string>
+    <string name="chengji">成效反馈</string>
+    <string name="qxzxb">请选择性别</string>
+    <string name="yuanli">深度的呼吸对肺部的牵引造成肺部副交感神经对心脏的反馈。\n\n吸气时，交感紧张，心率加快;\n呼气时，副交感紧张，
+        心率变慢。\n\n正常人呼吸都比较浅，吸气和呼气的幅度都不大，所以交感和副交感的神经紧张度也比较低，而深呼吸则增加了交感和副交感的兴奋性，
+        提高了系统的耐受性，使得系统的灵活性增加。\n所以，腹式呼吸可以有效降低心率，降低交感活性，提高副交感兴奋程度。腹腔按摩有效的促进消化系统的血液循环，从而达到健脾胃的功效。
+    </string>
+    <string name="zuofa">深度的呼吸对肺部的牵引造成肺部副交感神经对心脏的反馈。\n吸气时，交感紧张，心率加快;\n呼气时，副交感紧张，
+        心率变慢。正常人呼吸都比较浅，吸气和呼气的幅度都不大，所以交感和副交感的神经紧张度也比较低，而深呼吸则增加了交感和副交感的兴奋性，
+        提高了系统的耐受性，使得系统的灵活性增加。\n所以，腹式呼吸可以有效降低心率，降低交感活性，提高副交感兴奋程度。腹腔按摩有效的促进消化系统的血液循环，从而达到健脾胃的功效。
+    </string>
+    <string name="tuna_title">吐呵呼吸  吐故纳新</string>
+    <string name="tuna">吐纳溯源</string>
+    <string name="xiao_titles">一呼一吸，在呼吸吐纳间，收获健康与美丽。\n呼吸养生文化渊远流长</string>
+    <string name="height_title">身高</string>
+    <string name="yuexixian">月健康曲线图</string>
+    <string name="xueya">血压</string>
+    <string name="share">我在快乐心理_腹式呼吸 进行呼吸练习后，调节血压、改善睡眠和增进胃口！欢迎下载快乐心理app</string>
+    <string name="share_fen">我在快乐心理_腹式呼吸 进行呼吸练习，只差%1$s的距离就到最佳状态了，继续努力吧！！</string>
+    <string name="share_cha">只差%1$s的距离就到最佳状态了，继续努力。</string>
+    <string name="share_bao">已经达到最佳状态啦，继续保持哦！</string>
+    <string name="share_content">快乐心理  腹式呼吸</string>
+    <string name="tengxun">腾讯微博</string>
+
+    <string name="bl_shouzhijia">您选择的是蓝牙指甲,请将蓝牙指甲夹在手指上</string>
+    <string name="ca_xiangji">您选择的是摄像头，请将手指放在摄像头处</string>
+    <string name="end_time">%1$d分</string>
+    <string name="end_baifenbi">只差%1$s的距离就到最佳状态了，继续努力。</string>
+    <string name="end_fen"><![CDATA[未达到预计训练时长<font color="#ff9000">%1$d</font>分钟]]></string>
+    <string name="uphegit_txt">你的身高:%1$scm</string>
+    <string name="upweight_txt">你的体重:%1$skg</string>
+    <string name="wegit_title">体重</string>
+    <string name="phone">手机号:</string>
+    <string name="addrerr">请选择一个地址！</string>
+    <string name="exit"> 再按一次退出应用!</string>
+    <string name="reminder1">当前状态良好，请继续保持！</string>
+    <string name="reminder2">当前状态一般，放松心情，感受平和！</string>
+    <string name="reminder3">当前状态不佳，请尽量放松，谢谢 !</string>
+    <string name="advice_null">请输入你的宝贵意见反馈，谢谢！</string>
+    <string name="dilg_ku">距离最佳状态还相差太远，继续加油努力！</string>
+    <string name="dilg_xyiban">还差一点点就可以达到最佳状态，胜利的曙光就在前方！</string>
+    <string name="dilg_xiao">已经达到最佳状态啦，继续保持哦！</string>
+    <string name="title_agreement">注册协议</string>
+    <string name="title_agreement_err">您未同意注册协议！</string>
+    <string name="agreement_content">用户注册协议——欢迎使用腹式呼吸！\n\n请务必认真阅读和理解本《用户注册协议》（以下简称《协议》）中规定的所有权利和限制。除非您接受本《协议》条款，否则您将无权注册、登录或使用本协议所涉及的相关服务。您一旦注册、登录、使用或以任何方式使用本《协议》所涉及的相关服务的行为将视为对本《协议》的接受，即表示您同意接受本《协议》各项条款的约束。
+            \n\n一、腹式呼吸——用户服务协议的接受\n\n1.1 本应用（“腹式呼吸”）由上海心融集团有限公司（以下简称“腹式呼吸”）所有并运作，并在本协议的条款和要求下提供服务。\n\n1.2 本协议所称的用户是指完全同意所有条款并完成注册程序的服务接受者。\n\n1.3 通过完成腹式呼吸注册程序，用户便表明其接受了本服务协议的条款，并同意受本服务协议的约束。若用户不同意本协议条款的，请停止注册程序。请您审阅并接受或不接受本服务条款（未成年人审阅时应得到法定监护人的陪同）。如您不同意本服务条款及/或随时对其的修改， 您应主动取消腹式呼吸用户注册进程。您的注册行为将被视为您对本服务条款全部的完全接受。\n\n二、用户使用规则\n\n2.1 用户应当为自身注册用户名下的一切行为负责，因用户行为而导致的用户自身或其他任何第三方的任何损失或损害，腹式呼吸不承担责任。\n\n2.2您在使用腹式呼吸上载、展示、张贴或以其它方式传送信息时，必须遵守中华人民共和国相关法律法规的规定，您同意将不会利用本服务进行任何违法、侵权或其他不正当的活动，包括但不限于下列行为∶\n\n2.2.1反对宪法所确定的基本原则的；\n\n2.2.2危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；\n\n2.2.3损害国家荣誉和利益的；\n\n2.2.4煽动民族仇恨、民族歧视、破坏民族团结的；\n\n2.2.5破坏国家宗教政策，宣扬邪教和封建迷信的；\n\n2.2.6散布谣言，扰乱社会秩序，破坏社会稳定的；\n\n2.2.7散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；\n\n2.2.8侮辱或者诽谤他人，侵害他人合法权利的；\n\n2.2.9含有虚假、有害、胁迫、侵害他人隐私、骚扰、侵害、中伤、粗俗、猥亵、或其它道德上令人反感的内容；\n\n2.2.10含有中国法律、法规、规章、条例以及任何具有法律效力之规范所限制或禁止的其它内容的；\n\n2.3 如用户在使用腹式呼吸时违反任何上述规定，腹式呼吸或其授权人有权要求用户改正或直接采取一切必要的措施（包括但不限于更改或删除用户上传内容、暂停或终止用户使用腹式呼吸的权利）以减轻用户不当行为造成的影响，并保留相关追溯权利。
+            \n\n三、腹式呼吸的权利和义务
+            \n\n3.1 腹式呼吸尊重您和他人的合法权益并保护您和他人的个人隐私。
+            \n\n3.2 除非本服务协议另有其它明示规定，腹式呼吸所推出的新功能、新服务，均受到本服务协议之规范。
+            \n\n3.3腹式呼吸有权于任何时间暂时或永久修改或终止本服务（或其任何部分），而无论其通知与否，腹式呼吸对您和任何第三人均无需承担任何责任。
+            \n\n3.4 在不透露您的隐私资料的前提下, 腹式呼吸有权对用户数据库进行分析并将用户数据库用于其他用途。
+            \n\n3.5 腹式呼吸有权对程序内所有用户内容进行实时监控。如果发生下列任何一种情形, 腹式呼吸有权随时删除您上载、展示、张贴的内容甚至收回您的用户名。
+            \n\n3.5.1上载、展示的内容违反法律法规及相关政策的规定，司法机关及国家行政机关的要求；
+            \n\n3.5.2上载、展示的内容违反本协议中规定的使用规则；
+            \n\n3.5.3上载、展示的内容违反腹式呼吸发布的（包括但不限于本服务协议）管理规范。
+            \n\n3.6 除前款所述情形外, 腹式呼吸保留根据实际情况进行用户帐号管理的权利。对违反协议的用户有权进行删除内容，暂时或永久禁止帐号使用本程序处理。同时保留依法追究当事人法律责任的权利。对于所有因此而造成的任何损失, 腹式呼吸无需对您或任何第三方承担责任。
+            \n\n四、免责声明
+            \n\n“腹式呼吸”手机应用及其官方网站所提供的技能指导信息仅作为一般性参考和教育目的，不能替代专业的医疗评估或诊断建议。若有疑问，您应在开始呼吸练习前详询医师意见。“腹式呼吸”手机应用及其官方网站将不承担您在习练呼吸过程中由于身体不适等原因造成的医疗事故责任。
+            \n\n五、知识产权
+            \n\n腹式呼吸程序中包含的任何文本、图片、图形、音频和/或视频资料均受版权、商标和/或其它财产所有权法律的保护，未经相关权利人同意，上述资料均不得用于任何商业目的。
+            \n\n六、其他
+            \n\n6.1 本协议自您帐号创立之时起生效，有效期为长期。
+            \n\n6.2 本协议的订立、执行和解释及争议的解决均应适用中华人民共和国法律。
+            \n\n6.3 腹式呼吸未行使或执行本服务协议任何权利或规定，不构成对前述权利或权利之放弃。
+            \n\n6.4 如本协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，本协议的其余条款仍应有效并且有约束力。
+</string>
+    <string name="islogin">亲，登录后，方可设置频率至3、4次/分，进行训练。</string>
+    <string name="islogin2">亲，登录后，方可设置时间至30、60分钟，进行训练。</string>
+    <string name="jiaoyan">校验中...</string>
+    <string name="find">发现</string>
+    <string name="zixun">咨询</string>
+    <string name="user">我的</string>
+    <string name="Officina">疗愈</string>
+    <string name="zixuntime">咨询时间</string>
+    <string name="be_adept_at">擅长</string>
+    <string name="screen">筛选</string>
+    <string name="myorder">我的咨询</string>
+    <string name="myhealth">健康贴士</string>
+    <string name="discount">优惠卡券</string>
+    <string name="myguanzhu">我的关注</string>
+    <string name="mymessge">消息中心</string>
+    <string name="setting">设置</string>
+    <string name="feedback">意见反馈</string>
+    <string name="money">￥%1$s</string>
+    <string name="s_details">详情</string>
+    <string name="s_evaluate">评价</string>
+    <string name="s_share">分享</string>
+    <string name="s_attention">关注</string>
+    <string name="s_order">预约咨询</string>
+
+    <string name="pull_to_refreshss">下拉刷新</string>
+    <string name="release_to_refreshss">释放立即刷新</string>
+    <string name="refreshingss">正在刷新...</string>
+    <string name="refresh_succeed">刷新成功</string>
+    <string name="refresh_fail">刷新失败</string>
+    <string name="pullup_to_load">上拉加载更多</string>
+    <string name="release_to_load">释放立即加载</string>
+    <string name="loading">正在加载...</string>
+    <string name="load_succeed">加载成功</string>
+    <string name="load_fail">加载失败</string>
+    <string name="not_list">没有更多了</string>
+    <string name="setusername">确认</string>
+    <string name="pull_to_refresh">下拉刷新</string>
+</resources>

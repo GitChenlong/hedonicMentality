@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:paddingLeft="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/Catalog_TextView"
+        android:text="wreak"
+        android:id="@+id/tv_wreak" />
+    <TextView
+        style="@style/Catalog_TextView"
+        android:text="worry"
+        android:id="@+id/tv_worry" />
+    <TextView
+        style="@style/Catalog_TextView"
+        android:text="meditation"
+        android:id="@+id/tv_meditation" />
+    <TextView
+        style="@style/Catalog_TextView"
+        android:text="chat"
+        android:id="@+id/tv_chat" />
+    <TextView
+        style="@style/Catalog_TextView"
+        android:text="me"
+        android:id="@+id/tv_me" />
+</LinearLayout>
