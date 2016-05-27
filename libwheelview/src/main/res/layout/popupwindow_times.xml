@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6EBE7"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="@string/s_selecttimes"
+            android:textColor="@android:color/black"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bithday_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/wl_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="220dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <com.sage.libwheelview.widget.wheel.WheelView
+                android:id="@+id/wl_dates"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+             <ImageView
+                 android:layout_width="1px"
+                 android:layout_height="fill_parent"
+                 android:background="#E6EBE7"
+                 />
+            <com.sage.libwheelview.widget.wheel.WheelView
+                android:id="@+id/wl_times"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/rl_ascertain"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF9400"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:layout_below="@+id/wl_ll"
+            >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="@string/s_ascertain"
+                android:textColor="@android:color/white"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

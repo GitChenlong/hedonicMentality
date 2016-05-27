@@ -4,11 +4,12 @@
     android:layout_width="fill_parent"
     android:orientation="vertical">
 
-    <TextView android:id="@+id/tv_float_item"
+    <TextView android:id="@+id/tv_green"
         android:textSize="18sp"
         android:gravity="center_horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/greens"
         />
 
 </LinearLayout>

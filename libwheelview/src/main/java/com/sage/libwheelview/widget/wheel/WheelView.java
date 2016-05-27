@@ -26,6 +26,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -38,6 +39,7 @@ import com.sage.libwheelview.widget.wheel.adapter.WheelViewAdapter;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -55,7 +57,7 @@ public class WheelView extends View {
 	private static final int ITEM_OFFSET_PERCENT = 0;
 
 	/** Left and right padding value */
-	private static final int PADDING = 10;
+	private static final int PADDING = 50;
 
 	/** Default count of visible items */
 	private static final int DEF_VISIBLE_ITEMS = 5;
@@ -531,9 +533,10 @@ public class WheelView extends View {
 
 		if (itemsLayout != null && itemsLayout.getChildAt(0) != null) {
 			itemHeight = itemsLayout.getChildAt(0).getHeight();
+			Log.e("itemHeight",itemHeight+"");
 			return itemHeight;
 		}
-
+		Log.e("itemHeight",getHeight() / visibleItems+"");
 		return getHeight() / visibleItems;
 	}
 
@@ -620,7 +623,7 @@ public class WheelView extends View {
 			updateView();
 			drawbgRect(canvas);
 			drawItems(canvas);
-			drawCenterRect(canvas);
+//			drawCenterRect(canvas);
 		}
 
 		if (drawShadows) drawShadows(canvas);
@@ -650,7 +653,6 @@ public class WheelView extends View {
 
 		int top = (currentItem - firstItem) * getItemHeight() + (getItemHeight() - getHeight()) / 2;
 		canvas.translate(PADDING, - top + scrollingOffset);
-
 		itemsLayout.draw(canvas);
 
 		canvas.restore();

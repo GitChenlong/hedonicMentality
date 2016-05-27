@@ -1,27 +1,29 @@
 package com.sage.hedonicmentality.view;
 
 /**
- * Created by Administrator on 2015/10/29.
+ * Created by Administrator on 2016/5/27.
  */
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
 
-import com.sage.hedonicmentality.R;
+
+/**
+ * Created by Administrator on 2015/10/29.
+ */
 
 
 /**
@@ -32,7 +34,8 @@ import com.sage.hedonicmentality.R;
  * @author ttdevs
  */
 @SuppressLint("ClickableViewAccessibility")
-public class TuneWheel extends View {
+public class TimesView extends View {
+
 
     public interface OnValueChangeListener {
         public void onValueChange(float value);
@@ -41,17 +44,13 @@ public class TuneWheel extends View {
     public static final int MOD_TYPE_HALF = 2;
     public static final int MOD_TYPE_ONE = 100;
 
-    private static final int ITEM_HALF_DIVIDER = 20;
-    private static final int ITEM_ONE_DIVIDER = 10;
-
+    private static final int TEXT_SIZE = 18;
     private static final int ITEM_MAX_HEIGHT = 50;
     private static final int ITEM_MIN_HEIGHT = 20;
-
-    private static final int TEXT_SIZE = 18;
-
     private float mDensity;
-    private int  mMaxValue = 250, mModType = MOD_TYPE_ONE, mLineDivider = ITEM_ONE_DIVIDER;
-    public static int mValue = 100;
+    private static int minValue = 0;
+    private static int  mMaxValue = 10, mModType = 1, mLineDivider = 30;
+    public static int mValue = 5;
     private int mLastX, mMove;
     private int mLastY, mMoveY;
     private int mWidth, mHeight;
@@ -61,20 +60,21 @@ public class TuneWheel extends View {
     private VelocityTracker mVelocityTracker;
 
     private OnValueChangeListener mListener;
+    private static String dates[]={} ;
 
     @SuppressWarnings("deprecation")
-    public TuneWheel(Context context, AttributeSet attrs) {
+    public TimesView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         mScroller = new Scroller(getContext());
         mDensity = getContext().getResources().getDisplayMetrics().density;
-
         mMinVelocity = ViewConfiguration.get(getContext()).getScaledMinimumFlingVelocity();//触发移动时间的最短距离
-
 //         setBackgroundResource(R.mipmap.ic_launcher);
 //        setBackgroundDrawable(createBackground());
     }
-
+    public static void setDates(String[] date) {
+        dates = date;
+        mMaxValue=date.length;
+    }
     private GradientDrawable createBackground() {
         float strokeWidth = 4 * mDensity; // 边框宽度
         float roundRadius = 6 * mDensity; // 圆角半径
@@ -107,7 +107,7 @@ public class TuneWheel extends View {
      *
      * @return
      */
-    public float getValue() {
+    public int getValue() {
         return mValue;
     }
 
@@ -121,12 +121,13 @@ public class TuneWheel extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        if (dates==null) {
+            return;
+        }
         drawScaleLine(canvas);
         getValue();
-        Log.e("mValue:", getValue()+"");
 //         drawWheel(canvas);
-        drawMiddleLine(canvas);
+//        drawMiddleLine(canvas);
     }
 
     /*private void drawWheel(Canvas canvas) {
@@ -145,16 +146,19 @@ public class TuneWheel extends View {
         RectF rect = new RectF();
         Paint mPaint = new Paint();
 
-
         Paint linePaint = new Paint();
         linePaint.setStrokeWidth(2);
         linePaint.setColor(Color.BLACK);
         Paint linePaints = new Paint();
         linePaints.setStrokeWidth(2);
-        linePaints.setColor(getResources().getColor(R.color.linegreen));
 
         TextPaint textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextSize(TEXT_SIZE * mDensity);
+
+        TextPaint centerText = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        centerText.setTextSize(15 * mDensity);
+        centerText.setColor(Color.GREEN);
+
 
         int width = mWidth, drawCount = 0;
         int height = mHeight;
@@ -164,62 +168,41 @@ public class TuneWheel extends View {
         for (int i = 0; drawCount <= 4 * width; i++) {
 
             int numSize = String.valueOf(mValue + i).length();
-
+//
             yPosition = (height / 2 - mMoveY) + i * mLineDivider * mDensity;
-
-            if (yPosition + getPaddingBottom()< mHeight){
-                if ((mValue + i) % 10 ==0){
-                    canvas.drawLine(getPaddingLeft(),yPosition,mDensity * ITEM_MAX_HEIGHT,yPosition,linePaints);
-                    if (mValue + i <= mMaxValue ){
-                        switch (mModType){
-                            case MOD_TYPE_HALF:
-                                canvas.drawText(String.valueOf((mValue + i) / 2), countLeftStart(mValue + i, yPosition, textWidth), getWidth() - textWidth, textPaint);
-                                break;
-                            case MOD_TYPE_ONE:
-                                canvas.drawText(String.valueOf(mValue +i) + "cm", getWidth()/2, yPosition - (textWidth * numSize / 2)+30, textPaint);
-//                                canvas.drawText(String.valueOf(mValue - i) + "cm", getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
-                                Log.e("<:", "text:"+String.valueOf(mValue +i)+"/X:"+getWidth() / 2+"/Y:"+(yPosition - (textWidth * numSize / 2) + 30)
-                                        );
-                                break;
+//
+            if (yPosition + getPaddingBottom()< mHeight) {
+//
+                if ((mValue + i) % 1 == 0) {
+                    if (mValue + i >= mMaxValue || mValue + i < minValue) {
+//
+                    } else {
+                        if (mValue + i != mValue) {
+                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
+                        } else {
+                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, centerText);
                         }
-
                     }
-
-                }else{
-                    canvas.drawLine(getPaddingLeft(), yPosition,  mDensity * ITEM_MIN_HEIGHT, yPosition, linePaint);
                 }
-                Log.d("<","yPosition:"+yPosition+"/getPaddingBottom()+"+getPaddingBottom()+"/mHeight:"+mHeight);
             }
-
             yPosition = (height / 2 - mMoveY) - i * mLineDivider * mDensity;
             if (yPosition > getPaddingTop()) {
-                if ((mValue - i) % 10 == 0) {
-                    canvas.drawLine(getPaddingLeft(), yPosition,  mDensity * ITEM_MAX_HEIGHT, yPosition, linePaints);
-                    if (mValue - i >= 0) {
-                        switch (mModType) {
-                            case MOD_TYPE_HALF:
-                                canvas.drawText(String.valueOf((mValue - i) / 2)+"cm", countLeftStart(mValue - i, yPosition, textWidth), getWidth() - textWidth, textPaint);
-                                break;
-                            case MOD_TYPE_ONE:
-                                canvas.drawText(String.valueOf(mValue - i) + "cm", getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
-//                                canvas.drawText(String.valueOf(mValue +i) + "cm", getWidth()/2, yPosition - (textWidth * numSize / 2)+30, textPaint);
-//                                Log.d("i:", "yPosition:" + yPosition + " getPaddingBottom:" + getPaddingBottom() + "mHeight:" + mHeight);
-                                Log.e(">:", "text:"+String.valueOf(mValue -i)+"/X:"+getWidth() / 2+"/Y:"+(yPosition - (textWidth * numSize / 2) + 30) );
-                                break;
-
-                            default:
-                                break;
+                if ((mValue - i) % 1 == 0) {
+                    if (mValue - i>=mMaxValue||mValue - i<minValue) {
+//
+                    }else {
+                        if ((mValue - i) != mValue) {
+                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
+                        } else {
+                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, centerText);
+//
                         }
                     }
-                } else {
-                    canvas.drawLine(getPaddingLeft(), yPosition, mDensity * ITEM_MIN_HEIGHT, yPosition, linePaint);
                 }
-                Log.d(">:","yPosition:"+yPosition+"/getPaddingBottom()+"+getPaddingBottom()+"/mHeight:"+mHeight);
             }
-
+//
             drawCount += 2 * mLineDivider * mDensity;
         }
-
         canvas.restore();
     }
 
@@ -256,10 +239,6 @@ public class TuneWheel extends View {
 
         canvas.save();
 
-        Paint redPaint = new Paint();
-        redPaint.setStrokeWidth(indexWidth);
-        redPaint.setColor(getResources().getColor(R.color.linered));
-        canvas.drawLine(0, mHeight/2, mWidth , mHeight/2, redPaint);//中间固定的红线
 
         //中间固定红线两头
         Paint ovalPaint = new Paint();
@@ -270,9 +249,9 @@ public class TuneWheel extends View {
 
 //         RectF ovalRectF = new RectF(mWidth / 2 - 10, 0, mWidth / 2 + 10, 4 *
 //         mDensity); //TODO 椭圆
-            RectF ovalRectF = new RectF(mWidth / 2 - 10, mHeight - 8 * mDensity, mWidth / 2 +
+        RectF ovalRectF = new RectF(mWidth / 2 - 10, mHeight - 8 * mDensity, mWidth / 2 +
                 10, mHeight/2); //TODO
-          canvas.drawOval(ovalRectF, ovalPaint);
+        canvas.drawOval(ovalRectF, ovalPaint);
 
 //        Paint shadowPaint = new Paint();
 //        shadowPaint.setStrokeWidth(shadow);

@@ -5,7 +5,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-
+    <style name="orderAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/order_in</item>
+        <item name="android:windowExitAnimation">@anim/order_out</item>
+    </style>
     <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

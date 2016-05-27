@@ -23,21 +23,23 @@ import com.sage.libwheelview.R;
  * The simple Array wheel adapter
  * @param <T> the element type
  */
-public class ArrayWheelAdapter<T> extends AbstractWheelTextAdapter {
-    
+public class MArrayWheelAdapter<T> extends AbstractWheelTextAdapter {
+
     // items
     private T items[];
+    private String select;
 
     /**
      * Constructor
      * @param context the current context
      * @param items the items
      */
-    public ArrayWheelAdapter(Context context, T items[]) {
+    public MArrayWheelAdapter(Context context, T items[],String select) {
         super(context);
         
         //setEmptyItemResource(TEXT_VIEW_ITEM_RESOURCE);
         this.items = items;
+        this.select = select;
     }
     
     @Override
@@ -55,5 +57,17 @@ public class ArrayWheelAdapter<T> extends AbstractWheelTextAdapter {
     @Override
     public int getItemsCount() {
         return items.length;
+    }
+
+
+    @Override
+    public void setTextColor(int textColor) {
+        for (int i=0;i<this.items.length;i++) {
+            if (this.items[i].equals(this.select)) {
+                setTextColor(R.color.greens);
+            }else{
+                setTextColor(R.color.grays);
+            }
+        }
     }
 }

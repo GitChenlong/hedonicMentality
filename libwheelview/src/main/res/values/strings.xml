@@ -10,4 +10,6 @@
     <string name="wheel_complete">完成</string>
     <string name="height">身高</string>
     <string name="weight">体重(公斤)</string>
+    <string name="s_selecttimes">选择时间段</string>
+    <string name="s_ascertain">确定</string>
 </resources>

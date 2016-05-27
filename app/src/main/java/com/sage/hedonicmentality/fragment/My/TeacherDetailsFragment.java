@@ -1,15 +1,22 @@
 package com.sage.hedonicmentality.fragment.My;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.view.OrderPopWindow;
+import com.sage.hedonicmentality.view.SelectAdressPopupWindow;
+import com.sage.hedonicmentality.view.SelectTimePopWindow;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -76,12 +83,30 @@ public class TeacherDetailsFragment extends Fragment {
                 break;
             case R.id.ll_order:
                 //预约咨询
-
+                chooseAddress();
                 break;
 
         }
     }
-
+    private void chooseAddress() {
+        String dates[] ={"周1","周2","周3","周4","周5","周6","周7","周8","周9","周10","周11","周12"};
+        String times[] ={"9:00-10:00-1","9:00-10:00-2","9:00-10:00-3","9:00-10:00-4",
+                "9:00-10:00-5","9:00-10:00-6","9:00-10:00-7","9:00-10:00-8","9:00-10:00-9","9:00-10:00-10","9:00-10:00-11"};
+        OrderPopWindow orderpopwindow=new OrderPopWindow(getActivity(),dates,times,mHandler);
+        orderpopwindow.showAtLocation(getView().findViewById(R.id.ll_techerdetails), Gravity.BOTTOM, 0, 0);
+    }
+    private Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch(msg.what){
+                case 8:
+                    String select = msg.getData().getString("date");
+                    Toast.makeText(getActivity(),select,Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    };
     public void setTab(int type){
         FragmentTransaction bt = fm.beginTransaction();
         switch (type){

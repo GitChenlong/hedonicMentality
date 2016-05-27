@@ -94,7 +94,7 @@ public class ActivityIndex extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(ResponseInfo<File> responseInfo) {
                                         try {
-                                            LogUtils.e("下载成功===========================================ssssss");
+                                            LogUtils.e("下载成功===========================================");
                                             ZipUtils.upZipFile(new File(Environment.getExternalStorageDirectory() + "/HRVHTML/" + sceneBean.getLetter()), Environment.getExternalStorageDirectory() + "/HRVHTML");
                                             //添加更新完成后的场景标识
                                             SPHelper.putDefaultString(ActivityIndex.this, sceneBean.getName(), sceneBean.getCreatetime());
@@ -105,13 +105,13 @@ public class ActivityIndex extends AppCompatActivity {
 
                                     @Override
                                     public void onFailure(HttpException e, String s) {
-                                        LogUtils.e("下载失败===========================================ssssss");
+                                        LogUtils.e("下载失败===========================================");
                                     }
 
                                     @Override
                                     public void onLoading(long total, long current, boolean isUploading) {
                                         super.onLoading(total, current, isUploading);
-                                        LogUtils.e("正在下载===========================================ssssss" + current);
+                                        LogUtils.e("正在下载===========================================" + current);
                                     }
                                 });
                             }

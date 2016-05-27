@@ -50,6 +50,7 @@ public class NavigationAc extends FragmentActivity{
     public void NaAcAOnclick(View view){
         switch (view.getId()){
             case R.id.ll_find:
+                findFragment.setScrollviewPosition();
                 setTab(1);
                 break;
             case R.id.ll_zixun:

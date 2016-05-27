@@ -38,12 +38,12 @@ public class SelectAdressPopupWindow extends PopupWindow implements View.OnClick
     private int float_number;
     private WheelView guo_address, sheng_address,shi_address;
     private Handler mHandler;
-//    private final String guojia[] = new String[] { "ÖĞ¹ú", "ÃÀ¹ú"};//¹ú¼Ò
-//    private final String shengfen[][] = {{"ÉÏº£","ºşÄÏ"},{ "Å¦Ô¼", "¾É½ğÉ½"}};//Ê¡·İ
-//    private final String chengshi[][][]= { {{"ÉÏº£"},{"",""}}
-//                                    };//¹ú¼Ò
+    //    private final String guojia[] = new String[] { "ä¸­å›½", "ç¾å›½"};//å›½å®¶
+//    private final String shengfen[][] = {{"ä¸Šæµ·","æ¹–å—"},{ "çº½çº¦", "æ—§é‡‘å±±"}};//çœä»½
+//    private final String chengshi[][][]= { {{"ä¸Šæµ·"},{"",""}}
+//                                    };//å›½å®¶
     private AddressBean myaddress;
-    // Ê¹ÓÃ×Ô¶¨ÒåµÄLog»úÖÆ
+    // ä½¿ç”¨è‡ªå®šä¹‰çš„Logæœºåˆ¶
 
     public SelectAdressPopupWindow(Activity context, AddressBean address,
                                    Handler handler) {
@@ -52,7 +52,7 @@ public class SelectAdressPopupWindow extends PopupWindow implements View.OnClick
         myaddress = address;
         mContext = context;
         mHandler = handler;
-        // "ÌåÖØÖµ£º70.5"
+        // "ä½“é‡å€¼ï¼š70.5"
 //        this.weight = weight;
 //        int i = weight.length();
 //        if (i <= 2) {

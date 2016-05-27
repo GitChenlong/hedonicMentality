@@ -40,10 +40,8 @@ public abstract class BaseFragment extends Fragment {
     public boolean isBack=true;
     public boolean isRight=true;
     public abstract int getLayout();
+    public   void initActionbar(){}
 
-    public   void initActionbar(){
-
-    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

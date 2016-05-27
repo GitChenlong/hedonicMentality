@@ -65,6 +65,7 @@ public class ConsultFragment extends Fragment {
 
                 break;
             case R.id.tv_time://咨询时间
+
     //        Drawable nav_up=getResources().getDrawable(R.drawable.arrow_left_select);
     //        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
     //        tv_right.setCompoundDrawables(null, null, nav_up, null);
