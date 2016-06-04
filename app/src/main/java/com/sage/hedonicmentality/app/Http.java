@@ -1,16 +1,11 @@
 package com.sage.hedonicmentality.app;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.widget.Toast;
 
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
-import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.bean.HMRecord;
 import com.sage.hedonicmentality.bean.HRVData;
 import com.sage.hedonicmentality.utils.Contact;
@@ -25,6 +20,9 @@ import java.io.UnsupportedEncodingException;
  */
 public class Http {
     public static String HTTP_URL = "http://api.kuailexinli.com/";
+    public static String HTTP_URL_NEW = "http://happycontent.kuailexinli.cn/ytx/";
+    public static String HTTP_URL_NEW_Login = "ytxlogin";
+    public static String HTTP_URL_NEW_ORDER = "orderlistjson";
 //    public static String HTTP_URL = "http://test1.kuailexinli.cn/";
     public static String HTTP_UrlLogin="user/login";
     public static String HTTP_Register="user/register";
@@ -45,6 +43,8 @@ public class Http {
     private static Context app = null;
     public static String version = "v1.1";
     public static String channel = "官网";
+    private static String android="android";
+
     public static void InitContext(Context context){
         if(app == null){
             app = context.getApplicationContext();
@@ -417,5 +417,27 @@ public class Http {
         params.addQueryStringParameter("channel",channel);
         HttpUtils http = new HttpUtils();
         http.send(HttpRequest.HttpMethod.POST,"",params,callBack);
+    }
+    /**登录*/
+    public static void login(String user,String ps,RequestCallBack<String> callBack){
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("account",user);
+        params.addQueryStringParameter("password",ps);
+        params.addQueryStringParameter("version",version);
+        params.addQueryStringParameter("channel",channel);
+        params.addQueryStringParameter("client",android);
+        HttpUtils http = new HttpUtils();
+        http.send(HttpRequest.HttpMethod.POST,Http.HTTP_URL_NEW+Http.HTTP_URL_NEW_Login,params,callBack);
+    }
+    /**登录*/
+    public static void getOrder(String user,String ps,RequestCallBack<String> callBack){
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("account",user);
+        params.addQueryStringParameter("password",ps);
+        params.addQueryStringParameter("version",version);
+        params.addQueryStringParameter("channel",channel);
+        params.addQueryStringParameter("client",android);
+        HttpUtils http = new HttpUtils();
+        http.send(HttpRequest.HttpMethod.POST,Http.HTTP_URL_NEW+Http.HTTP_URL_NEW_ORDER,params,callBack);
     }
 }

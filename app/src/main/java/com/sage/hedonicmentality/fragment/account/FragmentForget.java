@@ -2,8 +2,6 @@ package com.sage.hedonicmentality.fragment.account;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -11,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -20,7 +17,6 @@ import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.entity.RegisterParams;
 import com.sage.hedonicmentality.fragment.BaseFragment;
-import com.sage.hedonicmentality.ui.ActivityLogin;
 import com.sage.hedonicmentality.utils.Util;
 import com.sage.hedonicmentality.utils.UtilSnackbar;
 

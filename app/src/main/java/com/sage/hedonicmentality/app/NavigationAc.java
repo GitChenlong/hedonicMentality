@@ -1,8 +1,6 @@
 package com.sage.hedonicmentality.app;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -11,7 +9,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.sage.hedonicmentality.R;
-import com.sage.hedonicmentality.fragment.BaseFragment;
 import com.sage.hedonicmentality.fragment.My.ConsultFragment;
 import com.sage.hedonicmentality.fragment.My.FindFragment;
 import com.sage.hedonicmentality.fragment.My.UserFragment;

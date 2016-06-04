@@ -6,7 +6,6 @@ import android.os.CountDownTimer;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -24,7 +23,6 @@ import com.sage.hedonicmentality.utils.GsonTools;
 import com.sage.hedonicmentality.utils.SPHelper;
 import com.sage.hedonicmentality.utils.SharedPreferencesHelper;
 import com.sage.hedonicmentality.utils.Util;
-import com.sage.hedonicmentality.utils.UtilSnackbar;
 import com.sage.hedonicmentality.utils.ZipUtils;
 
 import org.json.JSONException;

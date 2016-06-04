@@ -2,15 +2,17 @@ package com.sage.hedonicmentality.fragment.My;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,7 +22,10 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.app.NavigationAc;
-import com.sage.hedonicmentality.fragment.BaseFragment;
+import com.sage.hedonicmentality.bean.Indicate;
+import com.sage.hedonicmentality.view.BeGoodAtPopwindow;
+import com.sage.hedonicmentality.view.CnsultTimePopWindow;
+import com.sage.hedonicmentality.view.ScreenPopWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +48,9 @@ public class ConsultFragment extends Fragment {
     TextView ll_time;//筛选
     @Bind(R.id.lv_zixun)
     ListView lv_zixun;//筛选
+    private Indicate dateIn;
+    private Indicate timeIn;
+    private Indicate begoodatIn;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -65,19 +73,60 @@ public class ConsultFragment extends Fragment {
 
                 break;
             case R.id.tv_time://咨询时间
-
-    //        Drawable nav_up=getResources().getDrawable(R.drawable.arrow_left_select);
-    //        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
-    //        tv_right.setCompoundDrawables(null, null, nav_up, null);
+                showPopConsult();
                 break;
             case R.id.tv_be_adept_at://擅长
+                showPopBeGoodAt();
 
                 break;
             case R.id.tv_screen://筛选
-
+                showScreenPop();
                 break;
         }
     }
+    public void showPopBeGoodAt(){
+        BeGoodAtPopwindow popwindow = new BeGoodAtPopwindow(getActivity(),mHandler,begoodatIn);
+        popwindow.showAsDropDown(getView().findViewById(R.id.tv_be_adept_at));
+    }
+    public void showScreenPop(){
+        ScreenPopWindow popwindow = new ScreenPopWindow(getActivity(),mHandler);
+        popwindow.showAsDropDown(getView().findViewById(R.id.tv_be_adept_at));
+    }
+    public void showPopConsult(){
+        List<String> date = new ArrayList<>();
+        for (int i=0;i<20;i++) {
+            date.add("日期"+i);
+        }
+        List<String> time = new ArrayList<>();
+        for (int i=0;i<20;i++) {
+            time.add("时间"+i);
+        }
+        CnsultTimePopWindow popWindow = new CnsultTimePopWindow(getActivity(),mHandler,date,time,dateIn,timeIn);
+        popWindow.showAsDropDown(getView().findViewById(R.id.tv_time));
+
+    }
+    private Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch(msg.what){
+//                case 1:
+//                    String date = msg.getData().getString("date");
+//                    Toast.makeText(getActivity(), date, Toast.LENGTH_SHORT).show();
+//                    break;
+                case 2:
+                    String selct = msg.getData().getString("select");
+                    Log.e("result","what=2"+selct);
+                    break;
+                case 1:
+                    //按咨询时间搜索
+                    String timename = msg.getData().getString("timename");
+                    String datename = msg.getData().getString("datename");
+                    Log.e("result","what=1"+datename+"/"+timename+"/"+dateIn.getPostion());
+                    break;
+            }
+        }
+    };
     private void getData(){
 
         Http.getZixun("", new RequestCallBack<String>() {
@@ -91,6 +140,9 @@ public class ConsultFragment extends Fragment {
 
             }
         });
+         dateIn = new Indicate(0);
+         timeIn = new Indicate(0);
+         begoodatIn =  new Indicate(0);
         List<String> datas = new ArrayList<>();
         for (int i=0;i<10;i++) {
             datas.add("10"+i);
@@ -105,6 +157,7 @@ public class ConsultFragment extends Fragment {
             }
         });
     }
+
     private void setView(){
 
     }

@@ -7,16 +7,12 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Common;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**

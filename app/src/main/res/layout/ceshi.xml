@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_ceshi"
+    android:background="@color/selector_white"
+    >
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            >
+
+
+            <Button
+                android:id="@+id/getorder"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:text="获取订单"
+                />
+            <TextView
+                android:id="@+id/tv_order"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                />
+            <Button
+                android:id="@+id/pay"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:text="支付宝支付"
+                />
+            <Button
+                android:id="@+id/bt_vedio"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:text="视屏通话"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

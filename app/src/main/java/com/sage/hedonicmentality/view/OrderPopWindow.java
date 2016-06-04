@@ -5,10 +5,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -24,6 +26,7 @@ public class OrderPopWindow extends PopupWindow implements View.OnClickListener 
     private final DateView wl_dates;
     private final TimesView wl_times;
     private final Handler mHandler;
+    private final RelativeLayout rl_ascertain;
     private View mMenuView;
     private ViewFlipper viewfipper;
     private String dateList[];
@@ -46,10 +49,12 @@ public class OrderPopWindow extends PopupWindow implements View.OnClickListener 
 
         wl_dates = (DateView)mMenuView.findViewById(R.id.wl_dates);
         wl_times = (TimesView)mMenuView.findViewById(R.id.wl_times);
+        rl_ascertain = (RelativeLayout)mMenuView.findViewById(R.id.rl_ascertain);
         dateView.setDates(dateList);
         timesView.setDates(timeList);
         viewfipper.addView(mMenuView);
         viewfipper.setFlipInterval(6000000);
+        rl_ascertain.setOnClickListener(this);
         this.setContentView(viewfipper);
         this.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);

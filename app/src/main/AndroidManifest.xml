@@ -1,30 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sage.hedonicmentality" >
+    package="com.sage.hedonicmentality"
+  >
     <uses-permission android:name="android.permission.CAMERA"/>
     <!--<uses-permission android:name="android.permission.FLASHLIGHT"/>-->
     <!--<uses-feature android:name="android.hardware.camera"/>-->
     <!--<uses-feature android:name="android.hardware.camera.flash"/>-->
-
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    // SDK 权限申明, 第三方 APP 接入时，请将 com.yuntongxun.ecdemo 替换为自己的包名
+    // 和下面的 uses-permission 一起加入到你的 AndroidManifest 文件中。
+    <permission android:name="com.sage.hedonicmentality.permission.RECEIVE_MSG"
+        android:protectionLevel="signature"/>
+    <permission android:name="com.sage.hedonicmentality.permission.INCOMING_CALL"
+        android:protectionLevel="signature"/>
+    // 接收 SDK 消息广播权限， 第三方 APP 接入时，请将 com.yuntongxun.ecdemo 替换为自己的包名
+    <uses-permission android:name="com.sage.hedonicmentality.permission.RECEIVE_MSG" />
+    // 如果没有VOIP功能可以忽略
+    <uses-permission android:name="com.sage.hedonicmentality.permission.INCOMING_CALL" />
+    // 以上为v5.1.9r 版本增加
+    // 允许程序打开网络sockets
+    <uses-permission android:name="android.permission.INTERNET" />
+    //允许访问振动设备
+    <uses-permission android:name="android.permission.VIBRATE" />
+    // 允许程序访问有关的网络信息
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    // 允许程序访问Wi-Fi网络状态信息
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    // 允许应用写（非读）用户的外部存储器
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    // 允许读取电话的状态
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    // 允许一个程序获取信息有关当前或最近运行的任务，一个缩略的任务状态，是否活动等等
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    // 允许程序录制音频
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    // 允许应用程序修改全局声音设置的权限
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    // 允许使用PowerManager的WakeLocks保持进程在休眠时从屏幕消失
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    // 允许请求访问使用照相设备(如果使用视频通话则必选配置)
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -47,6 +74,43 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             </activity>-->
+        // 以下两项为SDK事件提醒广播
+        <receiver android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$AlarmReceiver"
+            android:process=":push" />
+        // v5.1.9r增加配置选项
+        <receiver android:name="com.yuntongxun.ecsdk.booter.Alarm"
+            android:exported="false" android:process=":push"/>
+        // SDK网络改变广播
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$ConnectionReceiver"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        // SDK广播通知配置（开机广播）
+        // 可选广播、如果应用想做开机重启，可以实现该广播通知即可
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$BootReceiver"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        // 配置SDK消息通知广播 ,SDK通知会分三种提醒方式
+        // 1、直接通过设置的回调接口（OnChatReceiveListener）Push给应用
+        // 2、如果应用没有设置回调接口则采用（BroadcastReceiver）广播通知（v5.1.8版本）
+        //    此时如果应用处于未运行状态则会直接唤醒应用处理
+        // 3、如果应用未处于运行状态并且不想被唤醒应用运行则采用状态栏通知处理（SDK直接提醒，不会通知应用）,比如调用
+        // ECDevice#logout(ECDevice.NotifyMode, ECDevice.OnLogoutListener)退出接口传入后台接收消息才会有提醒
+
+        // 注意：以上在a和b的场景下，SDK都会将消息直接给应用处理，只有在c的情况SDK才会直接处理消息提醒，
+        //    所以应用需要处理a和b两种情况
+        // 声明自定义通知的广播接收器，第三方 APP 集成时，action 中的 com.yuntongxun.ecdemo 请替换为自己的包名
+        <!-- 需要权限声明  -->
+        // 如果没有VOIP功能可以忽略
+        <!-- 需要权限声明  -->
+
         <activity android:name=".app.NavigationAc"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -95,6 +159,9 @@
         <activity android:name=".ui.ActivityChat"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!--<activity android:name=".fragment.My.VideoCallFragment"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:screenOrientation="portrait"/>-->
 
         <activity android:name=".ui.simple.BreathSetting"
             android:screenOrientation="portrait"/>
@@ -109,6 +176,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.ActivityAgreement"
             android:screenOrientation="portrait"/>
+
 
         <service android:name=".service.ServiceBlueTooth"/>
 
@@ -145,6 +213,20 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <service android:name=".service.BluetoothLeService"/>
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <!--// ECSDK核心服务类-->
+        <service
+            android:name="com.yuntongxun.ecsdk.ECClientService"
+            android:enabled="true"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

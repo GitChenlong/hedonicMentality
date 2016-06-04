@@ -3,13 +3,10 @@ package com.sage.hedonicmentality.app;
 import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.alibaba.sdk.android.AlibabaSDK;
-import com.alibaba.sdk.android.callback.InitResultCallback;
 import com.alibaba.sdk.android.man.MANService;
 import com.lidroid.xutils.util.LogUtils;
-import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.utils.DeviceUUIDFactory;
 import com.sage.hedonicmentality.utils.SPHelper;
 

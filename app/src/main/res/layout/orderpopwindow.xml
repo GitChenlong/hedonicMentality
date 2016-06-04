@@ -69,7 +69,6 @@
             android:padding="15dp"
             android:layout_below="@+id/wl_ll"
             >
-
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

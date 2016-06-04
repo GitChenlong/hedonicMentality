@@ -25,19 +25,13 @@ import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.bean.AddressBean;
 import com.sage.hedonicmentality.fragment.BaseFragment;
-import com.sage.hedonicmentality.fragment.account.FragmentBirthday;
-import com.sage.hedonicmentality.fragment.account.FragmentSex;
 import com.sage.hedonicmentality.ui.ActivityMe;
 import com.sage.hedonicmentality.ui.simple.BreathSetting;
 import com.sage.hedonicmentality.utils.Contact;
 import com.sage.hedonicmentality.utils.GsonTools;
 import com.sage.hedonicmentality.utils.SharedPreferencesHelper;
 import com.sage.hedonicmentality.utils.Util;
-import com.sage.hedonicmentality.utils.UtilSnackbar;
 import com.sage.hedonicmentality.view.SelectAdressPopupWindow;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

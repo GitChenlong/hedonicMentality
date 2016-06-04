@@ -2,7 +2,6 @@ package com.sage.hedonicmentality.fragment.Me;
 
 import android.content.Context;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,13 +23,10 @@ import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.bean.HMRecord;
 import com.sage.hedonicmentality.fragment.BaseFragment;
 import com.sage.hedonicmentality.ui.ActivityMe;
-import com.sage.hedonicmentality.utils.Contact;
 import com.sage.hedonicmentality.utils.GsonTools;
-import com.sage.hedonicmentality.utils.SharedPreferencesHelper;
 import com.sage.hedonicmentality.utils.TimeUtil;
 import com.sage.hedonicmentality.utils.Util;
 import com.sage.hedonicmentality.utils.UtilSnackbar;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;

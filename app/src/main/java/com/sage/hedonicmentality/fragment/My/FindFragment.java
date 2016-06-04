@@ -1,26 +1,17 @@
 package com.sage.hedonicmentality.fragment.My;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,11 +24,9 @@ import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.app.NavigationAc;
 import com.sage.hedonicmentality.fragment.BaseFragment;
-import com.sage.hedonicmentality.view.MyGridView;
 import com.sage.hedonicmentality.view.PullToRefreshLayout;
 import com.sage.hedonicmentality.view.PullableGridView;
 import com.sage.hedonicmentality.view.PullableScrollView;
-import com.sage.hedonicmentality.widget.CatalogPopupWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -158,13 +147,15 @@ public class FindFragment extends BaseFragment {
         }
     }
 
-    private int UPDATAPAGERVIEW =1;
+    private int UPDATAPAGERVIEW =1111;
     Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case 1:
-                    mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+                case 1111:
+                    if (mViewPager!=null) {
+                        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+                    }
                     break;
             }
             }
