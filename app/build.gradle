@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.sage.hedonicmentality"
-        minSdkVersion 18
+        minSdkVersion 19
         targetSdkVersion 22
         versionCode 3
         versionName "2.0"
@@ -82,12 +82,12 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.jakewharton:butterknife:7.0.1'
-    /** 注解库 地址：https://github.com/JakeWharton/butterknife   */
+    /** 注解库 地址：https://github.com/JakeWharton/butterknife       */
     compile 'com.android.support:design:22.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    /** 图片加载库 http://square.github.io/picasso  */
+    /** 图片加载库 http://square.github.io/picasso      */
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-    /** 状态栏颜色改变 https://github.com/jgilfelt/SystemBarTint  */
+    /** 状态栏颜色改变 https://github.com/jgilfelt/SystemBarTint      */
     compile 'com.jiechic.library:xUtils:2.6.14'
     compile project(':libimagechoose')
     compile project(':libwheelview')
@@ -95,5 +95,14 @@ dependencies {
     compile 'org.simple:androideventbus:1.0.5'
     compile files('libs/Yuntx_FullLib_v5.2.0r2.jar')
     compile files('libs/alipaySDK-20150602.jar')
+    compile files('libs/MobCommons-2016.0426.1819.jar')
+    compile files('libs/MobTools-2016.0426.1819.jar')
+    compile files('libs/ShareSDK-Core-2.7.2.jar')
+    compile files('libs/ShareSDK-QQ-2.7.2.jar')
+    compile files('libs/ShareSDK-QZone-2.7.2.jar')
+    compile files('libs/ShareSDK-Wechat-2.7.2.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.7.2.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.7.2.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.7.2.jar')
 }
 

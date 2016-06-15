@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
 
+import com.sage.hedonicmentality.utils.SPHelper;
+
 
 /**
  * Created by Administrator on 2015/10/29.
@@ -73,7 +75,7 @@ public class TimesView extends View {
     }
     public static void setDates(String[] date) {
         dates = date;
-        mMaxValue=date.length;
+        mMaxValue=date.length-1;
     }
     private GradientDrawable createBackground() {
         float strokeWidth = 4 * mDensity; // 边框宽度
@@ -125,7 +127,7 @@ public class TimesView extends View {
             return;
         }
         drawScaleLine(canvas);
-        getValue();
+        SPHelper.putDefaultInt(getContext(), SPHelper.KEY_TIME_VALUE, (int) getValue());
 //         drawWheel(canvas);
 //        drawMiddleLine(canvas);
     }
@@ -156,7 +158,7 @@ public class TimesView extends View {
         textPaint.setTextSize(TEXT_SIZE * mDensity);
 
         TextPaint centerText = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        centerText.setTextSize(15 * mDensity);
+        centerText.setTextSize(20 * mDensity);
         centerText.setColor(Color.GREEN);
 
 
@@ -174,13 +176,13 @@ public class TimesView extends View {
             if (yPosition + getPaddingBottom()< mHeight) {
 //
                 if ((mValue + i) % 1 == 0) {
-                    if (mValue + i >= mMaxValue || mValue + i < minValue) {
+                    if (mValue + i > mMaxValue || mValue + i < minValue) {
 //
                     } else {
                         if (mValue + i != mValue) {
-                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
+                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 4, yPosition - (textWidth * numSize / 2) + 30, textPaint);
                         } else {
-                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, centerText);
+                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 4-20, yPosition - (textWidth * numSize / 2) + 30, centerText);
                         }
                     }
                 }
@@ -188,13 +190,13 @@ public class TimesView extends View {
             yPosition = (height / 2 - mMoveY) - i * mLineDivider * mDensity;
             if (yPosition > getPaddingTop()) {
                 if ((mValue - i) % 1 == 0) {
-                    if (mValue - i>=mMaxValue||mValue - i<minValue) {
+                    if (mValue - i>mMaxValue||mValue - i<minValue) {
 //
                     }else {
                         if ((mValue - i) != mValue) {
-                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
+                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 4, yPosition - (textWidth * numSize / 2) + 30, textPaint);
                         } else {
-                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, centerText);
+                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 4-20, yPosition - (textWidth * numSize / 2) + 30, centerText);
 //
                         }
                     }
@@ -355,17 +357,11 @@ public class TimesView extends View {
         int roundMoveY = Math.round(mMoveY / (mLineDivider * mDensity));
 
         mValue = mValue + roundMoveY;
-        mValue = mValue <= 0 ? 0 : mValue;
+        mValue = mValue <= minValue ? minValue : mValue;
         mValue = mValue > mMaxValue ? mMaxValue : mValue;
-
-//        mValue = mValue + roundMove;
-//        mValue = mValue <= 0 ? 0 : mValue;
-//        mValue = mValue > mMaxValue ? mMaxValue : mValue;
 
         mLastY = 0;
         mMoveY= 0;
-//        mLastX = 0;
-//        mMove = 0;
 
         notifyValueChange();
         postInvalidate();

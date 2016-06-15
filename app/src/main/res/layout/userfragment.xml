@@ -3,16 +3,49 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/ll_user"
+    android:background="@color/bg_color"
+    android:clickable="true"
     >
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:background="@color/green"
+        android:background="@color/green_essential_colour"
         android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
         >
-
+        <RelativeLayout
+            android:id="@+id/ll_not_logged_in"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:paddingRight="40dp"
+            android:paddingLeft="10dp"
+            >
+            <com.sage.hedonicmentality.widget.CircleImageView
+                android:id="@+id/users"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/personage"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/selector_white"
+                android:textSize="@dimen/activity_horizontal_margin"
+                android:text="@string/not_logged_in_s"
+                android:layout_marginTop="2dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/users"
+                android:layout_marginLeft="10dp"
+                />
+            </RelativeLayout>
         <LinearLayout
             android:id="@+id/ll_photo"
             android:layout_width="wrap_content"
@@ -23,6 +56,7 @@
             android:orientation="vertical"
             android:paddingRight="40dp"
             android:paddingLeft="40dp"
+            android:visibility="gone"
             >
         <com.sage.hedonicmentality.widget.CircleImageView
             android:layout_width="50dp"
@@ -39,6 +73,7 @@
                 android:layout_marginTop="2dp"
                 />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="0dp"
@@ -54,16 +89,16 @@
                 android:gravity="center"
                 >
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@mipmap/avatar_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/order"
                     />
                 <TextView
-                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/myorder"
-                    android:textSize="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/txt_16sp"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/selector_white"
                     />
 
@@ -77,17 +112,17 @@
                 android:gravity="center"
                 >
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@mipmap/avatar_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/mes"
                     />
                 <TextView
-                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/myhealth"
-                    android:textSize="@dimen/activity_horizontal_margin"
                     android:textColor="@color/selector_white"
+                    android:textSize="@dimen/txt_16sp"
+                    android:layout_marginTop="5dp"
                     />
 
             </LinearLayout>
@@ -100,17 +135,17 @@
                 android:gravity="center"
                 >
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@mipmap/avatar_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/card"
                     />
                 <TextView
-                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/discount"
-                    android:textSize="@dimen/activity_horizontal_margin"
                     android:textColor="@color/selector_white"
+                    android:textSize="@dimen/txt_16sp"
+                    android:layout_marginTop="5dp"
                     />
             </LinearLayout>
 
@@ -143,7 +178,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@mipmap/avatar_1"
+                    android:src="@mipmap/follow"
                     />
                 <TextView
                     android:layout_width="fill_parent"
@@ -151,9 +186,10 @@
                     android:text="@string/myguanzhu"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
-                    android:textColor="@color/line_black"
-                    android:drawableRight="@mipmap/ic_forward"
+                    android:drawableRight="@mipmap/more"
                     android:paddingRight="10dp"
+                    android:textColor="@color/txt_big_headline_color"
+                    android:textSize="@dimen/txt_16sp"
                     />
 
             </LinearLayout>
@@ -173,7 +209,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@mipmap/avatar_1"
+                    android:src="@mipmap/message"
                     />
                 <TextView
                     android:layout_width="fill_parent"
@@ -181,9 +217,10 @@
                     android:text="@string/mymessge"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
-                    android:textColor="@color/line_black"
-                    android:drawableRight="@mipmap/ic_forward"
+                    android:drawableRight="@mipmap/more"
                     android:paddingRight="10dp"
+                    android:textColor="@color/txt_big_headline_color"
+                    android:textSize="@dimen/txt_16sp"
                     />
 
             </LinearLayout>
@@ -206,7 +243,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@mipmap/avatar_1"
+                    android:src="@mipmap/set"
                     />
                 <TextView
                     android:layout_width="fill_parent"
@@ -214,9 +251,10 @@
                     android:text="@string/setting"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
-                    android:textColor="@color/line_black"
-                    android:drawableRight="@mipmap/ic_forward"
+                    android:drawableRight="@mipmap/more"
                     android:paddingRight="10dp"
+                    android:textColor="@color/txt_big_headline_color"
+                    android:textSize="@dimen/txt_16sp"
                     />
 
             </LinearLayout>
@@ -236,7 +274,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@mipmap/avatar_1"
+                    android:src="@mipmap/question"
                     />
                 <TextView
                     android:layout_width="fill_parent"
@@ -244,9 +282,10 @@
                     android:text="@string/feedback"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
-                    android:textColor="@color/line_black"
-                    android:drawableRight="@mipmap/ic_forward"
+                    android:drawableRight="@mipmap/more"
                     android:paddingRight="10dp"
+                    android:textColor="@color/txt_big_headline_color"
+                    android:textSize="@dimen/txt_16sp"
                     />
 
             </LinearLayout>

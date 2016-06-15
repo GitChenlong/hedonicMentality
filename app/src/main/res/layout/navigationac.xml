@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
     >
     <FrameLayout
         android:id="@+id/maxfl"
@@ -16,14 +17,14 @@
                 android:id="@+id/fl"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="8"
+                android:layout_weight="10"
                 >
             </FrameLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@color/hui"
+                android:background="@color/bg_color"
                 >
                 <LinearLayout
                     android:id="@+id/ll_find"
@@ -34,14 +35,18 @@
                     android:gravity="center"
                     >
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@mipmap/avatar_1"
+                        android:id="@+id/iv_find"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/table_find_normal"
                         />
                     <TextView
+                        android:id="@+id/tv_find"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/find"
+                        android:textSize="@dimen/txt_16sp"
+                        android:textColor="@color/txt_content_color"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -53,14 +58,18 @@
                     android:gravity="center"
                     >
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@mipmap/avatar_1"
+                        android:id="@+id/iv_consult"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/talk_normal"
                         />
                     <TextView
+                        android:id="@+id/tv_consult"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/zixun"
+                        android:textSize="@dimen/txt_16sp"
+                        android:textColor="@color/txt_content_color"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -72,14 +81,18 @@
                     android:gravity="center"
                     >
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@mipmap/avatar_1"
+                        android:id="@+id/iv_user"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/table_mine_normal"
                         />
                     <TextView
+                        android:id="@+id/tv_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/user"
+                        android:textSize="@dimen/txt_16sp"
+                        android:textColor="@color/txt_content_color"
                         />
                 </LinearLayout>
             </LinearLayout>

@@ -2,7 +2,9 @@ package com.sage.hedonicmentality.fragment.My;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,9 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.utils.Contact;
+import com.sage.hedonicmentality.utils.Util;
 import com.yuntongxun.ecsdk.ECDevice;
 import com.yuntongxun.ecsdk.ECError;
 import com.yuntongxun.ecsdk.ECInitParams;
@@ -22,6 +27,9 @@ import com.yuntongxun.ecsdk.ECVoIPSetupManager;
 import com.yuntongxun.ecsdk.SdkErrorCode;
 import com.yuntongxun.ecsdk.VideoRatio;
 import com.yuntongxun.ecsdk.voip.video.ECCaptureView;
+
+import java.util.Comparator;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,13 +45,20 @@ public class VideoCallFragment extends Fragment {
     ECCaptureView sv_user;
     @Bind(R.id.phone)
     EditText phone;
+    private String mCallId;
+    private UserFragment userFragment;
+    public  static int CAMERA_PREPOSITION = 0;//前置摄像头
+    public  static int CAMERA_POSTPOSITION = 1;//后置
+    public  static int CAPABILITYINDEX = 7;//摄像头支持的分辨率index
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = View.inflate(getActivity(), R.layout.videocallfragment,null);
+        View view = View.inflate(getActivity(), R.layout.videocallfragment, null);
         ButterKnife.bind(this, view);
+        userFragment = (UserFragment)getActivity().getSupportFragmentManager().findFragmentByTag("UserFragment");
         initSDK();
-
         return view;
 
     }
@@ -58,13 +73,15 @@ public class VideoCallFragment extends Fragment {
 
     @OnClick({R.id.callvideo})
     public void videoCall(View view) {
-        if (view.getId()==R.id.callvideo&&!TextUtils.isEmpty(phone.getText().toString())) {
+        if (view.getId()==R.id.callvideo&& !TextUtils.isEmpty(phone.getText().toString())) {
             ECDevice.getECVoIPSetupManager().getCameraInfos();
             ECVoIPSetupManager setupManager = ECDevice.getECVoIPSetupManager();
             setupManager.setVideoBitRates(2048);
             setupManager.setCodecEnabled(ECVoIPSetupManager.Codec.Codec_G729, true);
+            ECDevice.getECVoIPSetupManager().selectCamera(CAMERA_PREPOSITION, CAPABILITYINDEX, Util.getFps(getActivity()), null, true);
             ECDevice.getECVoIPSetupManager().setVideoView(sv_teacher, sv_user);
-            String meesage = ECDevice.getECVoIPCallManager().makeCall(ECVoIPCallManager.CallType.VIDEO,phone.getText().toString());
+            mCallId =phone.getText().toString();
+            String meesage = ECDevice.getECVoIPCallManager().makeCall(ECVoIPCallManager.CallType.VIDEO,mCallId);
         }
     }
     public void initSDK(){
@@ -75,9 +92,9 @@ public class VideoCallFragment extends Fragment {
                 public void onInitialized() {
                     // SDK已经初始化成功
                     Log.e("EC-login", "初始化成功" );
-//                    Intent intent = new Intent(MainActivity.this, IncomingCallActivity.class);
-//                    PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//                    ECDevice.setPendingIntent(pendingIntent);
+                    Intent intent = new Intent(getActivity(), IncomingCallActivity.class);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    ECDevice.setPendingIntent(pendingIntent);
                     sdk();
                 }
 
@@ -100,11 +117,10 @@ public class VideoCallFragment extends Fragment {
         //        第二步：设置注册参数、设置通知回调监听
         ECInitParams params = ECInitParams.createParams();
         //自定义登录方式：
-        params.setUserid("147258369");
-//        params.setAppKey("8a48b5515493a1b70154c278d9c92e9b");
-//        params.setToken("30ef0d9cf8532f9431be1c01dad7e639");
-        params.setAppKey("8a48b5515427d27601542d0afa4106f7");
-        params.setToken("8f2833ff1378d5be6b630a398e18d1af");
+//        params.setUserid(userFragment.muserinfo.getUserid());
+        params.setUserid("18684642028");
+        params.setAppKey(Contact.SH_KEY);
+        params.setToken(Contact.SH_TOKEN);
         params.setAuthType(ECInitParams.LoginAuthType.NORMAL_AUTH);
         // 1代表用户名+密码登陆（可以强制上线，踢掉已经在线的设备）
         // 2代表自动重连注册（如果账号已经在其他设备登录则会提示异地登陆）
@@ -190,6 +206,7 @@ public class VideoCallFragment extends Fragment {
                             Log.e("EC-call", "本次呼叫失败" );
                             break;
                         case ECCALL_RELEASED:
+                            ECDevice.getECVoIPCallManager().releaseCall(mCallId);
                             Log.e("EC-call", "通话释放[完成一次呼叫]" );
                             break;
                         default:
@@ -206,5 +223,11 @@ public class VideoCallFragment extends Fragment {
             // 判断注册参数是否正确
             ECDevice.login(params);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ECDevice.getECVoIPCallManager().releaseCall(mCallId);
     }
 }

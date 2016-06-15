@@ -9,6 +9,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="300dp"
+        android:scrollbars="none"
         >
     </ListView>
     <ImageView
@@ -21,6 +22,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="300dp"
+        android:scrollbars="none"
         >
     </ListView>
 </LinearLayout>

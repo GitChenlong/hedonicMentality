@@ -29,6 +29,10 @@ public class SPHelper {
     public static final String KEY_SCENE_JS="scene_jsname";/**获得js方法名字名字*/
     public static final String KEY_SCENE_JSHX="scene_jshx";/**获得呼吸频率的js方法*/
 
+    public static final String KEY_DATE_VALUE="key_date_value";/**获得dattview的值*/
+    public static final String KEY_TIME_VALUE="key_time_value";/**获得timeview的值*/
+    public static final String WINDOW_TOP_HEIGHT="window_top_height";/**获得屏幕状态栏高度*/
+
 
     public static SharedPreferences getDefaultSP(Context context){
         return context.getSharedPreferences(NAME_DEFAULT,Context.MODE_PRIVATE);

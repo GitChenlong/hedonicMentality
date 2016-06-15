@@ -2,9 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/ll_techerdetails"
-    android:background="@color/selector_white"
+    android:background="@color/line_black"
+    android:clickable="true"
     >
+    <LinearLayout
+        android:id="@+id/ll_techerdetails"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_color"
+        >
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
@@ -15,18 +23,21 @@
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
+            android:background="@color/grays"
             >
            <ImageView
                android:id="@+id/iv_back"
-               android:layout_width="20dp"
-               android:layout_height="20dp"
-               android:src="@mipmap/avatar_1"
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:src="@mipmap/back"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="25dp"
                />
             <ImageView
                 android:id="@+id/iv_intent"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/avatar_1"
+                android:src="@mipmap/play"
                 android:layout_centerInParent="true"
                 />
 
@@ -60,7 +71,7 @@
                             android:id="@+id/tv_teachername"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/green"
+                            android:textColor="@color/green_essential_colour"
                             android:text="郑秀晶"
                             android:textSize="@dimen/teacher_name_size"
                             />
@@ -81,6 +92,8 @@
                         android:ellipsize="end"
                         android:text="ash是啥估价师几个卡时间 干啥看吧估计设计共和时间噶花生价格和按设计规沙发沙发发啊艾弗森啊沙发上沙发 划按设计感收购价灰色轨迹好"
                         android:padding="5dp"
+                        android:textSize="@dimen/txt_14sp"
+                        android:textColor="@color/txt_content_color"
                         />
 
                 </LinearLayout>
@@ -101,6 +114,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/money"
                         android:layout_centerInParent="true"
+                        android:textSize="@dimen/txt_12sp"
+                        android:textColor="@color/selector_white"
                         />
                 </RelativeLayout>
 
@@ -120,16 +135,18 @@
                     android:gravity="center"
                     >
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@mipmap/avatar_1"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/orderss"
                         />
                     <TextView
                         android:id="@+id/tv_indent"
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:textColor="@color/text_orange"
+                        android:textColor="@color/orange_secondary_color"
                         android:text="21531"
+                        android:textSize="@dimen/txt_10sp"
+                        android:layout_marginLeft="1dp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -141,16 +158,18 @@
                     android:gravity="center"
                     >
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@mipmap/avatar_1"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/smile"
                         />
                     <TextView
                         android:id="@+id/tv_love"
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:textColor="@color/text_orange"
+                        android:textColor="@color/orange_secondary_color"
                         android:text="21531"
+                        android:textSize="@dimen/txt_10sp"
+                        android:layout_marginLeft="1dp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -162,16 +181,18 @@
                     android:gravity="center"
                     >
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:src="@mipmap/avatar_1"
                         />
                     <TextView
                         android:id="@+id/tv_flower"
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:textColor="@color/text_orange"
+                        android:textColor="@color/orange_secondary_color"
                         android:text="21531"
+                        android:textSize="@dimen/txt_10sp"
+                        android:layout_marginLeft="1dp"
                         />
                 </LinearLayout>
 
@@ -181,7 +202,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.5"
+        android:layout_weight="2"
         android:orientation="vertical"
         android:layout_marginTop="10dp"
         >
@@ -197,18 +218,21 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="80dp"
                 android:layout_marginRight="10dp"
+                android:gravity="center_horizontal"
                 >
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/s_details"
                     android:gravity="center"
+                    android:textSize="@dimen/txt_16sp"
+                    android:textColor="@color/txt_content_color"
                     />
                 <ImageView
                     android:layout_marginTop="10dp"
-                    android:layout_width="fill_parent"
+                    android:layout_width="40dp"
                     android:layout_height="1dp"
-                    android:background="@color/green"
+                    android:background="@color/green_essential_colour"
                     android:id="@+id/de_line"
                     />
             </LinearLayout>
@@ -220,18 +244,21 @@
                 android:orientation="vertical"
                 android:layout_marginRight="80dp"
                 android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
                 >
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/s_evaluate"
                     android:gravity="center"
+                    android:textSize="@dimen/txt_16sp"
+                    android:textColor="@color/txt_content_color"
                     />
                 <ImageView
                     android:layout_marginTop="10dp"
-                    android:layout_width="fill_parent"
+                    android:layout_width="40dp"
                     android:layout_height="1dp"
-                    android:background="@color/green"
+                    android:background="@color/green_essential_colour"
                     android:id="@+id/ev_line"
                     android:visibility="invisible"
                     />
@@ -262,12 +289,13 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/avatar_1"
+                android:src="@mipmap/share"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/s_share"
+                android:layout_marginTop="5dp"
                 />
 
         </LinearLayout>
@@ -282,12 +310,13 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/avatar_1"
+                android:src="@mipmap/follow_normal"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/s_attention"
+                android:layout_marginTop="5dp"
                 />
 
         </LinearLayout>
@@ -298,7 +327,7 @@
             android:layout_height="fill_parent"
             android:orientation="vertical"
             android:gravity="center"
-            android:background="@color/text_orange"
+            android:background="@color/orange_secondary_color"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -311,5 +340,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
+    </LinearLayout>
 </LinearLayout>

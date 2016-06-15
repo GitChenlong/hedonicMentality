@@ -126,7 +126,7 @@ public class BeGoodAtPopwindow extends PopupWindow {
             ImageView iv = (ImageView)convertView.findViewById(R.id.iv_yes);
             name.setText(mList.get(position));
             if (indicate.getPostion()==position) {
-                name.setTextColor(mContext.getResources().getColor(R.color.green));
+                name.setTextColor(mContext.getResources().getColor(R.color.green_essential_colour));
                 iv.setVisibility(View.VISIBLE);
             }else{
                 name.setTextColor(mContext.getResources().getColor(R.color.grays));

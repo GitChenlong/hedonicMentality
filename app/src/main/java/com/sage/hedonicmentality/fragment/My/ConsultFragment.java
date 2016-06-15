@@ -36,6 +36,7 @@ import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2016/5/17.
+ * 咨询
  */
 public class ConsultFragment extends Fragment {
     @Bind(R.id.iv_two_dimension_code)
@@ -66,7 +67,7 @@ public class ConsultFragment extends Fragment {
         return view;
     }
 
-    @OnClick({R.id.tv_time,R.id.tv_be_adept_at,R.id.tv_screen,R.id.iv_two_dimension_code})
+    @OnClick({R.id.tv_time,R.id.tv_be_adept_at,R.id.tv_screen,R.id.iv_two_dimension_code,R.id.ll_search})
     public void consultOnclick(View view){
         switch (view.getId()){
             case R.id.iv_two_dimension_code: //二维码
@@ -82,8 +83,12 @@ public class ConsultFragment extends Fragment {
             case R.id.tv_screen://筛选
                 showScreenPop();
                 break;
+            case R.id.ll_search://搜索
+            NavigationAc.addFr(new SearchFragment(),"SearchFragment",getFragmentManager(),1);
+                break;
         }
     }
+
     public void showPopBeGoodAt(){
         BeGoodAtPopwindow popwindow = new BeGoodAtPopwindow(getActivity(),mHandler,begoodatIn);
         popwindow.showAsDropDown(getView().findViewById(R.id.tv_be_adept_at));

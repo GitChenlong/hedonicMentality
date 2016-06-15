@@ -17,4 +17,6 @@ public class Contact {
     public static final String SH_Education= "education";
     public static final String SH_SUMHP= "sumhp";
     public static final String SH_JLMD5 = "jlmd5";
+    public static final String SH_TOKEN= "8f2833ff1378d5be6b630a398e18d1af";
+    public static final String SH_KEY = "8a48b5515427d27601542d0afa4106f7";
 }

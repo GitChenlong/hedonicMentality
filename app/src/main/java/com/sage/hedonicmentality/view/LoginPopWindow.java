@@ -32,6 +32,7 @@ public class LoginPopWindow extends PopupWindow implements View.OnClickListener{
     private ViewFlipper viewfipper;
     public  LoginPopWindow(Activity context,Handler Handler){
         super(context);
+        setAnimationStyle(R.style.DiaScaleAnimationTheme);
         mcontext =context;
         mHandler= Handler;
         LayoutInflater inflater = (LayoutInflater) context

@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.text.format.Time;
 import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,6 +26,15 @@ import com.sage.hedonicmentality.view.LoadingDiaLog;
 
 import java.io.File;
 import java.util.Calendar;
+import java.util.HashMap;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.tencent.qzone.QZone;
 
 /**
  * Created by Sage on 2015/7/16.
@@ -36,10 +46,84 @@ public class Util {
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
+    public static int getFps(Context context){
+        WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+        int with = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+        double fps = with * height * 25 * 2 * 0.07 / 1000;
+        return (int)fps;
+    }
+
+
 //    public static boolean isPhone(String number){
 //        return !TextUtils.isEmpty(number) && number.length() == 11 && android.util.Patterns.PHONE.matcher(number).matches();
 //    }
+    public static  void showShare(final Context context) {
+    ShareSDK.initSDK(context);
+    OnekeyShare oks = new OnekeyShare();
+//    String url = Http.Share_URL+"share/music?article_id="+rArticle.getArticle_id()+"&id="+rArticle.getId();
+    oks.disableSSOWhenAuthorize();
+    oks.setTitle("setTitle");
+    oks.setText("setText");
+    oks.setSite("快乐心理");
+    oks.setTitleUrl("setTitleUrl");
+    oks.setUrl("setUrl");
+//    if (rArticle.getImg_url().equals("1")||rArticle.getImg_url().equals("")) {
+//        oks.setImageUrl(article.getIcon_url());
+//    }else {
+//        oks.setImageUrl(); //图片
+//    }
+//    oks.setMusicUrl(rArticle.getFile_url());
+    oks.setShareContentCustomizeCallback(new cn.sharesdk.onekeyshare.ShareContentCustomizeCallback() {
+        @Override
+        public void onShare(Platform platform, Platform.ShareParams paramsToShare) {
+            if (SinaWeibo.NAME.equals(platform.getName())) {
+//                if (FrFirstFloor.musicList.size() > 0) {//微博
+//                    RrticleMusic music = FrFirstFloor.musicList.get(FrFirstFloor.MusicPostion);
+//                    String content = "我正在收听《" + FrFirstFloor.article.getTitle() + "》--" + FrFirstFloor.musicList.get(FrFirstFloor.MusicPostion).getTitle() + "(分享自@瑞德心理 有声心理学)";
+//                    String url = Http.Share_URL+"share/music?article_id=" + music.getArticle_id() + "&id=" + music.getId();
+//                    paramsToShare.setText(content + url);
+//                    paramsToShare.setTitle(FrFirstFloor.article.getTitle());
+//                    paramsToShare.setUrl(url);
+//                    if (music.getImg_url().equals("1")||music.getImg_url().equals("")) {
+//                        paramsToShare.setImageUrl(FrFirstFloor.article.getIcon_url());
+//                    } else {
+//                        paramsToShare.setImageUrl(music.getImg_url());
+//                    }
+//                    paramsToShare.setSite("瑞德心理");
+//                }
+            }
+        }
+    });
+    oks.setCallback(new OneKeyShareCallback(context));
+    Platform sinaweibo = ShareSDK.getPlatform(context, SinaWeibo.NAME);
+    sinaweibo.setPlatformActionListener(new OneKeyShareCallback(context));
+    Platform qq = ShareSDK.getPlatform(context, QQ.NAME);
+    qq.setPlatformActionListener(new OneKeyShareCallback(context));
+    Platform qzone = ShareSDK.getPlatform(context, QZone.NAME);
+    qzone.setPlatformActionListener(new OneKeyShareCallback(context));
+    oks.show(context);
+}
+    private static class OneKeyShareCallback implements PlatformActionListener {
+        private Context context;
+        public OneKeyShareCallback(Context context){
+            this.context=context;
+        }
+        @Override
+        public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+            Toast.makeText(this.context,"分享成功",Toast.LENGTH_SHORT).show();
+        }
 
+        @Override
+        public void onError(Platform platform, int i, Throwable throwable) {
+            Toast.makeText(this.context,"分享失败",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCancel(Platform platform, int i) {
+            Toast.makeText(this.context,"取消分享",Toast.LENGTH_SHORT).show();
+        }
+    }
     /**
      * 验证手机格式
      */

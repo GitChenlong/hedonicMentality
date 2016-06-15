@@ -5,9 +5,17 @@
     android:id="@+id/ll_ceshi"
     android:background="@color/selector_white"
     >
-    <ScrollView
+    <ListView
+        android:id="@+id/lv_order"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
+    </ListView>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"
+        >
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"

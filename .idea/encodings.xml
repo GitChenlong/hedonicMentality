@@ -2,11 +2,12 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/sage/hedonicmentality/adapter/CommonAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/sage/hedonicmentality/adapter/SearchAdapter.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/sage/hedonicmentality/adapter/ViewHolder.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/sage/hedonicmentality/bean/Bean.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/sage/hedonicmentality/bean/SearchBean.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/sage/hedonicmentality/widget/SearchView.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/search_icon.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/search_icon.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/item_bean_list.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/search_layout.xml" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

@@ -11,9 +11,11 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,13 +34,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 /**
- * Created by Administrator on 2016/5/17.
+ * Created by Administrator on 2016/5/17
+ * 发现
  */
 public class FindFragment extends BaseFragment {
     @Bind(R.id.refresh_view)
     PullToRefreshLayout refresh_view;
+    @Bind(R.id.layout_actionbar)
+    RelativeLayout layout_actionbar;
     @Bind(R.id.gd)
     PullableGridView gridView;
     @Bind(R.id.ll_point_group)
@@ -49,6 +55,8 @@ public class FindFragment extends BaseFragment {
     ViewPager mViewPager;
     @Bind(R.id.scrollview)
     PullableScrollView scrollview;
+    @Bind(R.id.inotification_alert)
+    ImageView inotification_alert;
     private List<String > list=new ArrayList<>();
     private GridAdapter adapter;
 
@@ -85,6 +93,18 @@ public class FindFragment extends BaseFragment {
         adapter = new GridAdapter(getActivity(),list);
         gridView.setAdapter(adapter);
         setScrollviewPosition();
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                TeacherDetailsFragment tf =(TeacherDetailsFragment)getActivity().getSupportFragmentManager().findFragmentByTag("TeacherDetailsFragment");
+                if (tf!=null) {
+                    NavigationAc.addFr(tf,"TeacherDetailsFragment",getFragmentManager(),1);
+                }else{
+                    NavigationAc.addFr(new TeacherDetailsFragment(),"TeacherDetailsFragment",getFragmentManager(),1);
+                }
+            }
+        });
 
         //设置Scrollview 初始位置
         //设置textDrawble
@@ -139,7 +159,14 @@ public class FindFragment extends BaseFragment {
         }).start();
     }
 
-
+    @OnClick({R.id.inotification_alert})
+    public void findOnclick(View v){
+        switch (v.getId()){
+            case R.id.inotification_alert:
+                NavigationAc.addFr(new InotificationAlertFragment(),"InotificationAlertFragment",getFragmentManager(),1);
+                break;
+        }
+    }
 
     public void addList() {
         for (int i=0;i<9;i++) {
@@ -261,22 +288,6 @@ public class FindFragment extends BaseFragment {
                 if (convertView == null) {
                     convertView = View.inflate(mContext, R.layout.grid_item, null);
                 }
-                TextView tv = (TextView) convertView.findViewById(R.id.tv);
-                tv.setText("text" + position);
-                tv.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        // TODO Auto-generated method stub
-                        TeacherDetailsFragment tf =(TeacherDetailsFragment)getActivity().getSupportFragmentManager().findFragmentByTag("TeacherDetailsFragment");
-                        if (tf!=null) {
-                            NavigationAc.addFr(tf,"TeacherDetailsFragment",getFragmentManager(),1);
-                        }else{
-                            NavigationAc.addFr(new TeacherDetailsFragment(),"TeacherDetailsFragment",getFragmentManager(),1);
-                        }
-                        Toast.makeText(mContext, ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
-                    }
-                });
                 return convertView;
             }
         }

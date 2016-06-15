@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="15dp"
+                android:background="@color/grays"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_12sp"
+                android:textColor="@color/selector_white"
+                android:text="2016/11/15 18:30"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            >
+        <com.sage.hedonicmentality.widget.CircleImageView
+            android:id="@+id/users"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/personage"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="阿芳昂撒几个爱就开始给啊是警告说被高价收被高价收不干胶把数据库嘎嘣十几个"
+            android:textColor="@color/selector_white"
+            android:background="@color/green_essential_colour"
+            android:layout_marginLeft="10dp"
+            />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

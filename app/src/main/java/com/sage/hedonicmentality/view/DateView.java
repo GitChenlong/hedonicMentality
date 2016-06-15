@@ -43,6 +43,9 @@ import android.view.ViewConfiguration;
 import android.widget.Scroller;
 
 import com.lidroid.xutils.util.LogUtils;
+import com.sage.hedonicmentality.utils.Contact;
+import com.sage.hedonicmentality.utils.SPHelper;
+import com.sage.hedonicmentality.utils.SharedPreferencesHelper;
 
 
 /**
@@ -92,7 +95,7 @@ public class DateView extends View {
     }
     public static void setDates(String[] date) {
         dates = date;
-        mMaxValue=dates.length;
+        mMaxValue=dates.length-1;
     }
     private GradientDrawable createBackground() {
         float strokeWidth = 4 * mDensity; // 边框宽度
@@ -129,7 +132,14 @@ public class DateView extends View {
     public int getValue() {
         return mValue;
     }
-
+    /**
+     * 设置当前刻度值
+     *
+     * @return
+     */
+    public void setValue(int Value) {
+        this.mValue = Value;
+    }
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         mWidth = getWidth();
@@ -144,7 +154,8 @@ public class DateView extends View {
             return;
         }
         drawScaleLine(canvas);
-        getValue();
+        SPHelper.putDefaultInt(getContext(), SPHelper.KEY_DATE_VALUE, (int) getValue());
+//        SharedPreferencesHelper.getInstance().putString(Contact.SH_DAVALUE,  value);
 //         drawWheel(canvas);
 //        drawMiddleLine(canvas);
     }
@@ -175,7 +186,7 @@ public class DateView extends View {
         textPaint.setTextSize(TEXT_SIZE * mDensity);
 
         TextPaint centerText = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        centerText.setTextSize(15 * mDensity);
+        centerText.setTextSize(20 * mDensity);
         centerText.setColor(Color.GREEN);
 
 
@@ -193,13 +204,13 @@ public class DateView extends View {
             if (yPosition + getPaddingBottom()< mHeight) {
 //
                 if ((mValue + i) % 1 == 0) {
-                    if (mValue + i >= mMaxValue || mValue + i < minValue) {
+                    if (mValue + i >mMaxValue || mValue + i < minValue) {
 //
                     } else {
                         if (mValue + i != mValue) {
                             canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
                         } else {
-                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, centerText);
+                            canvas.drawText(String.valueOf(dates[mValue + i]), getWidth() / 2-20, yPosition - (textWidth * numSize / 2) + 30, centerText);
                         }
                     }
                 }
@@ -207,13 +218,13 @@ public class DateView extends View {
             yPosition = (height / 2 - mMoveY) - i * mLineDivider * mDensity;
             if (yPosition > getPaddingTop()) {
                 if ((mValue - i) % 1 == 0) {
-                    if (mValue - i>=mMaxValue||mValue - i<minValue) {
+                    if (mValue - i>mMaxValue||mValue - i<minValue) {
 //
                     }else {
                         if ((mValue - i) != mValue) {
                             canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, textPaint);
                         } else {
-                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 2, yPosition - (textWidth * numSize / 2) + 30, centerText);
+                            canvas.drawText(String.valueOf(dates[mValue - i]), getWidth() / 2-20, yPosition - (textWidth * numSize / 2) + 30, centerText);
 //
                         }
                     }
@@ -372,17 +383,13 @@ public class DateView extends View {
     private void countMoveEnd() {
         int roundMove = Math.round(mMove / (mLineDivider * mDensity));
         int roundMoveY = Math.round(mMoveY / (mLineDivider * mDensity));
-
+        Log.e("mValue","roundMoveY:"+roundMoveY);
         mValue = mValue + roundMoveY;
-        mValue = mValue <= 0 ? 0 : mValue;
+        mValue = mValue <= minValue ? minValue: mValue;
         mValue = mValue > mMaxValue ? mMaxValue : mValue;
-
-//        mValue = mValue + roundMove;
-//        mValue = mValue <= 0 ? 0 : mValue;
-//        mValue = mValue > mMaxValue ? mMaxValue : mValue;
-
         mLastY = 0;
         mMoveY= 0;
+        Log.e("mValue","mValue:"+mValue);
 //        mLastX = 0;
 //        mMove = 0;
 

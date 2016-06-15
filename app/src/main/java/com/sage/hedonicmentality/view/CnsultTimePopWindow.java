@@ -145,7 +145,7 @@ public class CnsultTimePopWindow extends PopupWindow {
                 TextView name = (TextView)convertView.findViewById(R.id.tv_name);
                 name.setText(mList.get(position));
                 if (indicate.getPostion()==position) {
-                    name.setTextColor(mContext.getResources().getColor(R.color.green));
+                    name.setTextColor(mContext.getResources().getColor(R.color.green_essential_colour));
                 }else{
                     name.setTextColor(mContext.getResources().getColor(R.color.grays));
                 }

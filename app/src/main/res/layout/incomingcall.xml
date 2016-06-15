@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/bt_yes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="yes"
+        />
+    <Button
+        android:id="@+id/bt_no"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="no"
+        />
+    <com.yuntongxun.ecsdk.voip.video.ECCaptureView
+        android:id="@+id/sv_teacher"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="6.0dip"
+        android:layout_marginLeft="6.0dip"
+        android:padding="2.0dip" >
+    </com.yuntongxun.ecsdk.voip.video.ECCaptureView>
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="状态"
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        />
+    <com.yuntongxun.ecsdk.voip.video.ECCaptureView
+        android:id="@+id/sv_user"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="6.0dip"
+        android:layout_marginLeft="6.0dip"
+        android:padding="2.0dip" >
+    </com.yuntongxun.ecsdk.voip.video.ECCaptureView>
+
+</LinearLayout>

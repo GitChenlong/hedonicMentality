@@ -64,5 +64,15 @@
     <color name="gre" >#3fa43b</color>
     <color name="ye" >#135f7f</color>
     <color name="hui" >#FAFAFA</color>
-    <color name="green">#30B569</color>
+
+    <color name="green_essential_colour">#15b66c</color>
+    <color name="orange_secondary_color">#ff9600</color>
+    <color name="red_secondary_color">#fd5521</color>
+    <color name="bg_color">#e6ebe8</color>
+
+    <color name="txt_big_headline_color">#171a18</color>
+    <color name="txt_content_color">#5c6661</color>
+    <color name="txt_annotation_color">#777777</color>
+
+
 </resources>

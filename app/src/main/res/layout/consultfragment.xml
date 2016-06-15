@@ -2,34 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/selector_white"
+    android:background="@color/bg_color"
     android:id="@+id/ll_consult"
     >
     <LinearLayout
+        android:paddingTop="25dp"
         android:id="@+id/ll_seek"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/green"
+        android:layout_weight="1.5"
+        android:background="@color/green_essential_colour"
         android:gravity="center_vertical"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
         >
         <LinearLayout
+            android:id="@+id/ll_search"
             android:layout_width="0dp"
             android:layout_weight="8"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             >
-            <EditText
+            <TextView
                 android:id="@+id/ed_search"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/guanbi"
+                android:layout_height="30dp"
+                android:drawableLeft="@mipmap/search"
                 android:hint="  请输入咨询师的姓名"
-                android:textSize="@dimen/activity_horizontal_margin"
                 android:textColor="#999999"
                 android:paddingLeft="10dp"
                 android:textColorHint="#c8c8c8"
+                android:textSize="@dimen/txt_14sp"
                 android:background="@color/selector_white"
+                android:gravity="center_vertical"
                 />
         </LinearLayout>
         <LinearLayout
@@ -40,9 +45,9 @@
             >
             <ImageView
                 android:id="@+id/iv_two_dimension_code"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/avatar_1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/scan"
                 />
         </LinearLayout>
 
@@ -52,40 +57,80 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/green"
+        android:background="@color/green_essential_colour"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         >
-        <TextView
-            android:id="@+id/tv_time"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
-            android:text="@string/zixuntime"
-            android:textColor="@color/selector_white"
             android:gravity="center"
-            android:drawableRight="@mipmap/arrow_right"
-            />
-        <TextView
-            android:id="@+id/tv_be_adept_at"
+            >
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/zixuntime"
+                android:textColor="@color/selector_white"
+                android:gravity="center"
+                android:textSize="@dimen/txt_14sp"
+                />
+            <ImageView
+                android:id="@+id/iv_time_fold"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/fold"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
-            android:text="@string/be_adept_at"
-            android:textColor="@color/selector_white"
             android:gravity="center"
-            android:drawableRight="@mipmap/arrow_right"
-            />
-        <TextView
-            android:id="@+id/tv_screen"
+            >
+            <TextView
+                android:id="@+id/tv_be_adept_at"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/be_adept_at"
+                android:textColor="@color/selector_white"
+                android:gravity="center"
+                android:textSize="@dimen/txt_14sp"
+                />
+            <ImageView
+                android:id="@+id/iv_be_adept_at_fold"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/fold"
+                android:layout_gravity="center_vertical"
+                />
+            </LinearLayout>
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
-            android:text="@string/screen"
-            android:textColor="@color/selector_white"
             android:gravity="center"
-            android:drawableRight="@mipmap/arrow_right"
-            />
+            >
+            <TextView
+                android:id="@+id/tv_screen"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/screen"
+                android:textColor="@color/selector_white"
+                android:gravity="center"
+                android:textSize="@dimen/txt_14sp"
+                />
+            <ImageView
+                android:id="@+id/iv_screen_fold"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/fold"
+                android:layout_gravity="center_vertical"
+                />
+            </LinearLayout>
+
     </LinearLayout>
     <ListView
         android:id="@+id/lv_zixun"

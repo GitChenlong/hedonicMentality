@@ -272,4 +272,39 @@
     <string name="not_list">没有更多了</string>
     <string name="setusername">确认</string>
     <string name="pull_to_refresh">下拉刷新</string>
+    <string name="not_logged_in_s">登录后可享受更多功能</string>
+    <string name="health_title">健康贴士</string>
+    <string name="discountstring">优惠卡劵</string>
+    <string name="myattention">我的关注</string>
+    <string name="meesagetiltlename">我的消息</string>
+    <string name="cleancache">清除缓存</string>
+    <string name="update">检查更新</string>
+    <string name="outlogin">退出登录</string>
+    <string name="settingtiltlename">设置</string>
+
+    <string name="question_one">Age has reached the end of the beginning of a word. May be guilty in his seems to passing a lot of different life became the appearance of the same day; May be back in the past, to oneself the paranoid weird belief disillusionment, these days, my mind has been very messy, in my mind constantly. Always feel oneself should go to do something, or write something. Twenty years of life trajectory deeply shallow, suddenly feel something, do it.
+        \n  Age has reached the end of the beginning of a word. May be guilty in his seems to passing a lot of different life became the appearance of the same day; May be back in the past, to oneself the paranoid weird belief disillusionment, these days, my mind has been very messy, in my mind constantly. Always feel oneself should go to do something, or write something. Twenty years of life trajectory deeply shallow, suddenly feel something, do it.
+        \n  Age has reached the end of the beginning of a word. May be guilty in his seems to passing a lot of different life became the appearance of the same day; May be back in the past, to oneself the paranoid weird belief disillusionment, these days, my mind has been very messy, in my mind constantly. Always feel oneself should go to do something, or write something. Twenty years of life trajectory deeply shallow, suddenly feel something, do it.
+ </string>
+    <string name="question_two">
+         Age has reached the end of the beginning of a word. May be guilty in his seems to passing a lot of different life became the appearance of the same day; May be back in the past, to oneself the paranoid weird belief disillusionment, these days, my mind has been very messy, in my mind constantly. Always feel oneself should go to do something, or write something. Twenty years of life trajectory deeply shallow, suddenly feel something, do it.
+    </string>
+    <string name="theclues">亲爱的快乐心理用户：\n您可以在这里跟我们留言，解决您在快乐心理碰到的任何问题。\n在您提问前可以先参考常见问题。</string>
+    <string name="booking_details">预约详情</string>
+    <string name="reservation_number">预约编号:</string>
+    <string name="visitor">来访者:</string>
+    <string name="sex">性别：</string>
+    <string name="real_name">真是姓名：</string>
+    <string name="age">年龄：</string>
+    <string name="best_education">最高学历：</string>
+    <string name="profession">职业：</string>
+    <string name="consult_direction">咨询方向:</string>
+    <string name="kunhuo">咨询原因及困惑：</string>
+    <string name="reservation_price">预约费用</string>
+    <string name="discount_coupon">优惠券</string>
+    <string name="disbursements">实付款：</string>
+    <string name="promisefeedback">失约反馈</string>
+    <string name="evaluate">立即评价</string>
+    <string name="evaluate_ed_hit">请写下你最真实的咨询体验，你的评价将为他人提供宝贵的参考！</string>
+    <string name="commit_evaluate">提交评价</string>
 </resources>

@@ -15,7 +15,11 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.app.NavigationAc;
 import com.sage.hedonicmentality.bean.AddressBean;
+import com.sage.hedonicmentality.utils.Contact;
+import com.sage.hedonicmentality.utils.SPHelper;
+import com.sage.hedonicmentality.utils.SharedPreferencesHelper;
 
 /**
  * Created by Administrator on 2016/5/27.
@@ -46,7 +50,6 @@ public class OrderPopWindow extends PopupWindow implements View.OnClickListener 
         viewfipper = new ViewFlipper(context);
         viewfipper.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
-
         wl_dates = (DateView)mMenuView.findViewById(R.id.wl_dates);
         wl_times = (TimesView)mMenuView.findViewById(R.id.wl_times);
         rl_ascertain = (RelativeLayout)mMenuView.findViewById(R.id.rl_ascertain);
@@ -62,6 +65,7 @@ public class OrderPopWindow extends PopupWindow implements View.OnClickListener 
         ColorDrawable dw = new ColorDrawable(0x00000000);
         this.setBackgroundDrawable(dw);
         this.update();
+
     }
 
     @Override
@@ -71,8 +75,11 @@ public class OrderPopWindow extends PopupWindow implements View.OnClickListener 
                 Message message = Message.obtain();
                 message.what = 8;
                 Bundle bundle = new Bundle();
-                String date = dateList[dateView.getValue()];
-                String time = timeList[timesView.getValue()];
+                NavigationAc ac = (NavigationAc)mcontext;
+                int datepostion = SPHelper.getDefaultInt(mcontext,SPHelper.KEY_DATE_VALUE,1);
+                int timepostion = SPHelper.getDefaultInt(mcontext,SPHelper.KEY_TIME_VALUE,1);
+                String date = dateList[datepostion];
+                String time = timeList[timepostion];
                 bundle.putString("date",date+"/"+time);
                 message.setData(bundle);
                 mHandler.sendMessage(message);

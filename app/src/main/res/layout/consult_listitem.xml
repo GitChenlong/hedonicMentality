@@ -34,9 +34,9 @@
                 android:id="@+id/tv_teachername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/green"
+                android:textColor="@color/green_essential_colour"
                 android:text="郑秀晶"
-                android:textSize="@dimen/teacher_name_size"
+                android:textSize="@dimen/txt_16sp"
                 />
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -52,11 +52,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:text="123456789"
+                        android:focusable="false"
+                        android:textSize="@dimen/txt_12sp"
                         />
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:text="123456789"
+                        android:focusable="false"
+                        android:textSize="@dimen/txt_12sp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -69,11 +73,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:text="123456789"
+                        android:focusable="false"
                         />
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:text="123456789"
+                        android:focusable="false"
                         />
                 </LinearLayout>
 
@@ -108,6 +114,8 @@
         android:ellipsize="end"
         android:text="ash是啥估价师几个卡时间 干啥看吧估计设计共和时间噶花生价格和按设计规沙发沙发发啊艾弗森啊沙发上沙发 划按设计感收购价灰色轨迹好"
         android:padding="10dp"
+        android:textColor="@color/txt_content_color"
+        android:textSize="@dimen/txt_12sp"
         />
     <LinearLayout
         android:layout_width="fill_parent"
@@ -129,8 +137,11 @@
                 android:id="@+id/tv_indent"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:textColor="@color/text_orange"
                 android:text="21531"
+                android:textColor="@color/orange_secondary_color"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_10sp"
+                android:layout_marginLeft="1dp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -149,7 +160,10 @@
                 android:id="@+id/tv_love"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_orange"
+                android:textColor="@color/orange_secondary_color"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_10sp"
+                android:layout_marginLeft="1dp"
                 android:text="21531"
                 />
         </LinearLayout>
@@ -169,7 +183,10 @@
                 android:id="@+id/tv_flower"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_orange"
+                android:textColor="@color/orange_secondary_color"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_10sp"
+                android:layout_marginLeft="1dp"
                 android:text="21531"
                 />
         </LinearLayout>

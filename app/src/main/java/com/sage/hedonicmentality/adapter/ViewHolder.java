@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by yetwish on 2015-05-11
- */
 
 public class ViewHolder {
 
@@ -19,19 +16,13 @@ public class ViewHolder {
     private Context mContext;
     private View mConvertView;
     private int mPosition;
-    /**
-     * init holder
-     */
+
     public ViewHolder(Context context, int layoutId, ViewGroup parent, int position) {
         mConvertView = LayoutInflater.from(context).inflate(layoutId,parent,false);
         mViews = new SparseArray<>();
         mPosition = position;
         mConvertView.setTag(this);
     }
-
-    /**
-     *  ªÒ»°viewHolder
-     */
     public static ViewHolder getHolder(Context context, View convertView,
                                        int layoutId, ViewGroup parent, int position) {
         if(convertView == null){
@@ -47,9 +38,6 @@ public class ViewHolder {
         return mConvertView;
     }
 
-    /**
-     * get view
-     */
     public <T extends View> T getView(int viewId){
         View view = mViews.get(viewId);
         if(view == null){
@@ -68,18 +56,12 @@ public class ViewHolder {
         return this;
     }
 
-    /**
-     *  set image res
-     */
     public ViewHolder setImageResource(int viewId,int resId){
         ImageView iv = getView(viewId);
         iv.setImageResource(resId);
         return this;
     }
 
-    /**
-     *  set image bitmap
-     */
     public ViewHolder setImageBitmap(int viewId,Bitmap bitmap){
         ImageView iv = getView(viewId);
         iv.setImageBitmap(bitmap);

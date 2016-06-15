@@ -440,4 +440,26 @@ public class Http {
         HttpUtils http = new HttpUtils();
         http.send(HttpRequest.HttpMethod.POST,Http.HTTP_URL_NEW+Http.HTTP_URL_NEW_ORDER,params,callBack);
     }
+    /**健康贴士*/
+    public static void getHealth(String user,String ps,RequestCallBack<String> callBack){
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("account",user);
+        params.addQueryStringParameter("password",ps);
+        params.addQueryStringParameter("version",version);
+        params.addQueryStringParameter("channel",channel);
+        params.addQueryStringParameter("client",android);
+        HttpUtils http = new HttpUtils();
+        http.send(HttpRequest.HttpMethod.POST,Http.HTTP_URL_NEW+Http.HTTP_URL_NEW_ORDER,params,callBack);
+    }
+    /**优惠卡券*/
+    public static void getDiscount(String user,String ps,RequestCallBack<String> callBack){
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("account",user);
+        params.addQueryStringParameter("password",ps);
+        params.addQueryStringParameter("version",version);
+        params.addQueryStringParameter("channel",channel);
+        params.addQueryStringParameter("client",android);
+        HttpUtils http = new HttpUtils();
+        http.send(HttpRequest.HttpMethod.POST,Http.HTTP_URL_NEW+Http.HTTP_URL_NEW_ORDER,params,callBack);
+    }
 }

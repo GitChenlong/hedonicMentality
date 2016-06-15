@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:background="@color/grays"
+        android:background="@color/selector_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -28,11 +28,11 @@
                 android:drawablePadding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/selector_white"
+                android:background="@color/grays"
                 android:textSize="16sp"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
-                android:hint="请输入关键字"/>
+                android:hint="请输入咨询师的姓名"/>
 
             <ImageView
                 android:visibility="gone"
@@ -40,7 +40,7 @@
                 android:id="@+id/search_iv_delete"
                 android:layout_gravity="right|center_vertical"
                 android:layout_width="40dp"
-                android:background="@color/line_black"
+                android:background="@mipmap/icon_me"
                 android:layout_height="40dp"/>
         </FrameLayout>
 
@@ -52,7 +52,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center_vertical"
-            android:background="@color/text_orange"
+            android:background="@color/grays"
             android:text="返回"
             android:textColor="@color/selector_white"/>
     </LinearLayout>
