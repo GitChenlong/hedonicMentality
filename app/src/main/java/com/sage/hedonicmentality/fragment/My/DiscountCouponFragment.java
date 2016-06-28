@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,33 +32,35 @@ import butterknife.OnClick;
  * Created by Administrator on 2016/6/12.
  * 优惠卡券
  */
-public class DiscountCouponFragment extends Fragment {
+public class DiscountCouponFragment extends FragmentActivity {
     @Bind(R.id.lv_discount)
     ListView listView;
     @Bind(R.id.tv_title)
     TextView title;
     @Bind(R.id.cdkey)
     EditText cdkey;
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = View.inflate(getActivity(), R.layout.discountcouponfragment,null);
-        ButterKnife.bind(this, view);
+//    @Nullable
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        View view = View.inflate(getActivity(), R.layout.discountcouponfragment,null);
+//        ButterKnife.bind(this, view);
+//        return view;
+//    }
 
-        return view;
-    }
-
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.discountcouponfragment);
+        ButterKnife.bind(this);
         title.setText(R.string.discountstring);
         getData();
     }
 
+
     @OnClick({R.id.ll_left,R.id.exchange})
     public void healthOnclick(View v) {
         if (v.getId()==R.id.ll_left) {
-            getActivity().getSupportFragmentManager().popBackStack();
+            finish();
         }
         if (v.getId()==R.id.exchange) {
             //兑换
@@ -71,10 +74,10 @@ public class DiscountCouponFragment extends Fragment {
 
     public void getData(){
         List<String> list = new ArrayList<>();
-        list.add("20");
-        list.add("100");
-        list.add("99");
-        HealthAdapter adapter = new HealthAdapter(getActivity(),list);
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        HealthAdapter adapter = new HealthAdapter(this,list);
         listView.setAdapter(adapter);
         Http.getHealth("", "", new RequestCallBack<String>() {
             @Override
@@ -131,12 +134,25 @@ public class DiscountCouponFragment extends Fragment {
             }
             String content = mlist.get(position);
             holder.tv_price.setText(content);
+            if (content.equals("1")) {
+                holder.iv_type.setVisibility(View.INVISIBLE);
+                holder.btn_discount.setBackground(getResources().getDrawable(R.drawable.btn_discount_red));
+            }else if(content.equals("2")){
+                holder.iv_type.setVisibility(View.VISIBLE);
+                holder.iv_type.setImageResource(R.mipmap.past_due);
+                holder.btn_discount.setBackground(getResources().getDrawable(R.drawable.btn_discount_gray));
+
+            }else{
+                holder.iv_type.setVisibility(View.VISIBLE);
+                holder.iv_type.setImageResource(R.mipmap.used);
+                holder.btn_discount.setBackground(getResources().getDrawable(R.drawable.btn_discount_gray));
+            }
             return convertView;
         }
 
         public final class ViewHolder {
             @Bind(R.id.btn_discount)
-            Button btn_discount;
+            TextView btn_discount;
             @Bind(R.id.tv_price)
             TextView tv_price;
             @Bind(R.id.tv_yuan)

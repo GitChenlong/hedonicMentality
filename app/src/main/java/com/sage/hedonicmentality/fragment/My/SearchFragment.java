@@ -1,5 +1,6 @@
 package com.sage.hedonicmentality.fragment.My;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,16 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.adapter.SeachListAdapter;
 import com.sage.hedonicmentality.adapter.SearchAdapter;
 import com.sage.hedonicmentality.bean.SearchBean;
 import com.sage.hedonicmentality.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2016/6/4.
@@ -38,17 +45,17 @@ public class SearchFragment extends Fragment implements  SearchView.SearchViewLi
     /**
      * 热搜框列表adapter
      */
-    private ArrayAdapter<String> hintAdapter;
+    private SeachListAdapter hintAdapter;
 
     /**
      * 自动补全列表adapter
      */
-    private ArrayAdapter<String> autoCompleteAdapter;
+    private SeachListAdapter autoCompleteAdapter;
 
     /**
      * 搜索结果列表adapter
      */
-    private SearchAdapter resultAdapter;
+    private SeachListAdapter resultAdapter;
 
     private List<SearchBean> dbData;
 
@@ -65,7 +72,7 @@ public class SearchFragment extends Fragment implements  SearchView.SearchViewLi
     /**
      * 搜索结果的数据
      */
-    private List<SearchBean> resultData;
+    private List<String> resultData;
 
     /**
      * 默认提示框显示项的个数
@@ -110,11 +117,10 @@ public class SearchFragment extends Fragment implements  SearchView.SearchViewLi
         lvResults = (ListView) view.findViewById(R.id.main_lv_search_results);
         searchView = (SearchView) view.findViewById(R.id.main_search_layout);
         //设置监听
-        searchView.setSearchViewListener(this);
+        searchView.setSearchViewListener(this,lvResults);
         //设置adapter
         searchView.setTipsHintAdapter(hintAdapter);
         searchView.setAutoCompleteAdapter(autoCompleteAdapter);
-
         lvResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -156,7 +162,7 @@ public class SearchFragment extends Fragment implements  SearchView.SearchViewLi
         for (int i = 1; i <= hintSize; i++) {
             hintData.add("快乐心理热搜版" + i + "：Android自定义View");
         }
-        hintAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, hintData);
+        hintAdapter = new SeachListAdapter(getActivity(),hintData);
     }
 
     /**
@@ -178,7 +184,7 @@ public class SearchFragment extends Fragment implements  SearchView.SearchViewLi
             }
         }
         if (autoCompleteAdapter == null) {
-            autoCompleteAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, autoCompleteData);
+            autoCompleteAdapter = new SeachListAdapter(getActivity(), autoCompleteData);
         } else {
             autoCompleteAdapter.notifyDataSetChanged();
         }
@@ -195,12 +201,12 @@ public class SearchFragment extends Fragment implements  SearchView.SearchViewLi
             resultData.clear();
             for (int i = 0; i < dbData.size(); i++) {
                 if (dbData.get(i).getTitle().contains(text.trim())) {
-                    resultData.add(dbData.get(i));
+                    resultData.add(dbData.get(i).getTitle());
                 }
             }
         }
         if (resultAdapter == null) {
-            resultAdapter = new SearchAdapter(getActivity(), resultData, R.layout.item_bean_list);
+            resultAdapter = new SeachListAdapter(getActivity(),resultData);
         } else {
             resultAdapter.notifyDataSetChanged();
         }
@@ -238,4 +244,66 @@ public class SearchFragment extends Fragment implements  SearchView.SearchViewLi
 
 
     }
+
+    @Override
+    public void isHitView(boolean type) {
+        lvResults.setVisibility(type?View.VISIBLE:View.GONE);
+    }
+
+    class MyListAdapter extends BaseAdapter {
+        private List<String> mlist;
+        private Context mcontext;
+        private LayoutInflater Inflater;
+
+        public MyListAdapter(Context context, List<String> list) {
+
+            this.Inflater = LayoutInflater.from(context);
+            this.mcontext = context;
+            this.mlist=list;
+        }
+
+        @Override
+        public int getCount() {
+            return this.mlist == null ? 0 : this.mlist.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            // TODO Auto-generated method stub
+            return mlist.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            // TODO Auto-generated method stub
+            return position;
+        }
+        @Override
+        public View getView( int position, View convertView, ViewGroup arg2) {
+            // TODO Auto-generated method stub
+            final ViewHolder holder;
+            if (convertView == null) {
+                convertView = Inflater.inflate(R.layout.consult_listitem, null);
+                holder = new ViewHolder(convertView);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+            String content = mlist.get(position);
+
+            holder.tv_abstract.setText(content);
+//
+            return convertView;
+        }
+
+        public final class ViewHolder {
+            @Bind(R.id.tv_abstract)
+            TextView tv_abstract;
+
+            public ViewHolder(View view) {
+                ButterKnife.bind(this, view);
+            }
+        }
+    }
+
 }

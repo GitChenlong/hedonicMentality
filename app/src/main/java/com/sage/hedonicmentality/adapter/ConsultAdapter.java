@@ -1,10 +1,12 @@
 package com.sage.hedonicmentality.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.sage.hedonicmentality.R;
@@ -51,7 +53,7 @@ public class ConsultAdapter extends BaseAdapter {
         // TODO Auto-generated method stub
         final ViewHolder holder;
         if (convertView == null) {
-            convertView = Inflater.inflate(R.layout.consult_listitem, null);
+            convertView = Inflater.inflate(R.layout.consult_item, null);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
@@ -59,14 +61,14 @@ public class ConsultAdapter extends BaseAdapter {
         }
         String content = mlist.get(position);
 
-        holder.tv_abstract.setText(content);
+        holder.txt_username.setText(content);
 //
         return convertView;
     }
 
     public final class ViewHolder {
-        @Bind(R.id.tv_abstract)
-        TextView tv_abstract;
+        @Bind(R.id.txt_username)
+        TextView txt_username;
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);

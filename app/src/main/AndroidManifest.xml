@@ -114,7 +114,10 @@
         <activity android:name=".app.NavigationAc"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -159,6 +162,12 @@
         <activity android:name=".ui.ActivityChat"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.My.TeacherDetailsAc"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.My.DiscountCouponFragment"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <!--<activity android:name=".fragment.My.VideoCallFragment"-->
             <!--android:launchMode="singleTask"-->
             <!--android:screenOrientation="portrait"/>-->
@@ -173,14 +182,17 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity android:name=".fragment.My.IncomingCallActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.ActivityHuxituna"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.ActivityAgreement"
             android:screenOrientation="portrait"/>
         <activity android:name=".fragment.My.MyOrderFragment"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".fragment.My.VideoCallFragment"
+            android:screenOrientation="portrait"
+            />
 
 
         <service android:name=".service.ServiceBlueTooth"/>

@@ -1,38 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/selector_white"
     android:id="@+id/ll_callvideo"
+    android:clickable="true"
     >
-    <EditText
-        android:id="@+id/phone"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:hint="输入对方账号"
-        />
-    <Button
-        android:id="@+id/callvideo"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:text="呼叫"
-        />
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        <com.yuntongxun.ecsdk.voip.video.ECCaptureView
-            android:id="@+id/sv_user"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:layout_alignParentBottom="true"
-            >
-        </com.yuntongxun.ecsdk.voip.video.ECCaptureView>
-        <com.yuntongxun.ecsdk.voip.video.ECCaptureView
-            android:id="@+id/sv_teacher"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:id="@+id/ll_voip"
+        >
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_gravity="bottom|left"
             >
-        </com.yuntongxun.ecsdk.voip.video.ECCaptureView>
-    </RelativeLayout>
-</LinearLayout>
+            <com.yuntongxun.ecsdk.voip.video.ECCaptureView
+                android:id="@+id/sv_user"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                >
+            </com.yuntongxun.ecsdk.voip.video.ECCaptureView>
+            <com.yuntongxun.ecsdk.voip.video.ECCaptureView
+                android:id="@+id/sv_teacher"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="bottom|left"
+                >
+            </com.yuntongxun.ecsdk.voip.video.ECCaptureView>
+            <RelativeLayout
+                android:id="@+id/ll_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/status_bar_height"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/close"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/status_bar_height"
+                >
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:textColor="@color/selector_white"
+                    android:textSize="@dimen/txt_14sp"
+                    android:text="12:30:21"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="right"
+                >
+                <ImageView
+                    android:id="@+id/iv_sound"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/sound_normal"
+                    android:layout_margin="10dp"
+                    />
+                <ImageView
+                    android:id="@+id/iv_camera"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/camera_normal"
+                    android:layout_margin="10dp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_color"
     android:id="@+id/ll_consult"
+    android:clickable="true"
     >
     <LinearLayout
         android:paddingTop="25dp"
@@ -62,6 +63,7 @@
         android:paddingRight="30dp"
         >
         <LinearLayout
+            android:id="@+id/ll_time"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -85,6 +87,7 @@
                 />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/ll_be_adept_at"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -108,6 +111,7 @@
                 />
             </LinearLayout>
         <LinearLayout
+            android:id="@+id/ll_screen"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -137,7 +141,10 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
+        android:dividerHeight="5dp"
+        android:divider="@null"
+        android:padding="5dp"
+        android:background="@color/bg_color"
         >
-
     </ListView>
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.sage.hedonicmentality.fragment.My;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -49,14 +50,14 @@ public class FindFragment extends BaseFragment {
     PullableGridView gridView;
     @Bind(R.id.ll_point_group)
     LinearLayout llPointGroup;
-    @Bind(R.id.tv_image_description)
-    TextView tvDescription;
+//    @Bind(R.id.tv_image_description)
+//    TextView tvDescription;
     @Bind(R.id.viewpagers)
     ViewPager mViewPager;
     @Bind(R.id.scrollview)
     PullableScrollView scrollview;
     @Bind(R.id.inotification_alert)
-    ImageView inotification_alert;
+    LinearLayout inotification_alert;
     private List<String > list=new ArrayList<>();
     private GridAdapter adapter;
 
@@ -96,12 +97,11 @@ public class FindFragment extends BaseFragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                TeacherDetailsFragment tf =(TeacherDetailsFragment)getActivity().getSupportFragmentManager().findFragmentByTag("TeacherDetailsFragment");
-                if (tf!=null) {
-                    NavigationAc.addFr(tf,"TeacherDetailsFragment",getFragmentManager(),1);
-                }else{
-                    NavigationAc.addFr(new TeacherDetailsFragment(),"TeacherDetailsFragment",getFragmentManager(),1);
+                Intent intent = new Intent(getActivity(),TeacherDetailsAc.class);
+                startActivity(intent);
+                int version = Integer.valueOf(android.os.Build.VERSION.SDK);
+                if(version  >= 5) {
+                    getActivity().overridePendingTransition(R.anim.push_left_in,R.anim.anim_out_ac);  //此为自定义的动画效果，下面两个为系统的动画效果
                 }
             }
         });
@@ -129,7 +129,7 @@ public class FindFragment extends BaseFragment {
             // 初始化广告条正下方的"点"
             View dot = new View(getActivity());
             dot.setBackgroundResource(R.drawable.point_background);
-            params = new LinearLayout.LayoutParams(5, 5);
+            params = new LinearLayout.LayoutParams(10,10);
             params.leftMargin = 10;
             dot.setLayoutParams(params);
             dot.setEnabled(false);
@@ -139,7 +139,7 @@ public class FindFragment extends BaseFragment {
         mViewPager.setAdapter(new MyAdapter());
 
         // 设置广告标语和底部“点”选择状态
-        tvDescription.setText(imageDescriptionArray[0]);
+//        tvDescription.setText(imageDescriptionArray[0]);
         llPointGroup.getChildAt(0).setEnabled(true);
 
         // 设置广告条跳转时，广告语和状态语的变化
@@ -311,7 +311,7 @@ public class FindFragment extends BaseFragment {
                 // 获取新的位置
                 int newPosition = arg0 % imageDescriptionArray.length;
                 // 设置广告标语
-                tvDescription.setText(imageDescriptionArray[newPosition]);
+//                tvDescription.setText(imageDescriptionArray[newPosition]);
                 // 消除上一次的状态点
                 llPointGroup.getChildAt(previousPointEnale).setEnabled(false);
                 // 设置当前的状态点“点”

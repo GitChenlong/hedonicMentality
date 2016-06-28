@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -19,6 +21,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Http;
+import com.sage.hedonicmentality.view.SubmittedSuccessfullyDiaLog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -58,9 +61,17 @@ public class FeedBackFragment extends Fragment {
 
             switch (checkedId) {
                 case R.id.rb_question:
+                    rb_question.setBackground(getResources().getDrawable(R.drawable.btn_white));
+                    rb_feedback.setBackground(getResources().getDrawable(R.drawable.btn_lucency_green));
+                    rb_question.setTextColor(getResources().getColor(R.color.green_essential_colour));
+                    rb_feedback.setTextColor(getResources().getColor(R.color.selector_white));
                     setTab(1);
                     break;
                 case R.id.rb_feedback:
+                    rb_question.setTextColor(getResources().getColor(R.color.selector_white));
+                    rb_feedback.setTextColor(getResources().getColor(R.color.green_essential_colour));
+                    rb_question.setBackground(getResources().getDrawable(R.drawable.btn_lucency_green));
+                    rb_feedback.setBackground(getResources().getDrawable(R.drawable.btn_white));
                     setTab(2);
                     break;
             }
@@ -80,6 +91,7 @@ public class FeedBackFragment extends Fragment {
                 if (feedbackFr!=null) {
                     bt.hide(feedbackFr);
                 }
+
                 break;
 
             case 2:
@@ -119,7 +131,6 @@ public class FeedBackFragment extends Fragment {
             public void onSuccess(ResponseInfo<String> responseInfo) {
 
             }
-
             @Override
             public void onFailure(HttpException error, String msg) {
 
@@ -137,12 +148,28 @@ public class FeedBackFragment extends Fragment {
         }
     }
     public class feedbackFragment extends Fragment{
+        @Bind(R.id.et_feedback)
+        EditText et_feedback;
+        @Bind(R.id.btn_commit)
+        Button btn_commit;
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = View.inflate(getActivity(), R.layout.feedbackchildfragment,null);
             ButterKnife.bind(this, view);
             return view;
+        }
+        @OnClick(R.id.btn_commit)
+        public void feedbackOnclick(View v) {
+            if (v.getId()==R.id.btn_commit) {
+                et_feedback.getText();
+                showCommitSuccess();
+                getFragmentManager().popBackStack();
+            }
+        }
+        public void showCommitSuccess(){
+            SubmittedSuccessfullyDiaLog diaLog = new SubmittedSuccessfullyDiaLog(getActivity());
+            diaLog.show();
         }
     }
 }

@@ -1,26 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="@color/selector_white"
     >
     <LinearLayout
+        android:id="@+id/ll_login"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
         android:gravity="center"
-        >
+        android:background="@drawable/btn_grays"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        >-->
+        <!--<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/personage"
+                />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="难过的时候给你一个抱枕"
+                android:textColor="@color/txt_annotation_color"
+                android:textSize="@dimen/txt_14sp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>-->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
         <EditText
             android:id="@+id/et_user"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:hint="手机号/邮箱"
-            android:textSize="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/txt_12sp"
             android:textColor="#999999"
             android:paddingLeft="20dp"
-            android:textColorHint="#c8c8c8"
+            android:textColorHint="@color/txt_annotation_color"
             android:background="@color/selector_white"
+            android:paddingRight="10dp"
             />
         <EditText
             android:layout_marginTop="10dp"
@@ -28,21 +58,55 @@
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:hint="输入密码"
-            android:textSize="@dimen/activity_horizontal_margin"
             android:textColor="#999999"
             android:paddingLeft="20dp"
-            android:textColorHint="#c8c8c8"
+            android:textColorHint="@color/txt_annotation_color"
             android:background="@color/selector_white"
+            android:textSize="@dimen/txt_12sp"
+            android:drawableRight="@mipmap/eye_higligted"
+            android:paddingRight="10dp"
             />
         <TextView
-            android:id="@+id/tv_login"
+            android:id="@+id/login"
             android:layout_marginTop="10dp"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:text="登录"
             android:textColor="@color/selector_white"
-            android:background="@color/text_orange"
+            android:background="@drawable/btn_orange"
             android:gravity="center"
             />
-    </LinearLayout>
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_12sp"
+                android:textColor="@color/txt_annotation_color"
+                android:text="忘记密码"
+                android:padding="10dp"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_12sp"
+                android:textColor="@color/txt_annotation_color"
+                android:text="新用户注册"
+                android:padding="10dp"
+                android:gravity="right"
+                />
+        </LinearLayout>
+        </LinearLayout>
+   <!-- </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/quxiao"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        />
+</RelativeLayout>-->

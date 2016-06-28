@@ -305,6 +305,16 @@
     <string name="disbursements">实付款：</string>
     <string name="promisefeedback">失约反馈</string>
     <string name="evaluate">立即评价</string>
+    <string name="evaluate_titlename">填写评价</string>
     <string name="evaluate_ed_hit">请写下你最真实的咨询体验，你的评价将为他人提供宝贵的参考！</string>
     <string name="commit_evaluate">提交评价</string>
+    <string name="commit_success">提交成功</string>
+    <string name="feedbackreuslt">反馈结果</string>
+    <string name="commit_order">提交订单</string>
+    <string name="paysuccess">支付成功</string>
+    <string name="writeinfomantion">填写资料</string>
+    <string name="mymoney">我的资金</string>
+    <string name="about">关于快乐心理</string>
+    <string name="app_hit">难过的时候给你个拥抱</string>
+    <string name="app_url">www.kuailexinli.com</string>
 </resources>

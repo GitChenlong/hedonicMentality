@@ -24,9 +24,11 @@ import com.sage.hedonicmentality.bean.MUserInfo;
 import com.sage.hedonicmentality.bean.SubAccount;
 import com.sage.hedonicmentality.fragment.account.FragmentDiaChoose;
 import com.sage.hedonicmentality.utils.Contact;
+import com.sage.hedonicmentality.utils.SPHelper;
 import com.sage.hedonicmentality.utils.SharedPreferencesHelper;
 import com.sage.hedonicmentality.utils.Util;
 import com.sage.hedonicmentality.utils.UtilSnackbar;
+import com.sage.hedonicmentality.view.LoginFragmentDialog;
 import com.sage.hedonicmentality.view.LoginPopWindow;
 import com.sage.libimagechoose.api.ChooserType;
 import com.sage.libimagechoose.api.ChosenImage;
@@ -50,6 +52,7 @@ import butterknife.OnClick;
 public class UserFragment extends Fragment implements ImageChooserListener {
 
     private LoginPopWindow popwindow;
+    private LoginFragmentDialog dialog;
 
     @Nullable
     @Override
@@ -60,18 +63,22 @@ public class UserFragment extends Fragment implements ImageChooserListener {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+//        if (dialog != null) {
+//            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+//            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+//            dialog.getActivity().getWindow().setLayout(width, height);
+//        }
+    }
+
     @OnClick({R.id.ll_photo,R.id.ll_myorder,R.id.ll_health,R.id.ll_discount_coupon,R.id.ll_attention,R.id.ll_message
-            ,R.id.ll_setting,R.id.ll_feedback,R.id.ll_not_logged_in})
+            ,R.id.ll_setting,R.id.ll_feedback,R.id.ll_mymoney})
     public void userFrOnclick(View view) {
         switch (view.getId()) {
-            case R.id.ll_not_logged_in:
-                //未登录头像
-                NavigationAc.addFr(new VideoCallFragment(), "VideoCallFragment", getActivity().getSupportFragmentManager(), 1);
-//                showAlert();
-                break;
             case R.id.ll_photo:
-                //已登录头像
-                showLoginPop();
+                showLoginDialog();
                 break;
             case R.id.ll_myorder:
                 //我的预约
@@ -81,15 +88,22 @@ public class UserFragment extends Fragment implements ImageChooserListener {
                 if(version  >= 5) {
                     getActivity().overridePendingTransition(R.anim.push_left_in,R.anim.anim_out_ac);  //此为自定义的动画效果，下面两个为系统的动画效果
                 }
-
                 break;
             case R.id.ll_health:
                 //健康贴士
             NavigationAc.addFr(new HealthFragment(),"HealthFragment",getActivity().getSupportFragmentManager(),1);
                 break;
+            case R.id.ll_mymoney:
+                //我的资金
+                break;
             case R.id.ll_discount_coupon:
                 //优惠卡券
-            NavigationAc.addFr(new DiscountCouponFragment(),"DiscountCouponFragment",getActivity().getSupportFragmentManager(),1);
+                Intent intents = new Intent(getActivity(),DiscountCouponFragment.class);
+                startActivity(intents);
+                int versions = Integer.valueOf(android.os.Build.VERSION.SDK);
+                if(versions  >= 5) {
+                    getActivity().overridePendingTransition(R.anim.push_left_in,R.anim.anim_out_ac);  //此为自定义的动画效果，下面两个为系统的动画效果
+                }
                 break;
             case R.id.ll_attention:
                 //我的关注
@@ -109,7 +123,12 @@ public class UserFragment extends Fragment implements ImageChooserListener {
                 break;
         }
     }
-
+    public void showLoginDialog(){
+//        LoginFragmentDialog window = new LoginFragmentDialog(getActivity(),mHandler);
+//        window.showAtLocation(getView().findViewById(R.id.ll_user), Gravity.CENTER, 0, 0);
+        dialog  = LoginFragmentDialog.create(mHandler);
+        dialog.show(getFragmentManager(),"LoginFragmentDialog");
+    }
     //登录POP
     public void showLoginPop(){
         popwindow = new LoginPopWindow(getActivity(),mHandler);
@@ -240,7 +259,6 @@ public class UserFragment extends Fragment implements ImageChooserListener {
         getView().findViewById(R.id.ll_not_logged_in).setVisibility(View.GONE);
         getView().findViewById(R.id.ll_photo).setVisibility(View.VISIBLE);
     }
-    @Override
     public void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
@@ -256,58 +274,23 @@ public class UserFragment extends Fragment implements ImageChooserListener {
             super.handleMessage(msg);
             switch(msg.what){
                 case 1:
-                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "账户不能为空");
+                    String account_number =msg.getData().getString("account_number");
+                    String password = msg.getData().getString("password");
+                    Log.e("message",account_number+"///"+password);
+                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "登陆成功！");
                     break;
                 case 2:
-                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "密码不能为空");
+                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "注册成功！");
                     break;
                 case 3:
-                    //Login
-                     user = msg.getData().getString("user");
-                     ps = msg.getData().getString("ps");
-                    nextPage();
-                    Http.login(user, ps, new RequestCallBack<String>() {
-                        @Override
-                        public void onSuccess(ResponseInfo<String> responseInfo) {
-                            String v = responseInfo.result;
-                            byte[] bytes = v.getBytes();
-                            try {
-                                v = new String(bytes, "UTF-8");
-                                JSONObject object = new JSONObject(v);
-                                int info = object.getInt("info");
-                                if (info != 1) {
-                                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), object.getString("tip"));
-                                    return;
-                                }
-                                JSONObject data = object.getJSONObject("data");
-                                JSONObject sub = data.getJSONObject("SubAccount");
-                                String subAccountSid = sub.getString("subAccountSid");
-                                String subToken = sub.getString("subToken");
-                                String dateCreated = sub.getString("dateCreated");
-                                String voipAccount = sub.getString("voipAccount");
-                                String voipPwd = sub.getString("voipPwd");
-                                JSONObject userInfo = data.getJSONObject("userInfo");
-                                String userid = userInfo.getString("userid");
-                                String username = userInfo.getString("username");
-                                String realname = userInfo.getString("realname");
-                                String mobile = userInfo.getString("mobile");
-                                String type = userInfo.getString("type");
-                                 subAccount = new SubAccount(subAccountSid,subToken,dateCreated,voipAccount,voipPwd);
-                                 muserinfo = new MUserInfo(userid,username,realname,mobile,type);
-                                nextPage();
-                            } catch (UnsupportedEncodingException e) {
-                                e.printStackTrace();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "找回密码成功！");
+                    break;
+                case 4:
 
-                        @Override
-                        public void onFailure(HttpException error, String msg) {
-                            UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "网络异常");
-                        }
-                    });
-                    popwindow.dismiss();
+                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "发送忘记密码验证码");
+                    break;
+                case 5:
+                    UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "发送注册验证码");
                     break;
             }
         }
@@ -315,6 +298,51 @@ public class UserFragment extends Fragment implements ImageChooserListener {
 
     public void nextPage(){
         NavigationAc.addFr(new ceshi(),"ceshi",getActivity().getSupportFragmentManager(),1);
+    }
+
+    public void userLogin(String user,String ps){
+        nextPage();
+        Http.login(user, ps, new RequestCallBack<String>() {
+            @Override
+            public void onSuccess(ResponseInfo<String> responseInfo) {
+                String v = responseInfo.result;
+                byte[] bytes = v.getBytes();
+                try {
+                    v = new String(bytes, "UTF-8");
+                    JSONObject object = new JSONObject(v);
+                    int info = object.getInt("info");
+                    if (info != 1) {
+                        UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), object.getString("tip"));
+                        return;
+                    }
+                    JSONObject data = object.getJSONObject("data");
+                    JSONObject sub = data.getJSONObject("SubAccount");
+                    String subAccountSid = sub.getString("subAccountSid");
+                    String subToken = sub.getString("subToken");
+                    String dateCreated = sub.getString("dateCreated");
+                    String voipAccount = sub.getString("voipAccount");
+                    String voipPwd = sub.getString("voipPwd");
+                    JSONObject userInfo = data.getJSONObject("userInfo");
+                    String userid = userInfo.getString("userid");
+                    String username = userInfo.getString("username");
+                    String realname = userInfo.getString("realname");
+                    String mobile = userInfo.getString("mobile");
+                    String type = userInfo.getString("type");
+                    subAccount = new SubAccount(subAccountSid,subToken,dateCreated,voipAccount,voipPwd);
+                    muserinfo = new MUserInfo(userid,username,realname,mobile,type);
+                    nextPage();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(HttpException error, String msg) {
+                UtilSnackbar.showSimple(getView().findViewById(R.id.ll_user), "网络异常");
+            }
+        });
     }
 
 

@@ -22,11 +22,15 @@ import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.util.LogUtils;
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.fragment.My.VideoCallFragment;
 import com.sage.hedonicmentality.view.LoadingDiaLog;
+import com.sage.hedonicmentality.view.SubmittedSuccessfullyDiaLog;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -41,11 +45,16 @@ import cn.sharesdk.tencent.qzone.QZone;
  */
 public class Util {
     private static LoadingDiaLog diaLog;
+    public static List<Activity> incomingList = new ArrayList<>();
+    public static List<Activity> videoCallList = new ArrayList<>();
     public static void hiddenInputMethod(Activity activity,View editText){
         InputMethodManager imm = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
-
+    public static void showCommitSuccess(Context context,String content){
+        SubmittedSuccessfullyDiaLog diaLog = new SubmittedSuccessfullyDiaLog(context,content);
+        diaLog.show();
+    }
     public static int getFps(Context context){
         WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
         int with = wm.getDefaultDisplay().getWidth();

@@ -8,10 +8,12 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,7 +22,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.adapter.SeachListAdapter;
 import com.sage.hedonicmentality.app.NavigationAc;
+import com.sage.hedonicmentality.fragment.My.SearchFragment;
+
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 /**
@@ -42,7 +51,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     /**
      * 返回按钮
      */
-    private Button btnBack;
+    private TextView btnBack;
 
     /**
      * 上下文对象
@@ -57,25 +66,30 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     /**
      * 提示adapter （推荐adapter）
      */
-    private ArrayAdapter<String> mHintAdapter;
+    private SeachListAdapter mHintAdapter;
 
     /**
      * 自动补全adapter 只显示名字
      */
-    private ArrayAdapter<String> mAutoCompleteAdapter;
+    private SeachListAdapter mAutoCompleteAdapter;
 
     /**
      * 搜索回调接口
      */
     private SearchViewListener mListener;
+    /**
+     * 搜索结果view
+     * */
+    private ListView mdataList;
 
     /**
      * 设置搜索回调接口
      *
      * @param listener 监听者
      */
-    public void setSearchViewListener(SearchViewListener listener) {
+    public void setSearchViewListener(SearchViewListener listener,ListView dataList) {
         mListener = listener;
+        mdataList = dataList;
     }
 
     public SearchView(Context context, AttributeSet attrs) {
@@ -88,7 +102,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     private void initViews() {
         etInput = (EditText) findViewById(R.id.search_et_input);
         ivDelete = (ImageView) findViewById(R.id.search_iv_delete);
-        btnBack = (Button) findViewById(R.id.search_btn_back);
+        btnBack = (TextView) findViewById(R.id.search_btn_back);
         lvTips = (ListView) findViewById(R.id.search_lv_tips);
 
         lvTips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -101,6 +115,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
                 //hint list view gone and result list view show
                 lvTips.setVisibility(View.GONE);
                 notifyStartSearching(text);
+                mListener.isHitView(true);
             }
         });
 
@@ -137,7 +152,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     /**
      * 设置热搜版提示 adapter
      */
-    public void setTipsHintAdapter(ArrayAdapter<String> adapter) {
+    public void setTipsHintAdapter(SeachListAdapter adapter) {
         this.mHintAdapter = adapter;
         if (lvTips.getAdapter() == null) {
             lvTips.setAdapter(mHintAdapter);
@@ -147,9 +162,10 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     /**
      * 设置自动补全adapter
      */
-    public void setAutoCompleteAdapter(ArrayAdapter<String> adapter) {
+    public void setAutoCompleteAdapter(SeachListAdapter adapter) {
         this.mAutoCompleteAdapter = adapter;
     }
+
 
     private class EditChangedListener implements TextWatcher {
         @Override
@@ -176,6 +192,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
                 }
                 lvTips.setVisibility(GONE);
             }
+            mListener.isHitView(false);
 
         }
 
@@ -189,6 +206,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.search_et_input:
                 lvTips.setVisibility(VISIBLE);
+                mListener.isHitView(false);
                 break;
             case R.id.search_iv_delete:
                 etInput.setText("");
@@ -196,6 +214,9 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
                 break;
             case R.id.search_btn_back:
                 ((NavigationAc) mContext).getSupportFragmentManager().popBackStack();
+                //隐藏软键盘
+                InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                 break;
         }
     }
@@ -219,7 +240,10 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
          */
         void onSearch(String text);
 
+        void isHitView(boolean type);
+
     }
+
 
 }
 

@@ -6,67 +6,11 @@
     android:clickable="true"
     >
     <include layout="@layout/title"/>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:orientation="horizontal"
-        android:background="@color/green_essential_colour"
-        >
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/selector_white"
-            android:padding="10dp"
-            >
-            <com.sage.hedonicmentality.widget.CircleImageView
-                android:id="@+id/user"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/personage"
-                />
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"
-                >
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="USER"
-                        android:textColor="@color/green_essential_colour"
-                        android:textSize="@dimen/txt_16sp"
-                        />
-                    <Button
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:text="￥240"
-                        android:background="@null"
-                        android:textColor="@color/orange_secondary_color"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="@dimen/txt_14sp"
-                        />
-                </LinearLayout>
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2016年6月14日（周二）16：20"
-                    android:textColor="@color/txt_content_color"
-                    android:textSize="@dimen/txt_14sp"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+    <include layout="@layout/layout_user"/>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_marginTop="5dp"
         >
     <ScrollView
         android:layout_width="fill_parent"
@@ -437,31 +381,41 @@
     <LinearLayout
         android:id="@+id/ll_bottom"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/selector_white"
-        android:gravity="right"
-        android:padding="15dp"
+        android:layout_height="40dp"
+        android:background="#FAFAFA"
         android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:paddingRight="15dp"
         >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="right"
+            >
         <Button
             android:id="@+id/btn_promise_feedback"
-            android:layout_width="100dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="@string/promisefeedback"
             android:textSize="@dimen/txt_14sp"
             android:textColor="@color/txt_annotation_color"
-            android:background="@null"
+            android:background="@mipmap/gray_kuan"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
             />
         <Button
             android:id="@+id/btn_evaluate"
-            android:layout_width="100dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="立即评价"
             android:textSize="@dimen/txt_14sp"
             android:textColor="@color/orange_secondary_color"
-            android:background="@null"
+            android:background="@mipmap/orage_kuan"
             android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
             />
+        </LinearLayout>
     </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

@@ -4,67 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/bg_color"
     android:clickable="true"
+    android:id="@+id/ll_eva"
     >
     <include layout="@layout/title"/>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:orientation="horizontal"
-        android:background="@color/green_essential_colour"
-        >
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/selector_white"
-            android:padding="10dp"
-            >
-            <com.sage.hedonicmentality.widget.CircleImageView
-                android:id="@+id/user"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/personage"
-                />
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"
-                >
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="USER"
-                        android:textColor="@color/green_essential_colour"
-                        android:textSize="@dimen/txt_16sp"
-                        />
-                    <Button
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:text="￥240"
-                        android:background="@null"
-                        android:textColor="@color/orange_secondary_color"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="@dimen/txt_14sp"
-                        />
-                </LinearLayout>
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2016年6月14日（周二）16：20"
-                    android:textColor="@color/txt_content_color"
-                    android:textSize="@dimen/txt_14sp"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+    <include layout="@layout/layout_user"/>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -102,7 +45,7 @@
                     android:id="@+id/rb_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/choice_higlighted"
+                    android:background="@mipmap/choice_normal"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -176,7 +119,7 @@
                         android:id="@+id/rb_manner_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/star_higlighted"
+                        android:background="@mipmap/star_normal"
                         android:checked="true"
                         />
                     </LinearLayout>
@@ -255,7 +198,7 @@
                             android:id="@+id/rb_result_one"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/star_higlighted"
+                            android:background="@mipmap/star_normal"
                             android:checked="true"
                             />
                     </LinearLayout>
@@ -426,6 +369,8 @@
             android:background="@color/orange_secondary_color"
             android:textColor="@color/selector_white"
             android:text="@string/commit_evaluate"
+            android:padding="15dp"
+            android:textSize="@dimen/txt_14sp"
             />
     </LinearLayout>
 

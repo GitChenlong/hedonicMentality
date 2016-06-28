@@ -67,7 +67,7 @@ public class ceshi extends Fragment {
             NavigationAc.addFr(new AlipayFragment(), "AlipayFragment", getActivity().getSupportFragmentManager(), 1);
         }
         if (view.getId()==R.id.bt_vedio) {
-            NavigationAc.addFr(new VideoCallFragment(),"VideoCallFragment",getActivity().getSupportFragmentManager(),1);
+//            NavigationAc.addFr(new VideoCallFragment(),"VideoCallFragment",getActivity().getSupportFragmentManager(),1);
         }
     }
     @Override
@@ -99,7 +99,7 @@ public class ceshi extends Fragment {
                     lv_order.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            NavigationAc.addFr(new VideoCallFragment(),"VideoCallFragment",getActivity().getSupportFragmentManager(),1);
+//                            NavigationAc.addFr(new VideoCallFragment(),"VideoCallFragment",getActivity().getSupportFragmentManager(),1);
                         }
                     });
                 } catch (UnsupportedEncodingException e) {

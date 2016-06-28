@@ -103,20 +103,20 @@
                         android:layout_height="150dp"
                         android:background="@mipmap/ic_launcher"
                         />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/viewpagers"
-                        android:background="#33000000"
+                        android:background="@color/transparent"
                         android:orientation="vertical"
                         android:padding="5dp" >
-                        <TextView
-                            android:id="@+id/tv_image_description"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:textColor="@android:color/white" />
+                        <!--<TextView-->
+                            <!--android:id="@+id/tv_image_description"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center_horizontal"-->
+                            <!--android:textColor="@android:color/white"-->
+                            <!--/>-->
                         <LinearLayout
                             android:id="@+id/ll_point_group"
                             android:layout_width="wrap_content"
@@ -127,25 +127,53 @@
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
-                <RelativeLayout
+                <LinearLayout
+                    android:id="@+id/inotification_alert"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:background="@color/selector_white"
+                    android:gravity="center"
                     >
-                    <ImageView
-                        android:id="@+id/inotification_alert"
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:background="@color/bg_color"
-                    />
+                    <com.sage.hedonicmentality.widget.CircleImageView
+                        android:id="@+id/oder_teacher"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/personage"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/tv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green_essential_colour"
+                        android:textSize="@dimen/txt_12sp"
+                        android:text="user_name"
+                        android:layout_marginTop="3dp"
+                        />
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="预约提醒区"
+                        android:text="预约的时间是"
                         android:layout_centerInParent="true"
                         android:gravity="center_horizontal"
-                        android:textColor="@color/selector_white"
+                        android:textColor="@color/txt_content_color"
+                        android:textSize="@dimen/txt_14sp"
+                        android:layout_margin="5dp"
                         />
-                </RelativeLayout>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:background="@mipmap/gray_kuan"
+                        android:text="等待咨询"
+                        android:textSize="@dimen/txt_14sp"
+                        android:textColor="@color/txt_content_color"
+                        android:layout_margin="5dp"
+                        android:focusable="false"
+                        />
+
+                </LinearLayout>
             <com.sage.hedonicmentality.view.PullableGridView
                 android:id="@+id/gd"
                 android:layout_width="fill_parent"
@@ -153,8 +181,7 @@
                 android:numColumns="2"
                 android:horizontalSpacing="5dp"
                 android:verticalSpacing="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_margin="5dp"
                 >
             </com.sage.hedonicmentality.view.PullableGridView>
             </LinearLayout>

@@ -5,60 +5,7 @@
     android:background="@color/bg_color"
     android:clickable="true"
     >
-    <RelativeLayout
-        android:paddingTop="10dp"
-        android:id="@+id/layout_actionbar"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        android:clipToPadding="false"
-        android:fitsSystemWindows="true"
-        android:background="@color/green_essential_colour"
-        android:layout_height="70dp"
-        >
-        <LinearLayout
-            android:id="@+id/ll_left"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            >
-            <ImageView
-                android:layout_gravity="center_vertical"
-                android:id="@+id/btn_left"
-                android:src="@mipmap/actionbar_back"
-                android:layout_marginLeft="10dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                />
-        </LinearLayout>
-        <TextView
-            android:id="@+id/tv_title"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:text="@string/title_forget_psw"
-            android:textSize="@dimen/txt_18sp"
-            android:textColor="@color/selector_white"
-            android:layout_height="60dp"
-            />
-        <FrameLayout
-            android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            >
-            <TextView
-                android:layout_gravity="center_vertical"
-                android:id="@+id/tv_right"
-                android:textColor="@color/tv_black"
-                android:padding="5dp"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                />
-        </FrameLayout>
-
-    </RelativeLayout>
+    <include layout="@layout/title"/>
     <ListView
         android:layout_marginTop="10dp"
         android:layout_width="fill_parent"

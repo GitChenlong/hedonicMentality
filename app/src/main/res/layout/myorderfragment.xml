@@ -5,59 +5,7 @@
     android:background="@color/bg_color"
     android:clickable="true"
     >
-    <RelativeLayout
-        android:id="@+id/layout_actionbar"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        android:clipToPadding="false"
-        android:fitsSystemWindows="true"
-        android:background="@color/green_essential_colour"
-        android:layout_height="60dp"
-        >
-        <LinearLayout
-            android:id="@+id/ll_left"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            >
-        <ImageView
-            android:layout_gravity="center_vertical"
-            android:id="@+id/btn_left"
-            android:src="@mipmap/actionbar_back"
-            android:layout_marginLeft="10dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            />
-        </LinearLayout>
-        <TextView
-            android:id="@+id/tv_title"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:text="@string/title_forget_psw"
-            android:textSize="@dimen/txt_18sp"
-            android:textColor="@color/selector_white"
-            android:layout_height="60dp"
-            />
-        <FrameLayout
-            android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            >
-            <TextView
-                android:layout_gravity="center_vertical"
-                android:id="@+id/tv_right"
-                android:textColor="@color/tv_black"
-                android:padding="5dp"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                />
-        </FrameLayout>
-
-    </RelativeLayout>
+    <include layout="@layout/title"/>
     <FrameLayout
         android:id="@+id/fr_place"
         android:layout_width="fill_parent"
@@ -69,187 +17,113 @@
         android:layout_height="fill_parent"
         android:orientation="vertical"
         >
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_tab"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
             android:background="@color/green_essential_colour"
             >
-            <RadioGroup
+            <LinearLayout
+                android:id="@+id/ll"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:id="@+id/rg"
+                >
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/rg"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    >
+                    <RadioButton
+                        android:id="@+id/rb_all"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="fill_parent"
+                        android:button="@null"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:textColor="@color/selector_white"
+                        android:textSize="@dimen/txt_16sp"
+                        />
+                    <RadioButton
+                        android:id="@+id/rb_wait_consult"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="fill_parent"
+                        android:button="@null"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:textColor="@color/selector_white"
+                        android:textSize="@dimen/txt_16sp"
+                        />
+                    <RadioButton
+                        android:id="@+id/rb_wait_evaluate"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="fill_parent"
+                        android:button="@null"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:textColor="@color/selector_white"
+                        android:textSize="@dimen/txt_16sp"
+                        />
+                    <RadioButton
+                        android:id="@+id/rb_accomplish"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="fill_parent"
+                        android:button="@null"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:textColor="@color/selector_white"
+                        android:textSize="@dimen/txt_16sp"
+                        />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 >
-                <RadioButton
-                    android:id="@+id/rb_all"
+                <ImageView
+                    android:id="@+id/iv_line"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:button="@null"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:textColor="@color/selector_white"
-                    android:textSize="@dimen/txt_16sp"
+                    android:layout_height="2dp"
+                    android:background="@color/selector_white"
+                    android:layout_gravity="bottom"
                     />
-                <RadioButton
-                    android:id="@+id/rb_wait_consult"
+                <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:button="@null"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:textColor="@color/selector_white"
-                    android:textSize="@dimen/txt_16sp"
-                    />
-                <RadioButton
-                    android:id="@+id/rb_wait_evaluate"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:button="@null"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:textColor="@color/selector_white"
-                    android:textSize="@dimen/txt_16sp"
-                    />
-                <RadioButton
-                    android:id="@+id/rb_accomplish"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:button="@null"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:textColor="@color/selector_white"
-                    android:textSize="@dimen/txt_16sp"
-                    />
-            </RadioGroup>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:id="@+id/ll_homepage"
-                android:visibility="gone"
-                >
-                <TextView
-                    android:id="@+id/txt_homepage"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:textSize="@dimen/default_btn_text_size"
-                    />
-                <View
-                    android:id="@+id/line_homepage"
-                    android:layout_width="fill_parent"
-                    android:layout_height="2px"
-                    android:background="@color/text_orange"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:id="@+id/ll_findpage"
-                android:visibility="gone"
-                >
-                <TextView
-                    android:id="@+id/txt_findpage"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="发现"
-                    android:gravity="center_horizontal"
-                    android:textSize="@dimen/default_btn_text_size"
-                    />
-                <View
-                    android:id="@+id/line_findlist"
-                    android:layout_width="fill_parent"
-                    android:layout_height="2px"
-                    android:background="@color/text_orange"
+                    android:layout_height="2dp"
+                    android:background="@color/selector_white"
+                    android:layout_gravity="bottom"
                     android:visibility="invisible"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
                     />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:id="@+id/ll_downloadpage"
-                android:visibility="gone"
-                >
-                <TextView
-                    android:id="@+id/txt_downloadpage"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="下载"
-                    android:gravity="center_horizontal"
-                    android:textSize="@dimen/default_btn_text_size"
-                    />
-                <View
-                    android:id="@+id/line_download"
-                    android:layout_width="fill_parent"
-                    android:layout_height="2px"
-                    android:background="@color/text_orange"
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="2dp"
+                    android:background="@color/selector_white"
+                    android:layout_gravity="bottom"
                     android:visibility="invisible"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
                     />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:visibility="gone"
-                android:id="@+id/ll_userpage"
-                >
-                <TextView
-                    android:id="@+id/txt_userpage"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="我的"
-                    android:gravity="center_horizontal"
-                    android:textSize="@dimen/default_btn_text_size"
-                    />
-                <View
-                    android:id="@+id/line_user"
-                    android:layout_width="fill_parent"
-                    android:layout_height="2px"
-                    android:background="@color/text_orange"
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="2dp"
+                    android:background="@color/selector_white"
+                    android:layout_gravity="bottom"
                     android:visibility="invisible"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
                     />
             </LinearLayout>
-        </LinearLayout>
-        <ImageView
-            android:id="@+id/iv_line"
-            android:layout_width="60dp"
-            android:layout_height="1dp"
-            android:background="@color/line_black"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="25dp"
-            />
+        </RelativeLayout>
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="fill_parent"
@@ -257,6 +131,7 @@
             android:layout_weight="9"
             android:flipInterval="30"
             android:persistentDrawingCache="animation"
+            android:focusable="false"
             />
     </LinearLayout>
     </FrameLayout>

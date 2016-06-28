@@ -16,12 +16,12 @@
         android:layout_height="wrap_content"
         android:text="价格"
         android:textColor="@color/line_black"
-        android:textSize="@dimen/teacher_name_size"
+        android:textSize="@dimen/txt_16sp"
         />
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:orientation="horizontal"
         >
         <TextView
@@ -29,9 +29,11 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="最低价"
-            android:background="@color/grays"
+            android:background="@drawable/btn_screen"
+            android:textColor="@color/txt_annotation_color"
             android:padding="5dp"
             android:gravity="center"
+            android:textSize="@dimen/txt_12sp"
             />
         <LinearLayout
             android:layout_width="0dp"
@@ -52,9 +54,11 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="最低价"
-            android:background="@color/grays"
+            android:background="@drawable/btn_screen"
+            android:textColor="@color/txt_annotation_color"
             android:padding="5dp"
             android:gravity="center"
+            android:textSize="@dimen/txt_12sp"
             />
     </LinearLayout>
     <LinearLayout
@@ -63,14 +67,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-        <RadioGroup
+        <LinearLayout
                 android:id="@+id/rg_price"
                  android:layout_width="match_parent"
-                 android:layout_height="40dp"
+                 android:layout_height="wrap_content"
                  android:gravity="center"
                 android:orientation="horizontal"
                 >
-                <RadioButton
+                <TextView
                     android:id="@+id/rb_price_one"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -78,55 +82,65 @@
                     android:button="@null"
                     android:gravity="center"
                     android:text="不限"
-                    android:background="@color/grays"
-                    android:textColor="@drawable/select_txt_color"
+                    android:textSize="@dimen/txt_12sp"
+                    android:background="@drawable/btn_screen_check"
+                    android:textColor="@color/txt_annotation_color"
+                    android:padding="5dp"
+                    android:checked="true"
                     />
 
-                <RadioButton
+                <TextView
                     android:id="@+id/rb_price_two"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="最低价"
-                    android:background="@color/grays"
+                    android:text="0-99"
                     android:layout_marginLeft="20dp"
-                    android:textColor="@drawable/select_txt_color"
+                    android:background="@drawable/btn_screen"
+                    android:textColor="@color/txt_annotation_color"
+                    android:padding="5dp"
+                    android:textSize="@dimen/txt_12sp"
                     />
-                <RadioButton
+                <TextView
                     android:id="@+id/rb_price_three"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/txt_12sp"
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="最低价"
-                    android:background="@color/grays"
-                    android:textColor="@drawable/select_txt_color"
+                    android:text="100-199"
                     android:layout_marginLeft="20dp"
+                    android:background="@drawable/btn_screen"
+                    android:textColor="@color/txt_annotation_color"
+                    android:padding="5dp"
                     />
 
-             </RadioGroup>
-        <RadioGroup
+             </LinearLayout>
+        <LinearLayout
             android:id="@+id/rg_price_two"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
+            android:paddingTop="5dp"
             >
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_price_four"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:text="200-299"
+                android:textSize="@dimen/txt_12sp"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
                 />
-            <RadioButton
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -137,7 +151,7 @@
                 android:visibility="invisible"
                 android:layout_marginLeft="20dp"
                 />
-            <RadioButton
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -148,14 +162,14 @@
                 android:visibility="invisible"
                 android:layout_marginLeft="20dp"
                 />
-        </RadioGroup>
+        </LinearLayout>
         </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="年龄"
         android:textColor="@color/line_black"
-        android:textSize="@dimen/teacher_name_size"
+        android:textSize="@dimen/txt_16sp"
         android:layout_marginTop="10dp"
         />
     <LinearLayout
@@ -164,14 +178,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/rg_age_one"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:orientation="horizontal"
             android:gravity="center"
             >
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_age_one"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -179,36 +193,43 @@
                 android:button="@null"
                 android:gravity="center"
                 android:text="不限"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:textSize="@dimen/txt_12sp"
+                android:background="@drawable/btn_screen_check"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
+                android:checked="true"
                 />
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_age_two"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
+                android:text="40后"
                 android:layout_marginLeft="20dp"
-                android:textColor="@drawable/select_txt_color"
+                android:textSize="@dimen/txt_12sp"
+                android:padding="5dp"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
                 />
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_age_three"
+                android:textSize="@dimen/txt_12sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:text="50后"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
                 android:layout_marginLeft="20dp"
                 />
 
-        </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_marginTop="5dp"
@@ -216,70 +237,79 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/rg_age_two"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:orientation="horizontal"
             android:gravity="center"
             >
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_age_four"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:text="60后"
+                android:textSize="@dimen/txt_12sp"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
                 />
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_age_five"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_12sp"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
+                android:text="70后"
                 android:layout_marginLeft="20dp"
-                android:textColor="@drawable/select_txt_color"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
                 />
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_age_six"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:text="80后"
+                android:textSize="@dimen/txt_12sp"
+                android:padding="5dp"
                 android:layout_marginLeft="20dp"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
                 />
 
-        </RadioGroup>
-        <RadioGroup
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/rg_age_three"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
+            android:paddingTop="5dp"
             >
-        <RadioButton
+        <TextView
             android:id="@+id/rb_age_seven"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="最低价"
-            android:background="@color/grays"
-            android:textColor="@drawable/select_txt_color"
+            android:text="90后"
+            android:textSize="@dimen/txt_12sp"
+            android:background="@drawable/btn_screen"
+            android:textColor="@color/txt_annotation_color"
+            android:padding="5dp"
             />
-        <RadioButton
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -291,7 +321,7 @@
             android:layout_marginLeft="20dp"
             android:visibility="invisible"
             />
-        <RadioButton
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -304,14 +334,14 @@
             android:visibility="invisible"
             />
 
-    </RadioGroup>
+    </LinearLayout>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="性别"
         android:textColor="@color/line_black"
-        android:textSize="@dimen/teacher_name_size"
+        android:textSize="@dimen/txt_16sp"
         android:layout_marginTop="10dp"
         />
     <LinearLayout
@@ -320,14 +350,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/rg_sex"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
             >
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_sex_one"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -335,43 +365,50 @@
                 android:button="@null"
                 android:gravity="center"
                 android:text="不限"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:background="@drawable/btn_screen_check"
+                android:textSize="@dimen/txt_12sp"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
+                android:checked="true"
                 />
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_sex_two"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
+                android:text="男"
                 android:layout_marginLeft="20dp"
-                android:textColor="@drawable/select_txt_color"
+                android:textSize="@dimen/txt_12sp"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
                 />
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_sex_three"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_12sp"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:text="女"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
                 android:layout_marginLeft="20dp"
                 />
 
-        </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="是否在线"
         android:textColor="@color/line_black"
-        android:textSize="@dimen/teacher_name_size"
+        android:textSize="@dimen/txt_16sp"
         android:layout_marginTop="10dp"
         />
     <LinearLayout
@@ -380,39 +417,44 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/rg_oneline"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
             >
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_oneline_one"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:text="是"
+                android:background="@drawable/btn_screen_check"
+                android:textColor="@color/txt_annotation_color"
+                android:padding="5dp"
+                android:textSize="@dimen/txt_12sp"
+                android:checked="true"
                 />
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_oneline_two"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
-                android:text="最低价"
-                android:background="@color/grays"
+                android:text="否"
                 android:layout_marginLeft="20dp"
-                android:textColor="@drawable/select_txt_color"
+                android:background="@drawable/btn_screen"
+                android:textColor="@color/txt_annotation_color"
+                android:textSize="@dimen/txt_12sp"
+                android:padding="5dp"
                 />
 
-        </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -421,18 +463,22 @@
         android:layout_alignParentBottom="true"
         >
         <TextView
+            android:id="@+id/tv_reset"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
             android:gravity="center"
             android:text="重置"
+            android:textSize="@dimen/txt_14sp"
             />
         <TextView
+            android:id="@+id/tv_affirm"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
             android:gravity="center"
             android:text="确定"
+            android:textSize="@dimen/txt_14sp"
             android:background="@color/text_orange"
             android:textColor="@color/selector_white"
         />

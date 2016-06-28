@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadone"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadtwo"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadthree"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadfour"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadfive"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadsix"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadseven"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadeight"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadnine"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadtent"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadeleven"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadtwelve"
+            android:gravity="left" />
+    </item>
+    <item android:duration="150">
+        <clip
+            android:clipOrientation="horizontal"
+            android:drawable="@mipmap/loadthirteen"
+            android:gravity="left" />
+    </item>
+
+</selector>

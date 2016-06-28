@@ -5,7 +5,6 @@
     android:background="@color/bg_color"
     android:clickable="true"
     >
-
     <RelativeLayout
         android:paddingTop="10dp"
         android:id="@+id/layout_actionbar"
@@ -21,22 +20,29 @@
             android:id="@+id/ll_left"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
             >
             <ImageView
                 android:layout_gravity="center_vertical"
                 android:id="@+id/btn_left"
-                android:src="@mipmap/actionbar_back"
+                android:src="@mipmap/left"
                 android:layout_marginLeft="10dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_lucency_green"
+                >
             <RadioGroup
                 android:id="@+id/rg_title"
                 android:layout_width="200dp"
@@ -47,28 +53,29 @@
             <RadioButton
                 android:id="@+id/rb_question"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
                 android:text="常见问题"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:background="@drawable/btn_lucency_green"
+                android:textColor="@color/selector_white"
                 android:padding="5dp"
                 />
             <RadioButton
                 android:id="@+id/rb_feedback"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
                 android:text="意见反馈"
-                android:background="@color/grays"
-                android:textColor="@drawable/select_txt_color"
+                android:background="@drawable/btn_white"
+                android:textColor="@color/green_essential_colour"
                 android:padding="5dp"
                 />
             </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <FrameLayout

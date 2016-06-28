@@ -16,12 +16,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             >
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="15dp"
-                android:background="@color/grays"
-                android:layout_centerInParent="true"
-                />
             <TextView
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
@@ -30,31 +24,57 @@
                 android:textColor="@color/selector_white"
                 android:text="2016/11/15 18:30"
                 android:layout_centerInParent="true"
+                android:background="@drawable/btn_grayss"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 />
         </RelativeLayout>
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             >
-        <com.sage.hedonicmentality.widget.CircleImageView
-            android:id="@+id/users"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/personage"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            />
-        <TextView
-            android:id="@+id/tv_content"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="阿芳昂撒几个爱就开始给啊是警告说被高价收被高价收不干胶把数据库嘎嘣十几个"
-            android:textColor="@color/selector_white"
-            android:background="@color/green_essential_colour"
-            android:layout_marginLeft="10dp"
-            />
+            android:id="@+id/ll_left"
+            android:gravity="center_vertical"
+            >
+            <com.sage.hedonicmentality.widget.CircleImageView
+                android:id="@+id/users"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/personage"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                />
+            <ImageView
+                android:id="@+id/triangle"
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/triangle"
+                android:layout_toRightOf="@+id/users"
+                android:scaleType="fitXY"
+                />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/selector_white"
+            android:background="@drawable/btn_green"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/ll_left"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/txt_14sp"
+            android:text="@string/question_two"
+            />
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

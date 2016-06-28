@@ -1,6 +1,8 @@
 package com.sage.hedonicmentality.fragment.My;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,10 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.lidroid.xutils.exception.HttpException;
@@ -23,6 +31,7 @@ import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.app.NavigationAc;
 import com.sage.hedonicmentality.bean.Indicate;
+import com.sage.hedonicmentality.bean.ScreenBean;
 import com.sage.hedonicmentality.view.BeGoodAtPopwindow;
 import com.sage.hedonicmentality.view.CnsultTimePopWindow;
 import com.sage.hedonicmentality.view.ScreenPopWindow;
@@ -46,12 +55,16 @@ public class ConsultFragment extends Fragment {
     @Bind(R.id.tv_be_adept_at)
     TextView tv_be_adept_at;//擅长
     @Bind(R.id.tv_screen)
-    TextView ll_time;//筛选
+    TextView tv_screen;//筛选
     @Bind(R.id.lv_zixun)
     ListView lv_zixun;//筛选
     private Indicate dateIn;
     private Indicate timeIn;
     private Indicate begoodatIn;
+    private boolean srceenAnimation = true,begoodatAnimation=true,cnsultAnimation=true;
+    private ScreenPopWindow screenpopwindow;
+    private BeGoodAtPopwindow begoodatpopwindow;
+    private CnsultTimePopWindow cnsulttimepopwindow;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -66,36 +79,77 @@ public class ConsultFragment extends Fragment {
         getData();
         return view;
     }
-
-    @OnClick({R.id.tv_time,R.id.tv_be_adept_at,R.id.tv_screen,R.id.iv_two_dimension_code,R.id.ll_search})
+    public void setPopDismiss() {
+        if (screenpopwindow!=null) {
+        screenpopwindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            public void onDismiss() {
+                changeArrows(getView().findViewById(R.id.iv_screen_fold), srceenAnimation);
+                srceenAnimation = srceenAnimation ? false : true;
+            }
+        });
+        }
+        if (begoodatpopwindow!=null) {
+            begoodatpopwindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                public void onDismiss() {
+                    changeArrows(getView().findViewById(R.id.iv_be_adept_at_fold), begoodatAnimation);
+                    begoodatAnimation = begoodatAnimation ? false : true;
+                }
+            });
+        }
+        if (cnsulttimepopwindow!=null) {
+            cnsulttimepopwindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                public void onDismiss() {
+                    changeArrows(getView().findViewById(R.id.iv_time_fold), cnsultAnimation);
+                    cnsultAnimation = cnsultAnimation ? false : true;
+                }
+            });
+        }
+    }
+    @OnClick({R.id.ll_time,R.id.ll_be_adept_at,R.id.ll_screen,R.id.iv_two_dimension_code,R.id.ll_search})
     public void consultOnclick(View view){
         switch (view.getId()){
             case R.id.iv_two_dimension_code: //二维码
-
                 break;
-            case R.id.tv_time://咨询时间
+            case R.id.ll_time://咨询时间
                 showPopConsult();
+                changeArrows(getView().findViewById(R.id.iv_time_fold), cnsultAnimation);
+                cnsultAnimation = cnsultAnimation ? false : true;
+                setPopDismiss();
                 break;
-            case R.id.tv_be_adept_at://擅长
+            case R.id.ll_be_adept_at://擅长
                 showPopBeGoodAt();
-
+                changeArrows(getView().findViewById(R.id.iv_be_adept_at_fold), begoodatAnimation);
+                begoodatAnimation = begoodatAnimation ? false : true;
+                setPopDismiss();
                 break;
-            case R.id.tv_screen://筛选
+            case R.id.ll_screen://筛选
                 showScreenPop();
+                changeArrows(getView().findViewById(R.id.iv_screen_fold), srceenAnimation);
+                srceenAnimation = srceenAnimation ? false : true;
+                setPopDismiss();
                 break;
             case R.id.ll_search://搜索
             NavigationAc.addFr(new SearchFragment(),"SearchFragment",getFragmentManager(),1);
                 break;
         }
     }
+    /**
+     * 箭头旋转动画
+     * */
+    public void changeArrows(View view,boolean type) {
+        Animation rotate  =AnimationUtils.loadAnimation(getActivity(), R.anim.arrow_anim);
+        rotate.setInterpolator(new AccelerateInterpolator());
+        rotate.setFillAfter(type);
+        view.startAnimation(rotate);
 
+    }
     public void showPopBeGoodAt(){
-        BeGoodAtPopwindow popwindow = new BeGoodAtPopwindow(getActivity(),mHandler,begoodatIn);
-        popwindow.showAsDropDown(getView().findViewById(R.id.tv_be_adept_at));
+         begoodatpopwindow  = new BeGoodAtPopwindow(getActivity(),mHandler,begoodatIn);
+        begoodatpopwindow.showAsDropDown(getView().findViewById(R.id.tv_be_adept_at));
     }
     public void showScreenPop(){
-        ScreenPopWindow popwindow = new ScreenPopWindow(getActivity(),mHandler);
-        popwindow.showAsDropDown(getView().findViewById(R.id.tv_be_adept_at));
+        screenpopwindow = new ScreenPopWindow(getActivity(),mHandler);
+        screenpopwindow.showAsDropDown(getView().findViewById(R.id.tv_be_adept_at));
     }
     public void showPopConsult(){
         List<String> date = new ArrayList<>();
@@ -106,8 +160,8 @@ public class ConsultFragment extends Fragment {
         for (int i=0;i<20;i++) {
             time.add("时间"+i);
         }
-        CnsultTimePopWindow popWindow = new CnsultTimePopWindow(getActivity(),mHandler,date,time,dateIn,timeIn);
-        popWindow.showAsDropDown(getView().findViewById(R.id.tv_time));
+         cnsulttimepopwindow = new CnsultTimePopWindow(getActivity(),mHandler,date,time,dateIn,timeIn);
+        cnsulttimepopwindow.showAsDropDown(getView().findViewById(R.id.tv_time));
 
     }
     private Handler mHandler=new Handler(){
@@ -115,19 +169,22 @@ public class ConsultFragment extends Fragment {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch(msg.what){
-//                case 1:
-//                    String date = msg.getData().getString("date");
-//                    Toast.makeText(getActivity(), date, Toast.LENGTH_SHORT).show();
-//                    break;
+                case 3:
+                    ScreenBean screen = (ScreenBean)msg.getData().getSerializable("screen");
+                    Log.e("screen",screen.toString());
+                    changeArrows(getView().findViewById(R.id.iv_screen_fold), false);
+                    break;
                 case 2:
                     String selct = msg.getData().getString("select");
                     Log.e("result","what=2"+selct);
+                    changeArrows(getView().findViewById(R.id.iv_be_adept_at_fold), false);
                     break;
                 case 1:
                     //按咨询时间搜索
                     String timename = msg.getData().getString("timename");
                     String datename = msg.getData().getString("datename");
                     Log.e("result","what=1"+datename+"/"+timename+"/"+dateIn.getPostion());
+                    changeArrows(getView().findViewById(R.id.iv_time_fold), false);
                     break;
             }
         }
@@ -158,7 +215,13 @@ public class ConsultFragment extends Fragment {
         lv_zixun.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                NavigationAc.addFr(new TeacherDetailsFragment(),"TeacherDetailsFragment",getFragmentManager(),1);
+                Intent intent = new Intent(getActivity(),TeacherDetailsAc.class);
+                startActivity(intent);
+                int version = Integer.valueOf(android.os.Build.VERSION.SDK);
+                if(version  >= 5) {
+                    getActivity().overridePendingTransition(R.anim.push_left_in,R.anim.anim_out_ac);  //此为自定义的动画效果，下面两个为系统的动画效果
+                }
+//                NavigationAc.addFr(new TeacherDetailsFragment(),"TeacherDetailsFragment",getFragmentManager(),1);
             }
         });
     }

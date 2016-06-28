@@ -41,7 +41,7 @@ public class SettingFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         title.setText(R.string.settingtiltlename);
     }
-    @OnClick({R.id.ll_left,R.id.ll_cache})
+    @OnClick({R.id.ll_left,R.id.ll_cache,R.id.ll_about,R.id.outlogin,R.id.update})
     public void healthOnclick(View v) {
         if (v.getId()==R.id.ll_left) {
             getActivity().getSupportFragmentManager().popBackStack();
@@ -54,6 +54,9 @@ public class SettingFragment extends Fragment {
         }
         if (v.getId()==R.id.update) {
             //检查更新
+        }
+        if (v.getId()==R.id.ll_about) {
+            //关于快乐心理
         }
 
     }    @Override

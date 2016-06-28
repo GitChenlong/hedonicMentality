@@ -53,7 +53,8 @@ public class MessageFragment extends Fragment {
         if (v.getId()==R.id.ll_left) {
             getActivity().getSupportFragmentManager().popBackStack();
         }
-    }    @Override
+    }
+    @Override
          public void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);

@@ -33,6 +33,9 @@ public class SPHelper {
     public static final String KEY_TIME_VALUE="key_time_value";/**获得timeview的值*/
     public static final String WINDOW_TOP_HEIGHT="window_top_height";/**获得屏幕状态栏高度*/
 
+    public static final String TEACHER_NUMBER="teacher_number";/**咨询师voip账号*/
+    public static final String USER_NUMBER="user_number";/**用户voip账号*/
+
 
     public static SharedPreferences getDefaultSP(Context context){
         return context.getSharedPreferences(NAME_DEFAULT,Context.MODE_PRIVATE);

@@ -29,6 +29,7 @@
             android:layout_marginTop="10dp"
             >
             <LinearLayout
+                android:id="@+id/ll_teacher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -37,6 +38,7 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:gravity="center"
+                android:background="@drawable/bg_white_gray_outer"
                 >
                 <com.sage.hedonicmentality.widget.CircleImageView
                     android:id="@+id/teacher"
@@ -61,6 +63,7 @@
                     />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -70,6 +73,7 @@
                 android:paddingTop="10dp"
                 android:gravity="center"
                 android:layout_alignParentRight="true"
+                android:background="@drawable/bg_white_gray_outer"
                 >
                 <com.sage.hedonicmentality.widget.CircleImageView
                     android:id="@+id/myself"
@@ -96,6 +100,7 @@
         </RelativeLayout>
     </LinearLayout>
     <EditText
+        android:id="@+id/et_feedback"
         android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="150dp"
@@ -103,6 +108,8 @@
         android:textColor="@color/txt_content_color"
         android:textSize="@dimen/txt_16sp"
         android:background="@color/selector_white"
+        android:gravity="start"
+        android:padding="10dp"
         />
     <LinearLayout
         android:layout_width="fill_parent"
@@ -110,6 +117,7 @@
         android:gravity="bottom"
         >
         <TextView
+            android:id="@+id/txt_commit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@color/orange_secondary_color"
@@ -117,7 +125,7 @@
             android:textColor="@color/selector_white"
             android:text="提交反馈"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             />
     </LinearLayout>
 

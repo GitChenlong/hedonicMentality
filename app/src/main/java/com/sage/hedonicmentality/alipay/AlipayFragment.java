@@ -101,52 +101,41 @@ public class AlipayFragment extends Fragment {
             }
         };
     };
-    @OnClick({R.id.pay,R.id.check})
-    public void payOnclick(View view) {
-        if (view.getId()==R.id.pay) {
-            // 订单
-//            Intent intent = new Intent();
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-//            intent.setComponent(new ComponentName("com.eg.android.AlipayGphone", );
-//            startActivity(intent);
+    public  void pay(String commodity,String description,String price){
+        // 订单
+        String orderInfo = getOrderInfo(commodity, commodity, price);
 
-            String orderInfo = getOrderInfo("测试的商品", "该测试商品的详细描述", "0.01");
+        // 对订单做RSA 签名
+        String sign = sign(orderInfo);
+        try {
+            // 仅需对sign 做URL编码
+            Log.e("sign",sign.toString());
+            sign = URLEncoder.encode(sign, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
-            // 对订单做RSA 签名
-            String sign = sign(orderInfo);
-            try {
-                // 仅需对sign 做URL编码
-                Log.e("sign",sign.toString());
-                sign = URLEncoder.encode(sign, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+        // 完整的符合支付宝参数规范的订单信息
+        final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
+                + getSignType();
+
+        Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                // 构造PayTask 对象
+                PayTask alipay = new PayTask(getActivity());
+                // 调用支付接口，获取支付结果
+                String result = alipay.pay(payInfo);
+                Message msg = new Message();
+                msg.what = SDK_PAY_FLAG;
+                msg.obj = result;
+                mHandler.sendMessage(msg);
             }
-
-            // 完整的符合支付宝参数规范的订单信息
-            final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
-                    + getSignType();
-
-            Runnable payRunnable = new Runnable() {
-
-                @Override
-                public void run() {
-                    // 构造PayTask 对象
-                    PayTask alipay = new PayTask(getActivity());
-                    // 调用支付接口，获取支付结果
-                    String result = alipay.pay(payInfo);
-                    Message msg = new Message();
-                    msg.what = SDK_PAY_FLAG;
-                    msg.obj = result;
-                    mHandler.sendMessage(msg);
-                }
-            };
-
-            // 必须异步调用
-            Thread payThread = new Thread(payRunnable);
-            payThread.start();
-        }
-        if (view.getId()==R.id.check) {
-        }
+        };
+        // 必须异步调用
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
     }
     /**
      * get the sdk version. 获取SDK版本号

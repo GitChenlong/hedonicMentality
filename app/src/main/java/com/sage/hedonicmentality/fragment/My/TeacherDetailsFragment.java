@@ -15,9 +15,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.app.NavigationAc;
 import com.sage.hedonicmentality.utils.Util;
 import com.sage.hedonicmentality.view.OrderPopWindow;
 import com.sage.hedonicmentality.view.SelectAdressPopupWindow;
@@ -40,7 +42,7 @@ public class TeacherDetailsFragment extends Fragment {
     private Animation mScalOutAnimation;
     private FragmentManager fm;
     @Bind(R.id.ll_techerdetails)
-    LinearLayout ll_techerdetails;
+    RelativeLayout ll_techerdetails;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,7 +52,6 @@ public class TeacherDetailsFragment extends Fragment {
         return view;
 
     }
-
     private void init(View view) {
         fm = getFragmentManager();
         inits();
@@ -113,7 +114,6 @@ public class TeacherDetailsFragment extends Fragment {
                 break;
             case R.id.iv_intent:
                 //跳转视屏播放
-
                 break;
             case R.id.ll_indent:
                 //订单
@@ -167,6 +167,7 @@ public class TeacherDetailsFragment extends Fragment {
                 case 8:
                     String select = msg.getData().getString("date");
                     Toast.makeText(getActivity(),select,Toast.LENGTH_SHORT).show();
+                    NavigationAc.addFr(new WriteInformationFragment(), "WriteInformationFragment", getFragmentManager(), 1);
                     break;
             }
         }
@@ -201,6 +202,15 @@ public class TeacherDetailsFragment extends Fragment {
 //        bt.commit();
     }
 
+    public class detailsFr extends  Fragment{
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+            View view = View.inflate(getActivity(),R.layout.detailsfr,null);
+            return super.onCreateView(inflater, container, savedInstanceState);
+        }
+    }
 
     @Override
     public void onDestroy() {

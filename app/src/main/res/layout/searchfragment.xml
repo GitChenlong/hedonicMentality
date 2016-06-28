@@ -5,16 +5,30 @@
     android:layout_height="match_parent"
     android:clickable="true"
     >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        android:paddingTop="25dp"
+        android:background="@color/selector_white"
+        >
     <com.sage.hedonicmentality.widget.SearchView
         android:id="@+id/main_search_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
     </com.sage.hedonicmentality.widget.SearchView>
+    </LinearLayout>
     <ListView
         android:visibility="gone"
         android:id="@+id/main_lv_search_results"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:dividerHeight="5dp"
+        android:divider="@null"
+        android:padding="5dp"
+        android:background="@color/bg_color"
         >
     </ListView>
 </LinearLayout>

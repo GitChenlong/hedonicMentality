@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="window_background">#ffffff</color>
+    <color name="white_lucency">#80ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="default_bg">#f9f9f9</color>
     <color name="selector_gray">#dedddd</color>
@@ -30,6 +31,7 @@
     <color name="breath_set_bg_white_press">#aaffffff</color>
     <color name="breath_set_bg_green">#22ff3f</color>
     <color name="breath_set_bg_green_press">#aa22ff3f</color>
+    <color name="luncency_green">#0f7f4b</color>
 
     <color name="edit_normal">#00000000</color>
     <color name="edit_focus">#ffffff</color>

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +19,9 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.app.Http;
 import com.sage.hedonicmentality.app.NavigationAc;
+import com.sage.hedonicmentality.utils.Util;
+import com.wangjie.shadowviewhelper.ShadowProperty;
+import com.wangjie.shadowviewhelper.ShadowViewHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,16 +37,20 @@ import butterknife.OnClick;
 public class InotificationAlertFragment extends Fragment {
     @Bind(R.id.tv_title)
     TextView title;
+    @Bind(R.id.ll_bottom)
+    LinearLayout ll_bottom;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = View.inflate(getActivity(), R.layout.inotificationalertfragment,null);
         ButterKnife.bind(this, view);
+        Util.showProgressFor(getActivity(),"");
+//        ShadowViewHelper.bindShadowHelper(new ShadowProperty() .setShadowColor(0x77000000).setShadowDy(1) .setShadowRadius(1) , ll_bottom);
         return view;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(@Nullable Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
         title.setText(R.string.booking_details);
         getData();
@@ -54,6 +62,7 @@ public class InotificationAlertFragment extends Fragment {
         }
         if (v.getId()==R.id.btn_promise_feedback) {
             //失约反馈
+            Util.cancelProgressFor(getActivity());
             NavigationAc.addFr(new PromiseFeedBackFragment(),"PromiseFeedBackFragment",getFragmentManager(),1);
         }
         if (v.getId()==R.id.btn_evaluate) {
@@ -73,7 +82,6 @@ public class InotificationAlertFragment extends Fragment {
             public void onSuccess(ResponseInfo<String> responseInfo) {
 
             }
-
             @Override
             public void onFailure(HttpException error, String msg) {
 

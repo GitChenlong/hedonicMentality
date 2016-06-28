@@ -1,26 +1,34 @@
 package com.sage.hedonicmentality.fragment.My;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alipay.sdk.app.PayTask;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.sage.hedonicmentality.R;
+import com.sage.hedonicmentality.alipay.PayResult;
 import com.sage.hedonicmentality.app.Http;
-import com.sage.hedonicmentality.app.NavigationAc;
+import com.sage.hedonicmentality.utils.Alipay;
+import com.sage.hedonicmentality.view.ExceptionalPayPop;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,9 +83,12 @@ public class EvaluateFragment extends Fragment {
     @Bind(R.id.rb_no)
     ImageView rb_no;
     private static int isPunctuality = 0;//是否准时咨询 0：是 、1：否
-    private static int mannerCount = 1;//咨询态度星级
-    private static int resultCount = 1;//咨询效果星级
+    private static int mannerCount = 0;//咨询态度星级
+    private static int resultCount = 0;//咨询效果星级
     private static int flowerCount = 0;//赠送鲜花数量
+    private static final int PAY_TYPE = 8 ;//支付类型
+    private static final int SDK_PAY_FLAG = 1;
+    private static final int SDK_CHECK_FLAG = 2;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -107,7 +118,7 @@ public class EvaluateFragment extends Fragment {
                 break;
             case  R.id.btn_commit:
                 Toast.makeText(getActivity(),"准时咨询:"+isPunctuality+" 态度星级："+mannerCount+" 效果星级:"+resultCount+" 赠送鲜花:"+flowerCount,Toast.LENGTH_SHORT).show();
-                backToNavigationAc();
+                showPayPop(getView().findViewById(R.id.btn_commit),flowerCount*10);
                 break;
             case R.id.rb_manner_one:
                 setMannerRaidoChecked(1,R.id.rg_manner);
@@ -155,8 +166,106 @@ public class EvaluateFragment extends Fragment {
                 setMannerRaidoChecked(5,R.id.rg_flower);
                 break;
         }
-
     }
+    public void showPayPop(View view,int price){
+        ExceptionalPayPop popWindow = new ExceptionalPayPop(getActivity(),mHandler,price);
+        popWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+    }
+    public  void aliPay(String commodity,String description,String price){
+        // 订单
+        String orderInfo = Alipay.getOrderInfo(commodity, commodity, price);
+
+        // 对订单做RSA 签名
+        String sign = Alipay.sign(orderInfo);
+        try {
+            // 仅需对sign 做URL编码
+            Log.e("sign",sign.toString());
+            sign = URLEncoder.encode(sign, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        // 完整的符合支付宝参数规范的订单信息
+        final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
+                + Alipay.getSignType();
+
+        Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                // 构造PayTask 对象
+                PayTask alipay = new PayTask(getActivity());
+                // 调用支付接口，获取支付结果
+                String result = alipay.pay(payInfo);
+                Message msg = new Message();
+                msg.what = SDK_PAY_FLAG;
+                msg.obj = result;
+                mHandler.sendMessage(msg);
+            }
+        };
+        // 必须异步调用
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
+    }
+
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case PAY_TYPE:
+                    int select = msg.getData().getInt("payType");
+                    if (select==1) {
+                        backToNavigationAc();
+                    }else{
+                        aliPay("鲜花","打赏咨询师鲜花",flowerCount*10+"");
+                    }
+                    break;
+                case SDK_PAY_FLAG: {
+
+                    PayResult payResult = new PayResult((String) msg.obj);
+
+                    // 支付宝返回此次支付结果及加签，建议对支付宝签名信息拿签约时支付宝提供的公钥做验签
+                    String resultInfo = payResult.getResult();
+                    String resultStatus = payResult.getResultStatus();
+
+                    Log.e("resultInfo", resultInfo + " /resultStatus:" + resultStatus);
+                    // 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
+                    if (TextUtils.equals(resultStatus, "9000")) {
+                        Toast.makeText(getActivity(), "支付成功",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        // 判断resultStatus 为非“9000”则代表可能支付失败
+                        // “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
+                        if (TextUtils.equals(resultStatus, "8000")) {
+                            Toast.makeText(getActivity(), "支付结果确认中",
+                                    Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            if (TextUtils.equals(resultStatus,"4000")) {
+
+                            }else if (TextUtils.equals(resultStatus,"6001")) {
+
+                            }else if (TextUtils.equals(resultStatus,"6002")) {
+
+                            }
+                            // 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
+                            Toast.makeText(getActivity(), "支付失败",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    break;
+                }
+                case SDK_CHECK_FLAG: {
+                    Toast.makeText(getActivity(), "检查结果为：" + msg.obj,
+                            Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                default:
+                    break;
+            }
+        };
+    };
+
+
     public void backToNavigationAc(){
         FragmentManager fm =getActivity().getSupportFragmentManager();
         if (fm.getBackStackEntryCount() > 0) {//fm.getBackStackEntryCount()得到栈的大小
@@ -305,7 +414,7 @@ public class EvaluateFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        title.setText(R.string.evaluate);
+        title.setText(R.string.evaluate_titlename);
         getData();
     }
     @OnClick({R.id.ll_left})

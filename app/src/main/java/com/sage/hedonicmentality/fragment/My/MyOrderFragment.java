@@ -1,6 +1,7 @@
 package com.sage.hedonicmentality.fragment.My;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 import com.sage.hedonicmentality.R;
 import com.sage.hedonicmentality.adapter.ConsultAdapter;
 import com.sage.hedonicmentality.adapter.FragAdapter;
+import com.sage.hedonicmentality.app.NavigationAc;
 import com.sage.hedonicmentality.utils.SPHelper;
 
 import java.util.ArrayList;
@@ -90,11 +92,11 @@ public class MyOrderFragment extends FragmentActivity {
     }
     public void addFragments(){
         fragments =  getFrList();
-        Log.e("size",fragments.size()+"");
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
         viewpager.setOffscreenPageLimit(4);
         viewpager.setCurrentItem(0);
+        setTitles(0);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -102,15 +104,19 @@ public class MyOrderFragment extends FragmentActivity {
                 //根据ID获取RadioButton的实例
                 switch (radioButtonId) {
                     case 0:
+                        setTitles(0);
                         setAnimation(radioButtonId, rb_all);
                         break;
                     case 1:
+                        setTitles(1);
                         setAnimation(radioButtonId, rb_wait_consult);
                         break;
                     case 2:
+                        setTitles(2);
                         setAnimation(radioButtonId, rb_wait_evaluate);
                         break;
                     case 3:
+                        setTitles(3);
                         setAnimation(radioButtonId, rb_accomplish);
                         break;
                 }
@@ -183,15 +189,28 @@ public class MyOrderFragment extends FragmentActivity {
     public void setTitles(int postion){
         switch (postion){
             case 0:
-
+                rb_all.setTextColor(getResources().getColor(R.color.selector_white));
+                rb_wait_consult.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_wait_evaluate.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_accomplish.setTextColor(getResources().getColor(R.color.bg_color));
                 break;
             case 1:
-
+                rb_all.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_wait_consult.setTextColor(getResources().getColor(R.color.selector_white));
+                rb_wait_evaluate.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_accomplish.setTextColor(getResources().getColor(R.color.bg_color));
                 break;
             case 2:
+                rb_all.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_wait_consult.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_wait_evaluate.setTextColor(getResources().getColor(R.color.selector_white));
+                rb_accomplish.setTextColor(getResources().getColor(R.color.bg_color));
                 break;
             case 3:
-
+                rb_all.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_wait_consult.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_wait_evaluate.setTextColor(getResources().getColor(R.color.bg_color));
+                rb_accomplish.setTextColor(getResources().getColor(R.color.selector_white));
                 break;
 
         }
@@ -232,7 +251,14 @@ public class MyOrderFragment extends FragmentActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(getActivity(), list.get(position), Toast.LENGTH_SHORT).show();
+                    SPHelper.putDefaultString(getActivity(), SPHelper.TEACHER_NUMBER, "123456");
+                    Intent voipIntent = new Intent(getActivity(),VideoCallFragment.class);
+                    startActivity(voipIntent);
+                    int voipVersion = Integer.valueOf(android.os.Build.VERSION.SDK);
+                    if(voipVersion  >= 5) {
+                        getActivity().overridePendingTransition(R.anim.push_left_in,R.anim.anim_out_ac);  //此为自定义的动画效果，下面两个为系统的动画效果
+                    }
+//                    NavigationAc.addFr(new VideoCallFragment(), "VideoCallFragment", getActivity().getSupportFragmentManager(), 1);
                 }
             });
         }

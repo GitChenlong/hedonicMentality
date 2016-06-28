@@ -25,6 +25,7 @@
             android:paddingTop="30dp"
             android:paddingRight="40dp"
             android:paddingLeft="10dp"
+            android:visibility="gone"
             >
             <com.sage.hedonicmentality.widget.CircleImageView
                 android:id="@+id/users"
@@ -48,7 +49,7 @@
             </RelativeLayout>
         <LinearLayout
             android:id="@+id/ll_photo"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
             android:gravity="center_horizontal"
@@ -56,7 +57,6 @@
             android:orientation="vertical"
             android:paddingRight="40dp"
             android:paddingLeft="40dp"
-            android:visibility="gone"
             >
         <com.sage.hedonicmentality.widget.CircleImageView
             android:layout_width="50dp"
@@ -65,11 +65,11 @@
             />
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:textColor="@color/selector_white"
                 android:textSize="@dimen/activity_horizontal_margin"
-                android:text="User"
-                android:gravity="center_horizontal"
+                android:text="@string/not_logged_in_s"
+                android:gravity="center"
                 android:layout_marginTop="2dp"
                 />
         </LinearLayout>
@@ -78,7 +78,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@mipmap/trabeculabg"
+            android:background="#13a361"
             >
             <LinearLayout
                 android:id="@+id/ll_myorder"
@@ -103,6 +103,13 @@
                     />
 
             </LinearLayout>
+            <ImageView
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/selector_white"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
             <LinearLayout
                 android:id="@+id/ll_health"
                 android:layout_width="0dp"
@@ -126,6 +133,13 @@
                     />
 
             </LinearLayout>
+            <ImageView
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/selector_white"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
             <LinearLayout
                 android:id="@+id/ll_discount_coupon"
                 android:layout_width="0dp"
@@ -162,10 +176,11 @@
         >
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
+            android:layout_height="120dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             android:paddingLeft="10dp"
+            android:background="@color/selector_white"
             >
             <LinearLayout
                 android:id="@+id/ll_attention"
@@ -224,13 +239,45 @@
                     />
 
             </LinearLayout>
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/line_black"
+                />
+            <LinearLayout
+                android:id="@+id/ll_mymoney"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/money"
+                    />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/mymoney"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@mipmap/more"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/txt_big_headline_color"
+                    android:textSize="@dimen/txt_16sp"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:paddingLeft="10dp"
+            android:background="@color/selector_white"
             >
             <LinearLayout
                 android:id="@+id/ll_setting"

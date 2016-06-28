@@ -64,6 +64,9 @@ public class HealthFragment extends Fragment {
         List<String> list = new ArrayList<>();
         list.add("健康贴士一");
         list.add("健康贴士二");
+        list.add("健康贴士二");
+        list.add("健康贴士二");
+        list.add("健康贴士二");
         HealthAdapter adapter = new HealthAdapter(getActivity(),list);
         listView.setAdapter(adapter);
         Http.getHealth("", "", new RequestCallBack<String>() {
@@ -120,7 +123,7 @@ public class HealthFragment extends Fragment {
                 holder = (ViewHolder) convertView.getTag();
             }
             String content = mlist.get(position);
-            holder.tv_content.setText(content);
+            holder.tv_content.setText(R.string.question_two);
             return convertView;
         }
 

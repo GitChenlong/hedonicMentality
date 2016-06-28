@@ -78,7 +78,6 @@
                 android:text="@string/s_ascertain"
                 android:textColor="@android:color/white"
                 />
-
         </RelativeLayout>
 
     </RelativeLayout>
